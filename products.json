@@ -1,0 +1,914 @@
+[{
+  "_id": {
+    "$oid": "642b1a944240ccad8dee5757"
+  },
+  "name": "Bolting Cloth",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Screen Mesh",
+      "types": [],
+      "description": "",
+      "_id": {
+        "$oid": "642b1a944240ccad8dee5758"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-03T18:27:32.048Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-03T18:27:32.048Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642b1ccf4e93e30b310055e2"
+  },
+  "name": "Sulzer Made",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Nylon",
+      "types": [],
+      "description": "",
+      "_id": {
+        "$oid": "642b1ccf4e93e30b310055e3"
+      }
+    },
+    {
+      "name": "Polyster",
+      "types": [
+        "multi",
+        "mono"
+      ],
+      "description": "with available 48\" TO 144\"",
+      "_id": {
+        "$oid": "642b1ccf4e93e30b310055e4"
+      }
+    },
+    {
+      "name": "Imported Mesh",
+      "types": [],
+      "description": "10T TO 165T (All Widths)",
+      "_id": {
+        "$oid": "642b1ccf4e93e30b310055e5"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-03T18:37:03.459Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-03T18:37:03.459Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642b1e024e93e30b310055e8"
+  },
+  "name": "Photo Emulsion",
+  "description": "Di Chromate Base & Diazo Base",
+  "subCategory": [
+    {
+      "name": "Ezycoat",
+      "types": [
+        "999",
+        "585",
+        "090",
+        "333",
+        "1 Plus",
+        "HD9"
+      ],
+      "description": "for exposing",
+      "_id": {
+        "$oid": "642b1e024e93e30b310055e9"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-03T18:42:10.301Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-03T18:42:10.301Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb48c4e93e30b310055f3"
+  },
+  "name": "Screen Adhesive",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Ezycoat",
+      "types": [
+        "828",
+        "FA99"
+      ],
+      "description": "For pasting the bolting cloth width iron frame",
+      "_id": {
+        "$oid": "642bb48c4e93e30b310055f4"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:24:28.437Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:24:28.437Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb5164e93e30b310055f7"
+  },
+  "name": "Screen Hardener",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Ezycoat",
+      "types": [
+        "1 Plus",
+        "108",
+        "720N",
+        "PS9(Pink)"
+      ],
+      "description": "For harding the exposed screen before paint",
+      "_id": {
+        "$oid": "642bb5164e93e30b310055f8"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:26:46.952Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:26:46.952Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb6bb4e93e30b310055fb"
+  },
+  "name": "Side Patti Emulsion",
+  "description": "Red Coat",
+  "subCategory": [
+    {
+      "name": "Ezycoat",
+      "types": [
+        "216O"
+      ],
+      "description": "It is used for avoiding side leakage on flat exposed screen",
+      "_id": {
+        "$oid": "642bb6bb4e93e30b310055fc"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:33:47.075Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:33:47.075Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb6f14e93e30b310055ff"
+  },
+  "name": "Ammonium Di Chromate",
+  "description": "For mixing in photo emulsion",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:34:41.047Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:34:41.047Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb7344e93e30b31005602"
+  },
+  "name": "Silk Screen Paint",
+  "description": "(Fast Lacquer) for engrave on exposed screen",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:35:48.115Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:35:48.115Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb7534e93e30b31005605"
+  },
+  "name": "N.C. Auto Clear",
+  "description": "For pasting the jali with frame",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:36:19.721Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:36:19.721Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb77a4e93e30b31005608"
+  },
+  "name": "Stoving Thinner",
+  "description": "For removing paint from exposed design",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:36:58.206Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:36:58.206Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb7a64e93e30b3100560b"
+  },
+  "name": "Angle Gitty",
+  "description": "(Frame Fittings) (for iron frames) (one handle & 2 side plastic gitty)",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:37:42.449Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:37:42.449Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb8684e93e30b31005612"
+  },
+  "name": "Blanket Adhesive",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Bluetex",
+      "types": [
+        "LT",
+        "MT",
+        "HT",
+        "BC",
+        "RC9"
+      ],
+      "description": "",
+      "_id": {
+        "$oid": "642bb8684e93e30b31005613"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0cb29aaa69decf319bf0"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:40:56.252Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:40:56.252Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb8e74e93e30b31005616"
+  },
+  "name": "Ethyl Acetate",
+  "description": "For Blanket Wash",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0cb29aaa69decf319bf0"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:43:03.135Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:43:03.135Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bb95b4e93e30b31005619"
+  },
+  "name": "Photo Emulsion",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Ezycoat",
+      "types": [
+        "414",
+        "4500 DL"
+      ],
+      "description": "",
+      "_id": {
+        "$oid": "642bb95b4e93e30b3100561a"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:44:59.844Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:44:59.844Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbaba4e93e30b3100561d"
+  },
+  "name": "Engraving Chemicals",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "Stripper",
+      "types": [],
+      "description": "For stripping the exposed rotary screen",
+      "_id": {
+        "$oid": "642bbaba4e93e30b3100561e"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:50:50.300Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:50:50.300Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbb3d4e93e30b31005621"
+  },
+  "name": "Endering Remover",
+  "description": "For removing araldite from endring rings",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:53:01.908Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:53:01.908Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbb9c4e93e30b31005624"
+  },
+  "name": "Degreaser",
+  "description": "For removing dust from exposing rotary screen",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:54:36.027Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:54:36.027Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbbba4e93e30b31005627"
+  },
+  "name": "Chromic Acid",
+  "description": "For removing dust from exposing rotary screen",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:55:06.385Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:55:06.385Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbc534e93e30b3100562a"
+  },
+  "name": "Fluffix",
+  "description": "For removing the extra thread from rotary",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:57:39.756Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:57:39.756Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbc864e93e30b3100562d"
+  },
+  "name": "Araldite",
+  "description": "For pasting theendring rings",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0ccb9aaa69decf319bf2"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:58:30.484Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:58:30.484Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbcc54e93e30b31005630"
+  },
+  "name": "Nickel Screens",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0f9e9aaa69decf319bf7"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:59:33.056Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:59:33.056Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbcd94e93e30b31005633"
+  },
+  "name": "Endering Rings",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0f9e9aaa69decf319bf7"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T05:59:53.961Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T05:59:53.961Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbdff4e93e30b31005636"
+  },
+  "name": "Rotostar",
+  "description": "",
+  "subCategory": [
+    {
+      "name": "LT/MT/HT",
+      "types": [
+        "LT",
+        "MT",
+        "HT"
+      ],
+      "description": "Gum used for pasting the fabric on blanket",
+      "_id": {
+        "$oid": "642bbdff4e93e30b31005637"
+      }
+    }
+  ],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fba9aaa69decf319bf9"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:04:47.922Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:04:47.922Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbe3d4e93e30b3100563a"
+  },
+  "name": "Ager Cloth",
+  "description": "For steaming the printed fabrics",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fba9aaa69decf319bf9"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:05:49.993Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:05:49.993Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbe5d4e93e30b3100563d"
+  },
+  "name": "Decoating Thinner",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fba9aaa69decf319bf9"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:06:21.485Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:06:21.485Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbe704e93e30b31005640"
+  },
+  "name": "All Padding Chemicals",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fba9aaa69decf319bf9"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:06:40.494Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:06:40.494Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbead4e93e30b31005643"
+  },
+  "name": "Pigment Pastes",
+  "description": "Unikon Brand",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:07:41.752Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:07:41.752Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbec74e93e30b31005646"
+  },
+  "name": "Table Gum",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:08:07.147Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:08:07.147Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbef84e93e30b31005649"
+  },
+  "name": "Gold Binder",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:08:56.294Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:08:56.294Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf1a4e93e30b3100564c"
+  },
+  "name": "Printing Guar GVM",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:09:30.479Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:09:30.479Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf344e93e30b3100564f"
+  },
+  "name": "Sodium Alginate",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:09:56.254Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:09:56.254Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf4a4e93e30b31005652"
+  },
+  "name": "Pallet Paper",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:10:18.194Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:10:18.194Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf6e4e93e30b31005655"
+  },
+  "name": "Poly Vinyl Alcohol",
+  "description": "PVA",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:10:54.666Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:10:54.666Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf814e93e30b31005658"
+  },
+  "name": "Yellow Tape",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:11:13.933Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:11:13.933Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbf9f4e93e30b3100565b"
+  },
+  "name": "Silver | Aluminium Tape",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:11:43.940Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:11:43.940Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbfb44e93e30b3100565e"
+  },
+  "name": "Water Proof Cotton Tape",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:12:04.123Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:12:04.123Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bbff14e93e30b31005661"
+  },
+  "name": "EMF & INKJET Film Rolls",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:13:05.611Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:13:05.611Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc0094e93e30b31005664"
+  },
+  "name": "Arka Bond 930",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:13:29.366Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:13:29.366Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc02e4e93e30b31005667"
+  },
+  "name": "Aluminium Handle Squeeze",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:14:06.309Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:14:06.309Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc0774e93e30b3100566a"
+  },
+  "name": "Ulano QTX Emulsion & Phat Films",
+  "description": "For HI-Density",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:15:19.180Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:15:19.180Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc0a94e93e30b3100566d"
+  },
+  "name": "Flat Bed & Rotary Machine Spare Parts",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:16:09.366Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:16:09.366Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc2d14e93e30b31005670"
+  },
+  "name": "Acetone",
+  "description": "For mixing in autoclear",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0c7f9aaa69decf319bee"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:25:21.991Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:25:21.991Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642bc5724e93e30b3100569b"
+  },
+  "name": "Stretch Khadi",
+  "description": "",
+  "subCategory": [],
+  "image": "https://assets.website-files.com/5f7f21e12602d918888dce1b/63062b112321ba85157f7a70_silk-screen-1246169_1920.webp",
+  "category": {
+    "$oid": "642b0fcf9aaa69decf319bfb"
+  },
+  "createdAt": {
+    "$date": "2023-04-04T06:36:34.343Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-04T06:36:34.343Z"
+  },
+  "__v": 0
+}]
