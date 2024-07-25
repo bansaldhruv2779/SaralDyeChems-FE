@@ -12,7 +12,9 @@ import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import {FooterBg, Logo} from "../../assets";
-import {useNavigate} from "react-router";
+import {headerTabs} from "../../constants/headers";
+import {get} from "lodash";
+import {useLocation, useNavigate} from "react-router";
 
 const FooterLink = styled(Button)`
   font-size: 16px;
@@ -22,6 +24,7 @@ const FooterLink = styled(Button)`
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Box
       mt="50px"
@@ -198,54 +201,29 @@ const Footer = () => {
             color="common.white">
             Explore
           </Typography>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            HOME
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/products")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            PRODUCTS
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/about-us")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            ABOUT US
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/contact-us")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            CONTACT US
-          </FooterLink>
+          {headerTabs.map(page => {
+            return (
+              <FooterLink
+                key={page.label}
+                variant="text"
+                color="buttonWhite"
+                onClick={() =>
+                  navigate(get(page, "routeTo", location.pathname))
+                }
+                sx={{
+                  "&:hover": {
+                    color: "secondary.main",
+                  },
+                }}>
+                {page.label}
+              </FooterLink>
+            );
+          })}
         </Grid>
       </Grid>
     </Box>
   );
 };
+
 
 export default Footer;
