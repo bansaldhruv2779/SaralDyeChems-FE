@@ -29,7 +29,7 @@ const getErrorMsg = data => {
 };
 
 const handleLogout = () => {
-  const state = store.getState();
+  // const state = store.getState();
   // store.dispatch(
   //   logout.REQUEST({
   //     path: window.location?.pathname,
