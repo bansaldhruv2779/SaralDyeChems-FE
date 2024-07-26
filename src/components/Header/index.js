@@ -11,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  Adb as AdbIcon,
   Menu as MenuIcon,
   NotificationsOutlined as NotificationsOutlinedIcon,
   Login as LoginIcon,
