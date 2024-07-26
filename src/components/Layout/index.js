@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "../Header";
 import {useLocation} from "react-router";
-import Footer from "../Footer";
+import Footer from "../FooterDesign/Index";
+// import Footer from "../Footer";
 import {Box} from "@mui/material";
 
 export default function Layout({children}) {
