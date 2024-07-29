@@ -7,18 +7,10 @@ import {PersistGate} from "redux-persist/integration/react";
 import {store} from "./store";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
 
 const persistor = persistStore(store);
 
@@ -36,7 +28,6 @@ root.render(
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  <RouterProvider router={router} />,
 );
 
 // If you want to start measuring performance in your app, pass a function
