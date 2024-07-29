@@ -7,7 +7,6 @@ import {PersistGate} from "redux-persist/integration/react";
 import {store} from "./store";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
-
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";

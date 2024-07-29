@@ -7,14 +7,9 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Tooltip,
   Typography,
 } from "@mui/material";
-import {
-  Menu as MenuIcon,
-  NotificationsOutlined as NotificationsOutlinedIcon,
-  Login as LoginIcon,
-} from "@mui/icons-material";
+import {Menu as MenuIcon} from "@mui/icons-material";
 import React, {useState} from "react";
 import {headerTabs} from "../../constants/headers";
 import {get} from "lodash";
@@ -166,21 +161,6 @@ const Header = props => {
                 </Button>
               );
             })}
-            <Box sx={{flexGrow: 0, display: "flex", alignItems: "center"}}>
-              <Tooltip title="Notifications" sx={{mx: 4, cursor: "pointer"}}>
-                <IconButton>
-                  <NotificationsOutlinedIcon
-                    fontSize="small"
-                    htmlColor="#252525"
-                  />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Login">
-                <IconButton onClick={() => navigate("/login")}>
-                  <LoginIcon fontSize={"small"} color="common.fontPrimary" />
-                </IconButton>
-              </Tooltip>
-            </Box>
           </Box>
         </Toolbar>
       </Container>
