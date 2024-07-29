@@ -1,6 +1,6 @@
 import axios from "axios";
 // import {get} from "lodash";
-import {store} from "../store";
+// import {store} from "../store";
 // import {logout} from "../store/actions";
 
 const customAxios = axios.create({
@@ -29,7 +29,7 @@ const getErrorMsg = data => {
 };
 
 const handleLogout = () => {
-  const state = store.getState();
+  // const state = store.getState();
   // store.dispatch(
   //   logout.REQUEST({
   //     path: window.location?.pathname,

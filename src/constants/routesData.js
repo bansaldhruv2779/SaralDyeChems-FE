@@ -1,5 +1,4 @@
 import {
-  Login,
   Home,
   ContactUs,
   Products,
@@ -17,13 +16,7 @@ const routesData = [
     exact: true,
   },
   {
-    path: "/login",
-    Component: Login,
-    publicRoute: true,
-    exact: true,
-  },
-  {
-    path: "/About-us",
+    path: "/about-us",
     Component: AboutUs,
     publicRoute: true,
     exact: true,
