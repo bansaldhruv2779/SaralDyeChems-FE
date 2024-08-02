@@ -1,0 +1,216 @@
+{
+  "result": "true",
+  "data": [
+    {
+      "category": "Flat Bed Screen Printing Chemicals",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Photoemulsion",
+          "description": "Ezycoat - 999, 585, 090, 333, 1 Plus, HD9",
+          "image": ""
+        },
+        {
+          "name": "Blanket Adhesive",
+          "description": "LT, MT, HT, BC, RC9",
+          "image": ""
+        },
+        {
+          "name": "Ethyl Acetate",
+          "description": "",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "category": "Rotary Screen Printing Chemicals",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Photoemulsion",
+          "description": "Ezycoat 414, 4500 DL",
+          "image": "" 
+        },
+        {
+          "name": "Engraving chemicals",
+          "description": "Stripper, Endering Remover, Degreaser, Chromic Acid, Fluffix, Araldite",
+          "image": "" 
+        }
+      ]
+    },
+    {
+      "category": "Screen Making Auxillaries",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Bolting Cloth",
+          "description": "Sulzer Made - Nylon, Polyster (Mono, Multy)Imported MeshExport Quality",
+          "image": "" 
+        },
+        {
+          "name": "Screen Adhesive",
+          "description": "Ezycoat 828, FA99",
+          "image": "" 
+        },
+        {
+          "name": "Screen Hardener",
+          "description": "Ezycoat 1 Plus, 108, 720N, PS9 (Pink)",
+          "image": "" 
+        },
+        {
+          "name": "Screen Border Emulsion",
+          "description": "Ezycoat 216 (Red Coat)",
+          "image": "" 
+        },
+        {
+          "name": "Ammonium Dichromate",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "NC Auto Clear",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Stoving Thinner",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Acetone",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Angle Gitty (Frame Fittings)",
+          "description": "",
+          "image": "" 
+        }
+      ]
+    },
+    {
+      "category": "Digital Printing Chemicals",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Rotostar - MT, HT",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Ager Cloth",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Decoating Thinner",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "All Padding Chemicals",
+          "description": "",
+          "image": "" 
+        }
+      ]
+    },
+    {
+      "category": "Auxillaries",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Pigment Pastes",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Table Gum",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Stretch Khadi",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Gold Binder",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Printing Guar Gum",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Sodium Alginate",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Pallet Paper",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Yellow Tape",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Polyvinyl Alcohol (PVA)",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Waterproof Cotton Tape",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "EMF & Inkjet Film rolls",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Arkabond 930",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Flat Bed & Rotary Machine Spare Parts",
+          "description": "",
+          "image": "" 
+        }
+      ]
+    },
+    {
+      "category": "Machines",
+      "image":"https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
+      "product": [
+        {
+          "name": "Laser Stripping Machine",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Curing Oven",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Rotary Screen Coating",
+          "description": "",
+          "image": "" 
+        },
+        {
+          "name": "Rotary Screen Exposing Machine",
+          "description": "",
+          "image": "" 
+        }
+      ]
+    }
+  ]
+}

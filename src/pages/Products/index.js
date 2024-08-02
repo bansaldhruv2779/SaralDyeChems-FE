@@ -1,9 +1,10 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProductList} from "../../store/actions";
 import {Grid, Stack, Typography} from "@mui/material";
 import {get} from "lodash";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import productList from "./products.json";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,25 @@ const Products = () => {
   const params = new URL(document.location).searchParams;
   const categoryId = params.get("category");
   const categoryName = params.get("name");
+
+  const [allProducts, setAllProducts] = useState([]);
+
+  useEffect(() => {
+    const productsArray = [];
+
+    productList.data.forEach(category => {
+      category.product.forEach(product => {
+        productsArray.push({
+          category: category.category,
+          name: product.name,
+          description: product.description,
+          image: product.image,
+        });
+      });
+    });
+
+    setAllProducts(productsArray);
+  }, []);
 
   useEffect(() => {
     if (ref.current === 0) {
@@ -29,9 +49,17 @@ const Products = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} mt={4}>
-        <Grid container spacing={3} px={"10vw"}>
+        {allProducts.map((data, index) => {
+          return (
+            <div key={index}>
+              <h2>{data.category}</h2>
+              <h2>{data.product}</h2>
+            </div>
+          );
+        })}
+        {/* <Grid container spacing={3} px={"10vw"}>
           {Array.isArray(products) &&
-            products.map((product, index) => {
+            allProducts.map((product, index) => {
               return (
                 <Grid item xs={8} key={get(product, "_id", index)} mt={"16px"}>
                   <Typography
@@ -76,7 +104,7 @@ const Products = () => {
                 </Grid>
               );
             })}
-        </Grid>
+        </Grid> */}
       </Grid>
     </Grid>
   );

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCategoryList} from "../../store/actions";
 import {get} from "lodash";
@@ -6,14 +6,22 @@ import {Box, Grid, Typography} from "@mui/material";
 import {useNavigate} from "react-router";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {Carousel} from "react-responsive-carousel";
+import Products from "../Products/products.json";
+import CountsComponent from "../../components/Counts/Index";
+import AboutComponent from "../../components/AboutComponent/Index";
+import FounderComponent from "../../components/FounderComponent/Index";
+import Founder from "../../components/FounderComponent/Founder";
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {categories} = useSelector(state => state.products);
+  // const {categories} = useSelector(state => state.products);
+  const [categories, setCategories] = useState(Products.data);
+
   const ref = useRef(0);
 
   useEffect(() => {
+    console.log(categories);
     if (ref.current === 0) {
       dispatch(fetchCategoryList.REQUEST());
       ref.current = 1;
@@ -26,14 +34,19 @@ const Home = () => {
         <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
           {categories.map((item, index) => {
             return (
-              <Box key={get(item, "_id", index)} height={"50vh"}>
-                <img src={get(item, "image", "")} alt={get(item, "name", "")} />
-                <p className="legend">{get(item, "name", "")}</p>
+              <Box key={index} height={"50vh"}>
+                <img src={item.image} alt={item.image} />
+                <p className="legend">{item.category}</p>
               </Box>
             );
           })}
         </Carousel>
       ) : null}
+      <AboutComponent />
+      <CountsComponent />
+      <AboutComponent />
+      {/* <FounderComponent /> */}
+      <Founder />
       <Grid container spacing={3} px={10} mt="36px">
         <Grid item xs={12}>
           <Grid container spacing={4} px="6vw">
