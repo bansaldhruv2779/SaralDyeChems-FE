@@ -11,6 +11,7 @@ import {
 import CategoryIcon from "@mui/icons-material/Category";
 import CountComponent from "../../components/Counts/Index";
 import AboutComponent from "../../components/AboutComponent/Index";
+import Founder from "../../components/FounderComponent/Founder";
 
 const AboutUs = () => {
   const theme = createTheme({
@@ -37,6 +38,7 @@ const AboutUs = () => {
       </ThemeProvider>
       <AboutComponent />
       <CountComponent />
+      <Founder />
     </>
   );
 };

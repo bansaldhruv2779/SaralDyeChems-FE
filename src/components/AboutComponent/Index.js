@@ -1,70 +1,182 @@
-import {Box, Grid, Typography} from "@mui/material";
+// import React from "react";
+// import {Box, Grid, Typography} from "@mui/material";
+// import {keyframes} from "@emotion/react";
+
+// const floating = keyframes`
+//   0% { transform: translateY(0); }
+//   50% { transform: translateY(-10px); }
+//   100% { transform: translateY(0); }
+// `;
+
+// const Index = () => {
+//   return (
+//     <Box sx={{padding: "30px 8%"}}>
+//       <Grid container spacing={4} sx={{alignItems: "center"}}>
+//         <Grid
+//           item
+//           xs={12}
+//           md={6}
+//           sx={{
+//             animation: `${floating} 3s ease-in-out infinite`,
+//           }}>
+//           <Box
+//             component="img"
+//             src="https://img.freepik.com/free-vector/body-language-concept-illustration_114360-19536.jpg?t=st=1722623057~exp=1722626657~hmac=91b926289b050a86daceabc113c6f088234eafe1a759ec2a8847d5248e39a6f2&w=1480"
+//             alt="Textile Chemicals"
+//             sx={{
+//               width: "100%",
+//               borderRadius: "15px",
+//             }}
+//           />
+//         </Grid>
+//         <Grid item xs={12} md={6}>
+//           <Typography
+//             variant="h2"
+//             sx={{
+//               fontSize: "24px",
+//               fontWeight: "bold",
+//               color: "#021961",
+//               marginBottom: "15px",
+//               position: "relative",
+//               paddingBottom: "10px",
+//               borderBottom: "3px solid #021961",
+//               display: "inline-block",
+//             }}>
+//             Leading Textile Chemicals Distributor with Over 36 Years of
+//             Excellence
+//           </Typography>
+//           <Typography
+//             sx={{
+//               fontSize: "16px",
+//               lineHeight: "1.8",
+//               color: "#555",
+//               marginBottom: "15px",
+//             }}>
+//             Saral Dye Chems, founded by Mr. Vipul Kumar Gupta in 1987, is a
+//             leading distributor of textile chemicals. Starting at 21, Mr. Vipul
+//             named the company after his mother, symbolizing his dedication.
+//             Initially trading engraving chemicals, Saral quickly grew, becoming
+//             an authorized agent of Bluecoat Pvt Ltd. The company&apos;s success
+//             enabled Mr. Vipul to establish an office in Tilak Bazaar, Delhi. His
+//             brother, Mr. Sunit Kumar Gupta, later joined, further driving
+//             expansion.
+//           </Typography>
+//           <Typography
+//             sx={{
+//               fontSize: "16px",
+//               lineHeight: "1.8",
+//               color: "#555",
+//               marginBottom: "15px",
+//             }}>
+//             Today, Saral operates offices in Delhi, Panipat, and Ludhiana,
+//             serving Punjab, Haryana, and international markets like Nepal. We
+//             offer a wide range of screen-making materials, flatbed chemicals,
+//             rotary chemicals, and more. With over 36 years of industry
+//             experience, Saral is known for reliability, professionalism, and
+//             exceptional customer service. We are dedicated to providing
+//             top-quality products and continually innovating to meet our
+//             clients&apos; needs.
+//           </Typography>
+//         </Grid>
+//       </Grid>
+//     </Box>
+//   );
+// };
+
+// export default Index;
 import React from "react";
+import {Box, Grid, Typography} from "@mui/material";
+import {keyframes} from "@emotion/react";
+
+const floating = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+`;
 
 const Index = () => {
   return (
     <Box sx={{padding: "30px 8%"}}>
-      <Typography fontSize="18px" color="#B5C0D0" fontWeight="500">
-        Our Journey
+      <Typography
+        variant="h5"
+        sx={{
+          fontSize: "36px",
+          fontWeight: "bold",
+          color: "#021961",
+          marginBottom: "30px",
+          textAlign: "center",
+          position: "relative",
+          display: "inline-block",
+          paddingBottom: "10px",
+          borderBottom: "4px solid #021961",
+        }}>
+        About Us
       </Typography>
-      <Typography color="#021961" fontSize="24px" fontWeight="700">
-        Engraving Lifelines since 1987
-      </Typography>
-      <Grid container spacing={4} sx={{marginTop: 2}}>
-        <Grid item xs={12} md={6}>
-          <Typography fontSize="16px" color="#021961" lineHeight="1.5">
-            Saral Dye Chems is a leading textile chemicals distributor business
-            that was founded by Mr Vipul Kumar Gupta in 1987. With a passion for
-            entrepreneurship, Mr Vipul started the company at the age of 21 and
-            named it after his mother, symbolizing the love and dedication
-            towards his family. Initially, the company traded engraving
-            chemicals and soon became an authorized agent of Bluecoat Pvt Ltd.
-          </Typography>
-          <Typography
-            fontSize="16px"
-            color="#021961"
-            lineHeight="1.5"
-            sx={{marginTop: 2}}>
-            Within a few years, Saral had established a name for itself in the
-            textile chemicals industry, which enabled Mr Vipul to purchase his
-            own office in Tilak Bazaar - one of the biggest chemical trading
-            markets in India. The company&#39;s growth was phenomenal, and soon
-            Mr Sunit Kumar Gupta, Mr Vipul&#39;s younger brother, joined the
-            business and played a pivotal role in the company&#39;s success. His
-            contribution helped to further expand the company&#39;s reach and
-            take it to new heights.
-          </Typography>
+      <Grid container spacing={4} sx={{alignItems: "center"}}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            animation: `${floating} 3s ease-in-out infinite`,
+          }}>
+          <Box
+            component="img"
+            src="https://img.freepik.com/free-vector/body-language-concept-illustration_114360-19536.jpg?t=st=1722623057~exp=1722626657~hmac=91b926289b050a86daceabc113c6f088234eafe1a759ec2a8847d5248e39a6f2&w=1480"
+            alt="Textile Chemicals"
+            sx={{
+              width: "100%",
+              borderRadius: "15px",
+            }}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography fontSize="16px" color="#021961" lineHeight="1.5">
-            Today, Saral is a well-known name in the textile chemicals industry,
-            with offices in Delhi, Panipat, and Ludhiana. Our offices cater to
-            all the markets of Punjab, Haryana and even international markets
-            like Nepal. Saral takes pride in offering a wide array of screen
-            making materials, flat bed chemicals, rotary chemicals, and many
-            more.
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: "24px",
+              fontWeight: "bold",
+              color: "#021961",
+              marginBottom: "15px",
+              position: "relative",
+              paddingBottom: "10px",
+              borderBottom: "3px solid #021961",
+              display: "inline-block",
+            }}>
+            Leading Textile Chemicals Distributor with Over 36 Years of
+            Excellence
           </Typography>
           <Typography
-            fontSize="16px"
-            color="#021961"
-            lineHeight="1.5"
-            sx={{marginTop: 2}}>
-            Our success is attributed to the dedication of our team, which works
-            hard to ensure that we deliver quality products and services to our
-            clients. With 36+ years of experience in the industry, we have built
-            a strong reputation for our reliability, professionalism, and
-            exceptional customer service.
+            sx={{
+              fontSize: "16px",
+              lineHeight: "1.8",
+              color: "#555",
+              marginBottom: "15px",
+            }}>
+            Saral Dye Chems, founded by Mr. Vipul Kumar Gupta in 1987, is a
+            leading distributor of textile chemicals. Starting at 21, Mr. Vipul
+            named the company after his mother, symbolizing his dedication.
+            Initially trading engraving chemicals, Saral quickly grew, becoming
+            an authorized agent of Bluecoat Pvt Ltd. The company&apos;s success
+            enabled Mr. Vipul to establish an office in Tilak Bazaar, Delhi. His
+            brother, Mr. Sunit Kumar Gupta, later joined, further driving
+            expansion.
           </Typography>
           <Typography
-            fontSize="16px"
-            color="#021961"
-            lineHeight="1.5"
-            sx={{marginTop: 2}}>
-            At Saral, we are committed to providing our clients with the best
-            products, service, and experience. We strive to stay ahead of the
-            curve by continuously innovating and expanding our range of products
-            and services. We look forward to serving you and your business with
-            our quality textile chemicals.
+            sx={{
+              fontSize: "16px",
+              lineHeight: "1.8",
+              color: "#555",
+              marginBottom: "15px",
+            }}>
+            Today, Saral operates offices in Delhi, Panipat, and Ludhiana,
+            serving Punjab, Haryana, and international markets like Nepal. We
+            offer a wide range of screen-making materials, flatbed chemicals,
+            rotary chemicals, and more. With over 36 years of industry
+            experience, Saral is known for reliability, professionalism, and
+            exceptional customer service. We are dedicated to providing
+            top-quality products and continually innovating to meet our
+            clients&apos; needs.
           </Typography>
         </Grid>
       </Grid>
