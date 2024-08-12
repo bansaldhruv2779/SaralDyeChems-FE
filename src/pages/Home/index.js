@@ -148,6 +148,8 @@ import CountsComponent from "../../components/Counts/Index";
 import AboutComponent from "../../components/AboutComponent/Index";
 import Founder from "../../components/FounderComponent/Founder";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent";
+import Segment from "../../components/Segments/Segments";
+import Partners from "../../components/Partners/Partners";
 
 const StyledCard = styled(Card)(({theme}) => ({
   borderRadius: "12px",
@@ -228,7 +230,9 @@ const Home = () => {
       <CountsComponent />
       <Founder />
       <GalleryComponent />
-      <Grid container spacing={3} px={10} mt="36px">
+      <Partners />
+      <Segment />
+      {/* <Grid container spacing={3} px={10} mt="36px">
         <Grid item xs={12}>
           <Grid container spacing={4} px="6vw">
             <Grid item xs={12}>
@@ -267,7 +271,7 @@ const Home = () => {
               : null}
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };

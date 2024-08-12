@@ -111,6 +111,7 @@ import {fetchProductList} from "../../store/actions";
 import {Grid, Typography, Box, styled} from "@mui/material";
 import productList from "./products.json";
 import Brush from "../../constants/brush.png";
+import Flip from "../../components/Flipword/Flip";
 
 const ProductSection = styled(Box)(({theme, direction}) => ({
   display: "flex",
@@ -188,26 +189,6 @@ const Products = () => {
   const categoryName = params.get("name");
 
   const [allProducts, setAllProducts] = useState([]);
-
-  // useEffect(() => {
-  //   const productsArray = [];
-
-  //   productList.data.forEach(category => {
-  //     if (category.category === categoryId) {
-  //       category.product.forEach(product => {
-  //         productsArray.push({
-  //           category: category.category,
-  //           name: product.name,
-  //           description: product.description,
-  //           image: product.image,
-  //           subCategory: product.subCategory || [],
-  //         });
-  //       });
-  //     }
-  //   });
-
-  //   setAllProducts(productsArray);
-  // }, [categoryName]);
   useEffect(() => {
     const productsArray = [];
 
@@ -244,15 +225,17 @@ const Products = () => {
     return (
       <>
         {uniqueCategories.length > 1 && (
-          <Typography
-            variant="h5"
-            sx={{
-              textAlign: "center",
-              fontWeight: "bold",
-              marginBottom: "20px",
-            }}>
-            {products[0].category}
-          </Typography>
+          <>
+            <Typography
+              variant="h5"
+              sx={{
+                textAlign: "center",
+                fontWeight: "bold",
+                marginBottom: "20px",
+              }}>
+              {products[0].category}
+            </Typography>
+          </>
         )}
         <ProductSection direction={direction}>
           <ProductImage
@@ -274,15 +257,6 @@ const Products = () => {
                   borderBottom: "1px solid black",
                   mb: 5,
                 }}>
-                <Typography
-                  style={{
-                    fontSize: 30,
-                    marginTop: "-8px",
-                    marginRight: "10px",
-                  }}>
-                  ☞
-                </Typography>
-
                 <Box>
                   <Typography variant="h5" fontWeight={300}>
                     {product.name}
@@ -307,13 +281,14 @@ const Products = () => {
     <Grid container spacing={4} p={4} style={{backgroundColor: "white"}}>
       <Grid item xs={12}>
         <BackgroundSection>
-          <Typography
+          <Flip categoryId={categoryId} />
+          {/* <Typography
             variant="h4"
             fontWeight={800}
             color="#03346E"
             sx={{textTransform: "uppercase"}}>
             {categoryId ?? "All Products"}
-          </Typography>
+          </Typography> */}
         </BackgroundSection>
       </Grid>
       <Grid item xs={12} mt={4}>

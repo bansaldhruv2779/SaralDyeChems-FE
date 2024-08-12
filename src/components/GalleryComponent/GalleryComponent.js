@@ -2,6 +2,7 @@
 
 import React, {useState, useEffect} from "react";
 import {Grid, Card, CardMedia, Box, Typography} from "@mui/material";
+import Gallery from "../Gallery/Gallery";
 
 const imageUrls = [
   "https://lh3.googleusercontent.com/fife/ALs6j_EK1wgpEi9Nhy2eYlDQyldbsHgan7_bq7ymrPZIB2EA-3b4xzqYx2lGbN8E4JtsYMD3v2KDepqs7pmNy8SRZ6Yl_WCy4053QYjYEJjMNiySzeFoVmNJ_bEpxIky3JKfsST87RLa6IFcRiTZtFaCwJVznlGMs90zyxKTkrWeuArBoCAraizeX5HMn7euuxNKky0yFMXT4o_t9L-AyuTgQowWAXlYZo7zGOfaHEv09lN3BW1RdnNYqLZen4qc-OH3y0Lb_5cQOS1LiDdk7ADw7oRWl2aJreD4l4pmYUasbwCDonpMKRaaLVNmqMEohXGTnamRWxKU5LxLn2lTXmGhtv9nulPF9JH0RYxNHSP-gjtj_vMlpJ4tfVK1WkCd7blfCVshoJ_HZ1yfiMp-bTcJP14xzWHMiQpsvIwqIGG3M1WRFCqtv2I8wvNDra0PmB49jcLdAE7lsdNberdbM67NvHl9USbMesW_fQ2vnCjohvASxfAYOeGWnhtYnFc3ZRNDUpK5Wwl3OeARDGBC20HJyIjFFQJP6HQi2kKmQr1cqbtuP9Rg7SKroHpd18-JEJgJLoymVNi0WF9Vkz66MhEmuocelx66PtNk7j61YWlMXADIZO2LWU_1SovJAPs38wwQHV2Tg4eoaLVzRV862_cXamkbupmo8J88DImEbKhjcdiJFJ3UZc6iNuOQi0Wjrj_S_NoZ3I1delyDlc8kGaegFp_Gm34fc_bQy5BHYud85aS_h8Qe4-EVLBoJu150qLSdMlH7nmTKTpA273KQvy-87TQditU596j1ZuBf9QLWTgYqJMno87b3XPwpBwBXNTwwKBbD5lIYzMac8V-J2qslovL3kWQFmiqpu8-vFSx34lQw3nwJTmF02-uS92YOYuS7iaeyW3W5IFtKoFzSbLj09LEKFyYNDB9XuEg1Dm5A9BJAmBt3gKul52jFO6yI6rkDLg6J-aDKofW7pkCpwZJApCJb0T05HViwibbRI6AClk-h6HPQ2zzDINc7gVeFD4LwVYBYRvCHn1hShkWOwXFE0lGkUGEuKI90Vf60Cx7QdYF-kpGvuYjrw_BC8fSxTc0mJhxIetAUumtbuZeDwQAnaXtczK5pPoOOsX2tS1vojmV7EmwBehe_tq88Kx_g17O9ZpIh7YWcsqq0otHbZjBUO0RsKdJMpwuHqie2GNLTiQ0-D6mcv1V10R2zfKdPjkBCjDEwRGivDSzflT-pU9l6K7empyuTGVA7svK7wWtx6_g8Ievs7n40ewIcFyNfmeqGWR6ZJjlGcsL4sk0SEZY0nSUaDSE05yYoshVi0el01GqT93bqIVT6nbAtZm5qDC4X4uDmr2PMjecHps3FeEPdtixyDwPWR9aNt-y5XrTTIhZmJ7QFANtIZf2Eo8S4Ua7WR5k93mRNky4-fX4ii-f9jIIuFNxn2VheMEH0u7NVHj4f6XGthpMi9lW8kLJzD7tP8T3hR1r0xPpM0HSAYohZG60jORBdrrhmsRj785w8LI-ySNHlyS4orBR5MBXdpzZSIPVv90Qp5hgRlG3PmbPs0-gA7TUqPGR89ga4oytqbhiXp-t8w1_KYASZQpE31d21bgj3xUKCHULg2gV3=w2880-h1448",
@@ -52,7 +53,8 @@ const GalleryComponent = () => {
         }}>
         Our Team and Gallery
       </Typography>
-      <Grid container spacing={4}>
+      <Gallery />
+      {/* <Grid container spacing={4}>
         {currentImages.map((url, index) => (
           <Grid
             item
@@ -71,7 +73,7 @@ const GalleryComponent = () => {
             </Card>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };
