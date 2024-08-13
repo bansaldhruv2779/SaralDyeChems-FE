@@ -4,6 +4,8 @@ import React, {useState, useEffect} from "react";
 import {Grid, Card, CardMedia, Box, Typography} from "@mui/material";
 import Gallery from "../Gallery/Gallery";
 
+import FlipHeading from "../Flipword/FlipHeading";
+
 const imageUrls = [
   "https://lh3.googleusercontent.com/fife/ALs6j_EK1wgpEi9Nhy2eYlDQyldbsHgan7_bq7ymrPZIB2EA-3b4xzqYx2lGbN8E4JtsYMD3v2KDepqs7pmNy8SRZ6Yl_WCy4053QYjYEJjMNiySzeFoVmNJ_bEpxIky3JKfsST87RLa6IFcRiTZtFaCwJVznlGMs90zyxKTkrWeuArBoCAraizeX5HMn7euuxNKky0yFMXT4o_t9L-AyuTgQowWAXlYZo7zGOfaHEv09lN3BW1RdnNYqLZen4qc-OH3y0Lb_5cQOS1LiDdk7ADw7oRWl2aJreD4l4pmYUasbwCDonpMKRaaLVNmqMEohXGTnamRWxKU5LxLn2lTXmGhtv9nulPF9JH0RYxNHSP-gjtj_vMlpJ4tfVK1WkCd7blfCVshoJ_HZ1yfiMp-bTcJP14xzWHMiQpsvIwqIGG3M1WRFCqtv2I8wvNDra0PmB49jcLdAE7lsdNberdbM67NvHl9USbMesW_fQ2vnCjohvASxfAYOeGWnhtYnFc3ZRNDUpK5Wwl3OeARDGBC20HJyIjFFQJP6HQi2kKmQr1cqbtuP9Rg7SKroHpd18-JEJgJLoymVNi0WF9Vkz66MhEmuocelx66PtNk7j61YWlMXADIZO2LWU_1SovJAPs38wwQHV2Tg4eoaLVzRV862_cXamkbupmo8J88DImEbKhjcdiJFJ3UZc6iNuOQi0Wjrj_S_NoZ3I1delyDlc8kGaegFp_Gm34fc_bQy5BHYud85aS_h8Qe4-EVLBoJu150qLSdMlH7nmTKTpA273KQvy-87TQditU596j1ZuBf9QLWTgYqJMno87b3XPwpBwBXNTwwKBbD5lIYzMac8V-J2qslovL3kWQFmiqpu8-vFSx34lQw3nwJTmF02-uS92YOYuS7iaeyW3W5IFtKoFzSbLj09LEKFyYNDB9XuEg1Dm5A9BJAmBt3gKul52jFO6yI6rkDLg6J-aDKofW7pkCpwZJApCJb0T05HViwibbRI6AClk-h6HPQ2zzDINc7gVeFD4LwVYBYRvCHn1hShkWOwXFE0lGkUGEuKI90Vf60Cx7QdYF-kpGvuYjrw_BC8fSxTc0mJhxIetAUumtbuZeDwQAnaXtczK5pPoOOsX2tS1vojmV7EmwBehe_tq88Kx_g17O9ZpIh7YWcsqq0otHbZjBUO0RsKdJMpwuHqie2GNLTiQ0-D6mcv1V10R2zfKdPjkBCjDEwRGivDSzflT-pU9l6K7empyuTGVA7svK7wWtx6_g8Ievs7n40ewIcFyNfmeqGWR6ZJjlGcsL4sk0SEZY0nSUaDSE05yYoshVi0el01GqT93bqIVT6nbAtZm5qDC4X4uDmr2PMjecHps3FeEPdtixyDwPWR9aNt-y5XrTTIhZmJ7QFANtIZf2Eo8S4Ua7WR5k93mRNky4-fX4ii-f9jIIuFNxn2VheMEH0u7NVHj4f6XGthpMi9lW8kLJzD7tP8T3hR1r0xPpM0HSAYohZG60jORBdrrhmsRj785w8LI-ySNHlyS4orBR5MBXdpzZSIPVv90Qp5hgRlG3PmbPs0-gA7TUqPGR89ga4oytqbhiXp-t8w1_KYASZQpE31d21bgj3xUKCHULg2gV3=w2880-h1448",
   "https://lh3.googleusercontent.com/fife/ALs6j_Gg09Fo2U_jB7eshvoXFDoeDAlicvuNbEGFKleesb7SeFbJRwP1K8JymKmqSUtdswvWzgKpEmrbRWCcWizSk-CTK-ARdYY5CtegFec648Ty4jPawcmLB4p9pvbXozK1uETeOHArig3K12EyPY97vly8jj4s7bf36fPIQksOFjiuua3narJBOBN3Is4wpMradSSt08uRoui7cj62_NO4sz3DLFW4_wgLm-MARgjjRAjfodHUASBJG5jIRav4Y0nmtYPiXNREPOahcPJeRjt580dA1nry0odM8ilGYZul0l18yYkcjcUJ8cdmqZesT4VS3NjeMUGSzN48pAMtx8TWmiPSdzoYxsrodU7Wr-UBe6e9DIQF8EPmfrM-KtgTFOy6JMGMRyNzG-RSGF4X77OjJ6WryJdc2EoHA9pI1sHidd3u3zcpAWrAEz350qekrvOglja9UP2ybYMua5ZldcQIuI0YVNVv2FuYqPpxlC7OgSReRF0jDndr5Qu9gWQdqhFq4nTNmsDAQm6zXEesNaasPzYjZKDu90ZOJL7VqkoQfTjotog94ixGGtPWj8fN4SlNlWyS7PhKXeg1MtUd1mZcjFqoFJRXWrWZ665KnejSpcBBB9tJpIDuHCVKSbsRwAzt8ikt-wISApRyUyzTEkMQ62EnWKlPgWURm8GRTPU24Ve3NAHWv-HBdlBJhXJnEk_5hC9J3cLIb6arTw_-_sI_nq9HUPhYfEg2wQ_DyF842toFgUxIg6BRTrLPNIqd60bu9PxGYS2V-Dyph5yQA2hOg9P7YrssLJaulgJSb7SHKOCaZw2TNJB12BwrgDH5e4tuahIZRmyyGfyNaalVrc0_doSycqFOWQHr2DnaXh4wSvWL4SqOHlgAVsj1dh11xUTrgEhgjsnXvcvRhA3HWHl_vQWxQySqxEH4VDvCWdz17Z6WDkYSKGcBU0p7njRtm4g4NMEZ-o2Lb3BRrz4Lf03FNwQmqS2lc-zb6wV2E-T-fS38Q4uKAYvXQAy_PXaF1uLgbjET_yQ3v8c1CAD3Pma9LLVK5NIYCy1CDjMDqg6fPgPC3hfE_DY5arvy1-4qG0e1tAgvmp-rEma9Kds3znsZeysNiWo8vRhg9t38dEkbVkDweYACsjYZx3LNa0GDiJzi4EadiWAYA1hhPDuDHcrzlLL8bnqbK08yObA8f7GYNroXQeGs9PkoDyoIeUSYuqxoxZMZneztiMENUMmHRn_qgRrKm3Px41yEdkqAaa0ROtJWig1KAeUiTo1cNebTZ5oisw6Km8YjLJyxqBXewCUBuGUa3bHmmIeH9Gn8yrmiOLESCyjz3_wDsXOiCLgtZZ9d56wf5tdAj183Zbi_I1IjTbnzny87y4Dg039eETtvEnwVgfJA-sMCgjSWYRmtWcMnm4uMQHHv1OGV8C0inmIojyXED3IAoz8Q2-zv4DPnLVnah1PPp6UBO2YnxEPfq8dHYIPPR0PSZ4pkHG1Kwyeddq9frBFfO2Rr7tdDjMm3z3dBa-vZ9gK_-bWpfk-FuOPXePZr_pGu3LHn8wkYn4VVZOTLCdmcBNYDqAsapgew5FC48VXFWKZe2mr1zaDrCjbDa72tF95fe8HXCjiK_g=w2880-h1448",
@@ -30,50 +32,19 @@ const GalleryComponent = () => {
 
         return newImages;
       });
-    }, 5000); // Change images every 5 seconds
+    }, 5000);
 
-    // Clean up the interval on component unmount
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <Box style={{padding: "20px 8%"}}>
-      <Typography
-        variant="h5"
-        sx={{
-          fontSize: "36px",
-          fontWeight: "bold",
-          color: "#021961",
-          marginBottom: "30px",
-          textAlign: "center",
-          position: "relative",
-          display: "inline-block",
-          paddingBottom: "10px",
-          borderBottom: "4px solid #021961",
-        }}>
-        Our Team and Gallery
-      </Typography>
+    <Box style={{padding: "0px 6%", marginTop: "60px"}}>
+      <FlipHeading categoryId="OUR   TEAM   AND   GALLERY" />
+      <p style={{marginBottom: "30px", color: "#A0A6B0", textAlign: "center"}}>
+        A serene and tranquil retreat, this house in the woods offers a peaceful
+        escape from the hustle and bustle of city life.
+      </p>
       <Gallery />
-      {/* <Grid container spacing={4}>
-        {currentImages.map((url, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            key={index}
-            style={{marginTop: index * 80}}>
-            <Card>
-              <CardMedia
-                component="img"
-                image={url}
-                alt={`Gallery image ${index + 1}`}
-                style={{height: 300, objectFit: "cover"}}
-              />
-            </Card>
-          </Grid>
-        ))}
-      </Grid> */}
     </Box>
   );
 };

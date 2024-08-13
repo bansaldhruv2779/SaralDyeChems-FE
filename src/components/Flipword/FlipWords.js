@@ -52,7 +52,10 @@ export const FlipWords = ({words, duration = 3000, className}) => {
           "z-10 inline-block relative text-left dark:text-neutral-100 px-2",
           className,
         )}
-        style={{color: "#03346E"}}
+        style={{
+          color: "#3E5B81",
+          fontSize: "1.8rem",
+        }}
         key={currentWord}>
         {currentWord.split("").map((letter, index) => (
           <motion.span
@@ -63,7 +66,11 @@ export const FlipWords = ({words, duration = 3000, className}) => {
               delay: index * 0.08,
               duration: 0.4,
             }}
-            style={{marginLeft: "3px"}}
+            style={{
+              marginLeft: "5px",
+              textTransform: "uppercase",
+              fontWeight: "500",
+            }}
             className="inline-block">
             {letter}
           </motion.span>

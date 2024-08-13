@@ -7,7 +7,7 @@ export const HoverEffect = ({items, className}) => {
 
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-2   lg:grid-cols-3 py-10 ${className}`}>
+      className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${className}`}>
       {items.map((item, idx) => (
         <Link
           to={item?.link}
@@ -18,8 +18,9 @@ export const HoverEffect = ({items, className}) => {
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-500 dark:bg-slate-800/[0.8] block rounded-3xl"
+                className="absolute inset-0 h-full w-full  dark:bg-slate-800/[0.2] block rounded-3xl"
                 layoutId="hoverBackground"
+                style={{backgroundColor: "#98C0D9"}}
                 initial={{opacity: 0}}
                 animate={{
                   opacity: 1,
@@ -34,7 +35,7 @@ export const HoverEffect = ({items, className}) => {
           </AnimatePresence>
           <Card backgroundImage={item.backgroundImage}>
             <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription>{}</CardDescription>
           </Card>
         </Link>
       ))}
@@ -72,6 +73,7 @@ export const CardTitle = ({className, children}) => {
 export const CardDescription = ({className, children}) => {
   return (
     <p
+      style={{height: "80px"}}
       className={`mt-8 text-zinc-200 tracking-wide leading-relaxed text-sm ${className}`}>
       {children}
     </p>

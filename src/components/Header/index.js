@@ -26,6 +26,17 @@ const Header = props => {
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleNavigation = route => {
+    if (route.startsWith("#")) {
+      const sectionId = route.slice(1); // Remove the '#' character
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({behavior: "smooth"});
+      }
+    } else {
+      navigate(route);
+    }
+  };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -140,7 +151,7 @@ const Header = props => {
                   key={page.label}
                   onClick={() => {
                     handleCloseNavMenu();
-                    navigate(get(page, "routeTo", location.pathname));
+                    handleNavigation(get(page, "routeTo", location.pathname));
                   }}
                   sx={{
                     my: 2,

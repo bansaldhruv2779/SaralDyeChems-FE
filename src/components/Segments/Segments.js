@@ -1,5 +1,7 @@
 import React from "react";
 import {HoverEffect} from "./HoverEffect";
+import {Typography} from "@mui/material";
+import FlipHeading from "../Flipword/FlipHeading";
 
 const projects = [
   {
@@ -48,13 +50,18 @@ const projects = [
       "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg",
     description:
       "Machines are mechanical devices designed to perform specific tasks efficiently, ranging from simple operations to complex industrial processes.",
-    link: "/products?category=Machines/",
+    link: "/products?category=Machines",
   },
 ];
 
 function CardHoverEffectDemo() {
   return (
     <div className="max-w-7xl mx-auto px-2">
+      <FlipHeading categoryId="BUSINESS   SEGMENTS" />
+      <p style={{marginBottom: "30px", color: "#A0A6B0", textAlign: "center"}}>
+        A serene and tranquil retreat, this house in the woods offers a peaceful
+        escape from the hustle and bustle of city life.
+      </p>
       <HoverEffect items={projects} />
     </div>
   );
