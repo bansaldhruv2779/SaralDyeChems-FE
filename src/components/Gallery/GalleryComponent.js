@@ -1,8 +1,7 @@
 "use client";
 import React, {useState} from "react";
-import {AnimatePresence, motion} from "framer-motion";
-import {cn} from "../../utills/cn";
-// import Image from "next/image";
+import {motion} from "framer-motion";
+import {cn} from "../../utils/cn";
 
 export const LayoutGrid = ({cards}) => {
   const [selected, setSelected] = useState(null);

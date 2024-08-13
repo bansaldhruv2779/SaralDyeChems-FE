@@ -8,8 +8,8 @@ import {
   useTheme,
 } from "@mui/material";
 import SocialMediaComponent from "./SocialMediaComponent";
-import Founder1 from "../../constants/Founder1.JPG";
-import Founder2 from "../../constants/Founder2.JPG";
+import Founder1 from "../../assets/Founder1.JPG";
+import Founder2 from "../../assets/Founder2.JPG";
 
 const FounderBox = styled(Box)(({theme}) => ({
   width: 250,
