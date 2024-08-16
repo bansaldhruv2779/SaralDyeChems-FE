@@ -1,6 +1,6 @@
 import {createTheme} from "@mui/material";
 
-const defaultFontFamily = ["Noto Sans", "-apple-system", "Arial", "Roboto"];
+const defaultFontFamily = ["Lato", "-apple-system"];
 
 function createShadow(px) {
   return `0 0 ${px}px 0 rgba(53, 64, 82,.05)`;
@@ -31,7 +31,7 @@ export const theme = createTheme({
     fontWeightMedium: 600,
     h1: {
       fontSize: "2rem",
-      fontFamily: "Noto Sans",
+      fontFamily: "Lato",
       fontWeight: 800,
       lineHeight: 1.2,
     },

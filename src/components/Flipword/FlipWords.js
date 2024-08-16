@@ -1,11 +1,10 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import {cn} from "../../utills/cn";
+import {cn} from "../../utils/cn";
 
-export const FlipWords = ({words, duration = 3000, className}) => {
+export const FlipWords = ({words, emoji, duration = 3000, className}) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
-
   const startAnimation = useCallback(() => {
     const nextWord = words[(words.indexOf(currentWord) + 1) % words.length];
     setCurrentWord(nextWord);
@@ -52,7 +51,10 @@ export const FlipWords = ({words, duration = 3000, className}) => {
           "z-10 inline-block relative text-left dark:text-neutral-100 px-2",
           className,
         )}
-        style={{color: "#03346E"}}
+        style={{
+          color: "#3E5B81",
+          fontSize: "1.8rem",
+        }}
         key={currentWord}>
         {currentWord.split("").map((letter, index) => (
           <motion.span
@@ -63,11 +65,32 @@ export const FlipWords = ({words, duration = 3000, className}) => {
               delay: index * 0.08,
               duration: 0.4,
             }}
-            style={{marginLeft: "3px"}}
+            style={{
+              marginLeft: "5px",
+              textTransform: "uppercase",
+              fontWeight: "500",
+            }}
             className="inline-block">
             {letter}
           </motion.span>
         ))}
+        {emoji && (
+          <motion.span
+            initial={{opacity: 0, y: 10, filter: "blur(8px)"}}
+            animate={{opacity: 1, y: 0, filter: "blur(0px)"}}
+            transition={{
+              delay: currentWord.length * 0.08,
+              duration: 0.4,
+            }}
+            style={{
+              marginLeft: "5px",
+              textTransform: "uppercase",
+              fontWeight: "500",
+            }}
+            className="inline-block">
+            {String.fromCodePoint(emoji)}
+          </motion.span>
+        )}
       </motion.div>
     </AnimatePresence>
   );

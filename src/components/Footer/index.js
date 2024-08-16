@@ -1,27 +1,45 @@
 import {
   Box,
-  Button,
   Grid,
-  IconButton,
-  Link,
   Typography,
-  styled,
+  IconButton,
+  Link as MuiLink,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import React from "react";
 import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import {FooterBg, Logo} from "../../assets";
-import {useNavigate} from "react-router";
-
-const FooterLink = styled(Button)`
-  font-size: 16px;
-  margin-top: 12px;
-  display: block;
-`;
+import {ThemeProvider} from "@mui/material/styles";
+import {FooterBg} from "../../assets";
+import {useNavigate, useLocation} from "react-router";
+import {headerTabs} from "../../constants/headers";
+import {get} from "lodash";
+import {footerLogo} from "../../assets";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const cities = [
+    "Punjab",
+    "Himachal Pradesh",
+    "Haryana",
+    "UP",
+    "West Bengal",
+    "Orissa",
+    "Tamil Nadu",
+    "Gujarat",
+    "Rajasthan",
+    "Madhya Pradesh",
+    "Andhra Pradesh",
+  ];
+
+  const conturies = ["Nepal", "South Africa"];
+
   return (
     <Box
       mt="50px"
@@ -30,220 +48,212 @@ const Footer = () => {
       position="sticky"
       color="common.white"
       style={{backgroundImage: `url(${FooterBg})`}}>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          maxWidth: "1480px",
-          marginX: "auto",
-        }}>
+      <ThemeProvider theme={theme}>
         <Grid
-          item
-          xs={12}
-          sm={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            marginBottom: "20px",
-            alignItems: "center",
-          }}>
-          <img
-            src={Logo}
-            alt="Saral Dye Chems"
-            loading="lazy"
-            style={{height: "120px", width: "120px"}}
-          />
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: "1px",
-              color: "inherit",
-              textDecoration: "none",
-              flex: "1",
-            }}>
-            Saral Dye Chems
-          </Typography> */}
+          container
+          spacing={2}
+          direction={isSmallScreen ? "column" : "row"}>
+          <Grid item xs={4}>
+            <img className="h-96" src={footerLogo} alt="loading..." />
+          </Grid>
+          <Grid item container direction="column" spacing={2} xs={8}>
+            <Grid item>
+              <Box
+                display="flex"
+                flexDirection={isSmallScreen ? "column" : "row"}
+                justifyContent="space-evenly"
+                marginBottom="20px"
+                alignItems="flex-start">
+                <Typography fontSize="14px" fontWeight="bold">
+                  INDIA LOCATIONS
+                </Typography>
+                <Box
+                  display="flex"
+                  flexWrap="wrap"
+                  gap={1}
+                  sx={{width: isSmallScreen ? "100%" : "50%"}}>
+                  {cities.map((city, index) => (
+                    <React.Fragment key={index}>
+                      <Typography fontWeight="bold" fontSize="13px">
+                        {city}
+                      </Typography>
+                      {index < cities.length - 1 && (
+                        <Typography fontSize="14px">•</Typography>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                display="flex"
+                flexDirection={isSmallScreen ? "column" : "row"}
+                justifyContent="space-evenly"
+                marginBottom="20px"
+                alignItems="flex-start">
+                <Typography fontSize="14px" fontWeight="bold">
+                  INTERNATIONAL LOCATIONS
+                </Typography>
+                <Box
+                  display="flex"
+                  flexWrap="wrap"
+                  gap={1}
+                  sx={{width: isSmallScreen ? "100%" : "50%"}}>
+                  {conturies.map((contury, index) => (
+                    <React.Fragment key={index}>
+                      <Typography fontWeight="bold" fontSize="13px">
+                        {contury}
+                      </Typography>
+                      {index < conturies.length - 1 && (
+                        <Typography fontSize="14px">•</Typography>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box
+                display="flex"
+                flexDirection={isSmallScreen ? "column" : "row"}
+                justifyContent="space-evenly"
+                marginBottom="20px"
+                alignItems="flex-start">
+                <Typography fontSize="14px" fontWeight="bold">
+                  TOP PRODUCTS
+                </Typography>
+                <Box
+                  display="flex"
+                  flexWrap="wrap"
+                  gap={1}
+                  sx={{width: isSmallScreen ? "100%" : "50%"}}>
+                  {cities.map((city, index) => (
+                    <React.Fragment key={index}>
+                      <Typography fontWeight="bold" fontSize="13px">
+                        {city}
+                      </Typography>
+                      {index < cities.length - 1 && (
+                        <Typography fontSize="14px">•</Typography>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid item>
+              <Box
+                display="flex"
+                flexDirection={isSmallScreen ? "column" : "row"}
+                justifyContent="space-evenly"
+                marginBottom="20px"
+                alignItems="flex-start">
+                <Typography fontSize="14px" fontWeight="bold">
+                  HEAD OFFICE
+                </Typography>
+                <Box
+                  display="flex"
+                  flexWrap="wrap"
+                  sx={{width: isSmallScreen ? "100%" : "50%"}}
+                  gap={1}>
+                  <Typography fontWeight="bold" fontSize="13px">
+                    402, P-2, Best Business Park, Netaji Subhash Place,
+                    Pitampura, (110034)
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid item>
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                padding="0 14%">
+                <Box
+                  display="flex"
+                  flexDirection={isSmallScreen ? "column" : "row"}
+                  justifyContent="space-between"
+                  alignItems="center"
+                  width="100%">
+                  {headerTabs.map((item, index) => (
+                    <MuiLink
+                      key={index}
+                      onClick={() =>
+                        navigate(get(item, "routeTo", location.pathname))
+                      }
+                      underline="none"
+                      sx={{
+                        fontWeight: "bold",
+                        textTransform: "capitalize",
+                        fontSize: "15px",
+                        margin: isSmallScreen ? "10px 0" : "0 5px",
+                        cursor: "pointer",
+                        color: "inherit",
+                        position: "relative",
+                        paddingBottom: "5px",
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          width: "0",
+                          height: "2px",
+                          bottom: "0",
+                          left: "50%",
+                          backgroundColor: "currentColor",
+                          transition: "width 0.3s ease, left 0.3s ease",
+                        },
+                        "&:hover::after": {
+                          width: "100%",
+                          left: "0",
+                        },
+                      }}>
+                      {item.label}
+                    </MuiLink>
+                  ))}
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  marginTop: "40px",
+                  justifyContent: "center",
+                }}>
+                <IconButton
+                  color="buttonWhite"
+                  sx={{
+                    mr: "16px",
+                    "&:hover": {
+                      color: "secondary.main",
+                    },
+                  }}>
+                  <FacebookTwoToneIcon />
+                </IconButton>
+                <IconButton
+                  color="buttonWhite"
+                  sx={{
+                    mr: "16px",
+                    "&:hover": {
+                      color: "secondary.main",
+                    },
+                  }}>
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton
+                  color="buttonWhite"
+                  sx={{
+                    mr: "16px",
+                    "&:hover": {
+                      color: "secondary.main",
+                    },
+                  }}>
+                  <InstagramIcon />
+                </IconButton>
+              </Box>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={3} sx={{}}>
-          <Typography variant="h6" fontSize={"18px"} color="common.white">
-            SARAL DYE CHEMS
-          </Typography>
-          <Typography
-            variant="subtitle2"
-            fontSize={"16px"}
-            textAlign={"left"}
-            fontWeight={"500"}
-            lineHeight={"22px"}
-            color="common.white">
-            Wholesale suppliers of advanced technology screen printing and
-            textile chemicals.
-          </Typography>
-          <Typography
-            variant="h6"
-            fontSize={"18px"}
-            color="common.white"
-            mt="12px">
-            HEAD OFFICE :{" "}
-            <Typography variant="subtitle2" fontSize={"14px"} fontWeight={500}>
-              402, P-2, Best Business Park, Netaji Subhash Place, Pitampura,
-              Delhi &#x28;110034&#x29;
-            </Typography>
-            <Link
-              href="tel:+919810024522"
-              color="buttonWhite.main"
-              sx={{
-                textDecoration: "none",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <Typography
-                variant="subtitle2"
-                fontSize={"16px"}
-                fontWeight={600}
-                mt={"10px"}>
-                &#x28;+91&#x29; 9810024522
-              </Typography>
-            </Link>
-            <Link
-              href="tel:+9810166261"
-              color="buttonWhite.main"
-              sx={{
-                textDecoration: "none",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <Typography
-                variant="subtitle2"
-                fontSize={"16px"}
-                fontWeight={600}>
-                &#x28;+91&#x29; 9810166261
-              </Typography>
-            </Link>
-            <Link
-              href="mailto:saraldyes@gmail.com"
-              color="buttonWhite.main"
-              sx={{
-                textDecoration: "none",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <Typography
-                variant="subtitle2"
-                fontSize={"16px"}
-                fontWeight={600}>
-                saraldyes@gmail.com
-              </Typography>
-            </Link>
-          </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              marginTop: "10px",
-            }}>
-            <IconButton
-              color="buttonWhite"
-              sx={{
-                mr: "16px",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <FacebookTwoToneIcon />
-            </IconButton>
-            <IconButton
-              color="buttonWhite"
-              sx={{
-                mr: "16px",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <TwitterIcon />
-            </IconButton>
-            <IconButton
-              color="buttonWhite"
-              sx={{
-                mr: "16px",
-                "&:hover": {
-                  color: "secondary.main",
-                },
-              }}>
-              <InstagramIcon />
-            </IconButton>
-          </Box>
-        </Grid>
-        <Grid item xs={12} sm={4} lg={4} sx={{}}></Grid>
-        <Grid
-          item
-          xs={12}
-          sm={2}
-          lg={2}
-          sx={{
-            display: {xs: "none", sm: "flex"},
-            flexDirection: "column",
-            alignItems: "center",
-          }}>
-          <Typography
-            variant="h4"
-            fontSize={"22px"}
-            fontWeight={700}
-            color="common.white">
-            Explore
-          </Typography>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            HOME
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/products")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            PRODUCTS
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/about-us")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            ABOUT US
-          </FooterLink>
-          <FooterLink
-            variant="text"
-            color="buttonWhite"
-            onClick={() => navigate("/contact-us")}
-            sx={{
-              "&:hover": {
-                color: "secondary.main",
-              },
-            }}>
-            CONTACT US
-          </FooterLink>
-        </Grid>
-      </Grid>
+      </ThemeProvider>
     </Box>
   );
 };

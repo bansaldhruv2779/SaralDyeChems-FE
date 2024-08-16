@@ -1,6 +1,7 @@
 export const headerTabs = [
   {label: "Home", routeTo: "/"},
-  {label: "Products", routeTo: "/products"},
+  {label: "Products", routeTo: "#products"},
   {label: "About Us", routeTo: "/about-us"},
+  {label: "Our Team", routeTo: "#team"},
   {label: "Contact Us", routeTo: "/contact-us"},
 ];
