@@ -1,5 +1,4 @@
 import React from "react";
-// import {EvervaultCard, Icon} from "../ui/evervault-card";
 
 export default function EvervaultCardDemo({imgSource}) {
   return (
@@ -9,7 +8,11 @@ export default function EvervaultCardDemo({imgSource}) {
       <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
-      <img src={imgSource} style={{height: "100%", width: "100%"}} />
+      <img
+        src={imgSource}
+        style={{height: "100%", width: "100%"}}
+        alt="cardImage"
+      />
     </div>
   );
 }

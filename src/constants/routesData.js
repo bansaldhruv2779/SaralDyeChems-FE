@@ -1,12 +1,4 @@
-import {
-  Home,
-  ContactUs,
-  Products,
-  AboutUs,
-  Coverage,
-  Partners,
-  Testimonials,
-} from "../pages";
+import {Home, ContactUs, Products, AboutUs} from "../pages";
 
 const routesData = [
   {
@@ -33,30 +25,6 @@ const routesData = [
     publicRoute: true,
     exact: true,
   },
-  {
-    path: "/Coverage",
-    Component: Coverage,
-    publicRoute: true,
-    exact: true,
-  },
-  {
-    path: "/Partners",
-    Component: Partners,
-    publicRoute: true,
-    exact: true,
-  },
-  {
-    path: "/Testimonials",
-    Component: Testimonials,
-    publicRoute: true,
-    exact: true,
-  },
-  // {
-  //   path: "/orders",
-  //   Component: AllOrders,
-  //   publicRoute: false,
-  //   exact: false,
-  // },
 ];
 
 export default routesData;

@@ -9,15 +9,25 @@ const floating = keyframes`
   100% { transform: translateY(0); }
 `;
 
-const Index = () => {
+const AboutComponent = ({showHeading = true}) => {
   return (
     <Box sx={{padding: "30px 8%"}}>
       <div id="Aboutus"></div>
-      <FlipHeading categoryId="ABOUT   US" />
-      <p style={{marginBottom: "30px", color: "#A0A6B0", textAlign: "center"}}>
-        A serene and tranquil retreat, this house in the woods offers a peaceful
-        escape from the hustle and bustle of city life.
-      </p>
+      {showHeading && (
+        <>
+          <FlipHeading word="ABOUT   US" />
+          <p
+            style={{
+              marginBottom: "30px",
+              color: "#A0A6B0",
+              textAlign: "center",
+            }}>
+            A serene and tranquil retreat, this house in the woods offers a
+            peaceful escape from the hustle and bustle of city life.
+          </p>
+        </>
+      )}
+
       <Grid container spacing={4} sx={{alignItems: "center"}}>
         <Grid
           item
@@ -42,13 +52,10 @@ const Index = () => {
             sx={{
               fontSize: "20px",
               fontWeight: "bold",
-              // color: "#021961",
               color: "#929293",
               marginBottom: "15px",
-              // position: "relative",
               paddingBottom: "10px",
               borderBottom: "3px solid #929293",
-              // display: "inline-block",
               textTransform: "uppercase",
             }}>
             Leading Textile Chemicals Distributor with Over 36 Years of
@@ -87,4 +94,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default AboutComponent;

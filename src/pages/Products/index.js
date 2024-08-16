@@ -1,11 +1,7 @@
-import React, {useEffect, useRef, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProductList} from "../../store/actions";
-import {Grid, Typography, Box, styled} from "@mui/material";
-import productList from "./products.json";
-import Flip from "../../components/Flipword/Flip";
+import React, {useEffect, useState} from "react";
+import {Grid, Box, styled} from "@mui/material";
+import productList from "../../constants/products.json";
 import {BackgroundBoxesDemo} from "../../components/Background/Background";
-import FlipHeading from "../../components/Flipword/FlipHeading";
 import ProductCard from "./ProductCard";
 import FeaturesSectionDemo from "./ProductView";
 
@@ -14,50 +10,19 @@ const ProductSection = styled(Box)(({theme, direction}) => ({
   flexWrap: "wrap",
   justifyContent: "space-around",
   alignItems: "flex-start",
-  // marginBottom: theme.spacing(6),
   padding: theme.spacing(3),
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius,
 }));
 
-// Styled component for responsive product image
-const ProductImage = styled("img")(({theme}) => ({
-  width: "100%",
-  maxWidth: "400px",
-  height: "700px",
-  maxHeight: "400px",
-  objectFit: "cover",
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[4],
-  margin: theme.spacing(2),
-  [theme.breakpoints.down("sm")]: {
-    maxWidth: "300px",
-    maxHeight: "300px",
-  },
-  [theme.breakpoints.down("xs")]: {
-    maxWidth: "200px",
-    maxHeight: "200px",
-  },
-}));
-
-const ProductDetails = styled(Box)(({theme}) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  padding: theme.spacing(3),
-}));
-
 const BackgroundSection = styled(Box)(({theme}) => ({
   position: "relative",
-  // height: "400px",
-  // backgroundImage: `url(${"https://img.freepik.com/free-vector/hand-draw-blue-brush-watercolor-texture_1035-19518.jpg?t=st=1722673840~exp=1722677440~hmac=67cbce25fce5139c4b5b4a7571862441fcae28aa78c11807880dd8fbf9d59df9&w=1480"})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)", // Paintbrush effect
   color: "#fff",
   display: "flex",
   alignItems: "center",
-  // paddingLeft: theme.spacing(4),
   "&::before": {
     content: '""',
     position: "absolute",
@@ -69,25 +34,21 @@ const BackgroundSection = styled(Box)(({theme}) => ({
     clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)", // Match the image clipping
     zIndex: 1,
   },
-
-  // Ensures text is above the overlay
   zIndex: 2,
 }));
 
 const Products = () => {
-  const dispatch = useDispatch();
-  const {products} = useSelector(state => state.products);
-  const ref = useRef(0);
   const params = new URL(document.location).searchParams;
-  const categoryId = params.get("category");
-  const categoryName = params.get("name");
+  const categoryName = params.get("category");
+  const categoryDescription = productList.data.find(
+    category => category.category === categoryName,
+  ).description;
 
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
     const productsArray = [];
-
     productList.data.forEach(category => {
-      if (!categoryId || category.category === categoryId) {
+      if (!categoryName || category.category === categoryName) {
         category.product.forEach(product => {
           productsArray.push({
             category: category.category,
@@ -101,21 +62,9 @@ const Products = () => {
     });
 
     setAllProducts(productsArray);
-  }, [categoryName, categoryId]);
-
-  useEffect(() => {
-    if (ref.current === 0) {
-      dispatch(fetchProductList.REQUEST({params: {categories: categoryId}}));
-      ref.current = 1;
-    }
-  }, [dispatch, categoryId]);
+  }, [categoryName]);
 
   const renderProductSection = (products, direction) => {
-    // Get unique categories from the products array
-    const uniqueCategories = [
-      ...new Set(products.map(product => product.category)),
-    ];
-
     return (
       <div
         style={{
@@ -146,11 +95,12 @@ const Products = () => {
       style={{backgroundColor: "white", justifyContent: "space-around"}}>
       <Grid item xs={12}>
         <BackgroundSection>
-          {/* <Flip categoryId={categoryId} /> */}
-          <BackgroundBoxesDemo categoryId={categoryId} />
+          <BackgroundBoxesDemo
+            categoryName={categoryName}
+            categoryDescription={categoryDescription}
+          />
         </BackgroundSection>
       </Grid>
-      {/* <Grid item xs={12} mt={4}> */}
       <div>
         {Array.isArray(allProducts) &&
           allProducts.map(
@@ -162,7 +112,6 @@ const Products = () => {
               ),
           )}
       </div>
-      {/* </Grid> */}
     </Grid>
   );
 };

@@ -28,6 +28,7 @@ const Header = props => {
 
   const handleNavigation = route => {
     if (route.startsWith("#")) {
+      navigate("/");
       const sectionId = route.slice(1); // Remove the '#' character
       const section = document.getElementById(sectionId);
       if (section) {
@@ -57,7 +58,7 @@ const Header = props => {
               src={Logo}
               alt="Saral Dye Chems"
               loading="lazy"
-              style={{height: "36px", marginRight: "16px"}}
+              style={{height: "36px", marginRight: "16px", marginLeft: "16px"}}
             />
             <Typography
               variant="h6"
@@ -65,7 +66,6 @@ const Header = props => {
               component="a"
               sx={{
                 mr: 2,
-                fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: "1px",
                 color: "inherit",
@@ -80,7 +80,7 @@ const Header = props => {
             <Box
               flex={1}
               display="flex"
-              flexDirection="column"
+              flexDirection="row"
               alignItems="center"
               justifyContent="center"
               sx={{cursor: "pointer"}}
@@ -89,8 +89,26 @@ const Header = props => {
                 src={Logo}
                 alt="Saral Dye Chems"
                 loading="lazy"
-                style={{height: "36px", marginRight: "16px"}}
+                style={{
+                  height: "36px",
+                  marginRight: "16px",
+                  marginLeft: "16px",
+                }}
               />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  fontWeight: 700,
+                  letterSpacing: "1px",
+                  color: "inherit",
+                  textDecoration: "none",
+                  flex: "1",
+                }}>
+                Saral Dye Chems
+              </Typography>
             </Box>
             <IconButton
               size="large"
@@ -123,7 +141,7 @@ const Header = props => {
                   key={page.label}
                   onClick={() => {
                     handleCloseNavMenu();
-                    navigate(get(page, "routeTo", location.pathname));
+                    handleNavigation(get(page, "routeTo", location.pathname));
                   }}>
                   <Typography
                     textAlign="center"
