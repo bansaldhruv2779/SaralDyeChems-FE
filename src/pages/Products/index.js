@@ -9,6 +9,7 @@ import {BackgroundBoxesDemo} from "../../components/Background/Background";
 import FlipHeading from "../../components/Flipword/FlipHeading";
 import ProductCard from "./ProductCard";
 import FeaturesSectionDemo from "./ProductView";
+import CommonBackground from "../../components/CommonBackground/Index";
 
 const ProductSection = styled(Box)(({theme, direction}) => ({
   display: "flex",
@@ -142,29 +143,15 @@ const Products = () => {
   };
 
   return (
-    <Grid
-      container
-      style={{backgroundColor: "white", justifyContent: "space-around"}}>
-      <Grid item xs={12}>
-        <BackgroundSection>
-          {/* <Flip categoryId={categoryId} /> */}
-          <BackgroundBoxesDemo categoryId={categoryId} />
-        </BackgroundSection>
-      </Grid>
-      {/* <Grid item xs={12} mt={4}> */}
-      <div>
-        {Array.isArray(allProducts) &&
-          allProducts.map(
-            (_, idx) =>
-              idx % 4 === 0 &&
-              renderProductSection(
-                allProducts.slice(idx, idx + 4),
-                (idx / 4) % 2 === 0 ? "right" : "left",
-              ),
-          )}
-      </div>
-      {/* </Grid> */}
-    </Grid>
+    <div>
+      <CommonBackground
+        title={categoryId}
+        mainRoute=""
+        childRoute=""
+        description="Flat bed screen printing chemicals are specialized dyes and agents used for precise, high-quality textile printing on flat surfaces."
+      />
+      <ProductCard />
+    </div>
   );
 };
 

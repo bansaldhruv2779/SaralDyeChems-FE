@@ -1,89 +1,120 @@
 import React from "react";
-import {Box, Grid, Typography} from "@mui/material";
-import {keyframes} from "@emotion/react";
-import FlipHeading from "../Flipword/FlipHeading";
+import product from "../";
+import Heading from "../Heading/Heading";
+import about from "../../assets/about.png";
 
-const floating = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-`;
-
-const Index = () => {
+const Index = ({route, lastParagraph}) => {
   return (
-    <Box sx={{padding: "30px 8%"}}>
-      <div id="Aboutus"></div>
-      <FlipHeading categoryId="ABOUT   US" />
-      <p style={{marginBottom: "30px", color: "#A0A6B0", textAlign: "center"}}>
-        A serene and tranquil retreat, this house in the woods offers a peaceful
-        escape from the hustle and bustle of city life.
-      </p>
-      <Grid container spacing={4} sx={{alignItems: "center"}}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            animation: `${floating} 3s ease-in-out infinite`,
-          }}>
-          <Box
-            component="img"
-            src="https://img.freepik.com/free-vector/body-language-concept-illustration_114360-19536.jpg?t=st=1722623057~exp=1722626657~hmac=91b926289b050a86daceabc113c6f088234eafe1a759ec2a8847d5248e39a6f2&w=1480"
-            alt="Textile Chemicals"
-            sx={{
-              width: "100%",
-              borderRadius: "15px",
+    <div style={{paddingBottom: "80px"}}>
+      <div
+        style={{
+          display: "flex",
+          padding: "0 5%",
+          justifyContent: "center",
+          flexDirection: "row",
+          alignItems: "center",
+        }}>
+        <div style={{width: "40%"}}>
+          <img
+            src={about}
+            style={{
+              width: "90%",
+              height: lastParagraph ? "550px" : "60%", // Adjust height based on condition
+              borderRadius: "10px",
             }}
+
+            // style={{width: "90%", height: "60%", borderRadius: "10px"}}
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography
-            variant="h3"
-            sx={{
-              fontSize: "20px",
-              fontWeight: "bold",
-              // color: "#021961",
-              color: "#929293",
-              marginBottom: "15px",
-              // position: "relative",
-              paddingBottom: "10px",
-              borderBottom: "3px solid #929293",
-              // display: "inline-block",
-              textTransform: "uppercase",
-            }}>
-            Leading Textile Chemicals Distributor with Over 36 Years of
-            Excellence
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              lineHeight: "1.8",
-              color: "#555",
-              marginBottom: "15px",
-            }}>
-            Saral Dye Chems, founded by Mr. Vipul Kumar Gupta in 1987 at 21, is
-            a leading distributor of textile chemicals. Named after his mother,
-            the company began trading engraving chemicals and quickly grew,
-            becoming an authorized agent of Bluecoat Pvt Ltd. Mr. Vipul&apos;s
-            success led to establishing an office in Tilak Bazaar, Delhi, with
-            his brother, Mr. Sunit Kumar Gupta, later joining to drive
-            expansion.
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "16px",
-              lineHeight: "1.8",
-              color: "#555",
-              marginBottom: "15px",
-            }}>
-            Today, Saral operates in Delhi, Panipat, and Ludhiana, serving
-            Punjab, Haryana, and international markets. With over 36 years of
-            experience, Saral is known for reliability, professionalism, and
-            top-quality products.
-          </Typography>
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+        <div style={{width: "55%"}}>
+          <div>
+            <h2
+              style={{
+                fontSize: "20px",
+                borderLeft: "2px solid #3C5D87",
+                color: "#000029",
+                fontWeight: "600",
+                paddingLeft: "10px",
+                marginTop: "20px",
+              }}>
+              Leading Textile Chemilcals Distributor with over{" "}
+              <span style={{color: "#5E7A9D"}}>36 years of Excellence</span>
+            </h2>
+          </div>
+          <div>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#484949",
+                marginBottom: "20px",
+                marginTop: "20px",
+              }}>
+              Saral Dye Chems is a leading textile chemicals distributor
+              business that was founded by Mr Vipul Kumar Gupta in 1987. With a
+              passion for entrepreneurship, Mr Vipul started the company at the
+              age of 21 and named it after his mother, symbolizing the love and
+              dedication towards his family. Initially, the company traded
+              engraving chemicals and soon became an authorized agent of
+              Bluecoat Pvt Ltd.
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#484949",
+                marginBottom: "20px",
+              }}>
+              Within a few years, Saral had established a name for itself in the
+              textile chemicals industry, which enabled Mr Vipul to purchase his
+              own office in Tilak Bazaar - one of the biggest chemical trading
+              markets in India. The company&apos;s growth was phenomenal, and
+              soon Mr Sunit Kumar Gupta, Mr Vipul&apos;s younger brother, joined
+              the business played a pivotal role in the company&apos;s success.
+              His contribution helped to further expand the company&apos;s reach
+              and take it to new heights.
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#484949",
+                marginBottom: "20px",
+              }}>
+              Today, Saral is a well-known name in the textile chemicals
+              industry, with offices in Delhi, Panipat, and Ludhiana. Our
+              offices cater to all the markets of Punjab, Haryana and even
+              international markets like Nepal. Saral takes pride in offering a
+              wide array of screen making materials, flat bed chemicals, rotary
+              chemicals, and many more.
+            </p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#484949",
+                marginBottom: "30px",
+              }}>
+              Our success is attributed to the dedication of our team, which
+              works hard to ensure that we deliver quality products and services
+              to our clients. With 36+ years of experience in the industry, we
+              have built a strong reputation for our reliability,
+              professionalism, and exceptional customer service.
+            </p>
+            {lastParagraph && (
+              <p
+                style={{
+                  fontSize: "13px",
+                  color: "#484949",
+                  marginBottom: "30px",
+                }}>
+                At Saral, we are committed to providing our clients with the
+                best products, service, and experience. We strive to stay ahead
+                of the curve by continuously innovating and expanding our range
+                of products and services. We look forward to serving you and
+                your business with our quality textile chemicals.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

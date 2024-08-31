@@ -1,115 +1,50 @@
-import React, {useEffect, useRef, useState} from "react";
-import {TECarousel, TECarouselItem} from "tw-elements-react";
-import Products from "../../pages/Products/products.json";
-import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router";
-import {fetchCategoryList} from "../../store/actions";
+import React from "react";
+import bgImage from "../../assets/bg.png"; // Replace with actual logo image paths
+import logo1 from "../../assets/logoImage.jpeg"; // Replace with actual logo image paths
+import logo2 from "../../assets/logoImage.jpeg";
+import logo3 from "../../assets/logoImage.jpeg";
+import auth from "../../assets/auth.png";
 
-export default function CarouselDarkVariant() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [categories, setCategories] = useState(Products.data);
-  const ref = useRef(0);
-  useEffect(() => {
-    console.log(categories);
-    if (ref.current === 0) {
-      dispatch(fetchCategoryList.REQUEST());
-      ref.current = 1;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const HeroSection = () => {
   return (
-    <>
-      <TECarousel
-        showControls
-        showIndicators
-        crossfade
-        ride="carousel"
-        prevBtnIcon={
-          <>
-            <span className="inline-block text-black h-8 w-8 [&>svg]:h-8">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </span>
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-              Previous
-            </span>
-          </>
-        }
-        nextBtnIcon={
-          <>
-            <span className="inline-block text-black h-8 w-8 [&>svg]:h-8">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </span>
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-              Next
-            </span>
-          </>
-        }
-        theme={{
-          indicator:
-            "mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none",
-        }}>
-        <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-          <TECarouselItem
-            itemID={1}
-            className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none">
-            <img
-              src="https://img.freepik.com/free-photo/still-life-cmyk-toners-arrangement_23-2149120707.jpg?t=st=1722666038~exp=1722669638~hmac=47454cd9d51a5a924671417dec6035c9b03fb37c27d560cc1fde3681ceda8c74&w=1480"
-              className="block w-full"
-              style={{height: "600px"}}
-              alt="..."
-            />
-            <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
-              <h5 className="text-xl">First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
-          </TECarouselItem>
-          <TECarouselItem
-            itemID={1}
-            style={{height: "600px"}}
-            className="relative float-left -mr-[100%] hidden w-full !transform-none transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none">
-            <img
-              src="https://img.freepik.com/free-vector/flat-printing-industry-illustrated_23-2148911710.jpg?t=st=1722666105~exp=1722669705~hmac=a3905eaf54ab6f369f84c42f0a232369a434649ec09da17d32ebc6fc3ea570f8&w=1060"
-              className="block w-full"
-              //   style={{height: "100%"}}
-              alt="..."
-            />
-            <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
-              <a href="#" className="text-xl">
-                Screen Making Auxillaries
-              </a>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
-            </div>
-          </TECarouselItem>
+    <div
+      className="relative bg-cover bg-center h-screen flex items-center"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-[#161E28] bg-opacity-85"></div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto flex flex-col items-start justify-center h-full p-4">
+        {/* Text section */}
+        <div className="text-white max-w-xl">
+          <h1 className="text-5xl font-bold mb-4">
+            Premier Screen Engraving Chemical Solutions
+          </h1>
+          <p className="text-sm mb-8">
+            India&apos;s Trusted Distributor of High-Quality Chemicals for
+            Precision Screen Engraving
+          </p>
+          <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-white font-bold py-2 px-4 rounded">
+            Get Started
+          </button>
         </div>
-      </TECarousel>
-    </>
+
+        {/* Authorized Dealers Box */}
+        <div className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-lg shadow-lg w-[30rem]">
+          {/* Authorized Dealers label */}
+          <div className="absolute -top-4 left-[30%] bg-[#000029] text-lg text-white px-4 py-1 rounded-md">
+            Authorized Dealers Of
+          </div>
+          {/* Logos */}
+          {/* <div className=""> */}
+          <img src={auth} style={{width: "100%", height: "240px"}} />
+          {/* </div> */}
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default HeroSection;

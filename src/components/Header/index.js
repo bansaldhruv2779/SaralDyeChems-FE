@@ -1,182 +1,66 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import {Menu as MenuIcon} from "@mui/icons-material";
-import React, {useState} from "react";
-import {headerTabs} from "../../constants/headers";
-import {get} from "lodash";
-import {useLocation, useNavigate} from "react-router";
-import {Logo} from "../../assets";
+import React, {useState, useEffect} from "react";
+import {useLocation} from "react-router-dom";
+import logo from "../../landscape.png";
 
-const Header = props => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
+const Index = () => {
+  const [activeLink, setActiveLink] = useState("Home");
+  const location = useLocation(); // Get the current location
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleOpenNavMenu = event => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleNavigation = route => {
-    if (route.startsWith("#")) {
-      const sectionId = route.slice(1); // Remove the '#' character
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({behavior: "smooth"});
-      }
-    } else {
-      navigate(route);
+  // Set the active link based on the current URL
+  useEffect(() => {
+    const path = location.pathname;
+    switch (path) {
+      case "/":
+        setActiveLink("Home");
+        break;
+      case "/about-us":
+        setActiveLink("About Us");
+        break;
+      case "/contact-us":
+        setActiveLink("Contact Us");
+        break;
+      default:
+        setActiveLink("Products"); // Set to empty string if no match is found
+        break;
     }
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  }, [location.pathname]); // Dependency on location.pathname
+
+  const handleLinkClick = link => {
+    setActiveLink(link);
   };
 
   return (
-    <AppBar position="sticky" sx={{maxWidth: "100vw", bgcolor: "white"}}>
-      <Container
-        maxWidth="xl"
-        sx={{backgroundColor: "white", color: "black", px: "0px"}}>
-        <Toolbar disableGutters>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {xs: "none", md: "flex", cursor: "pointer"},
-            }}
-            onClick={() => navigate("/")}>
-            <img
-              src={Logo}
-              alt="Saral Dye Chems"
-              loading="lazy"
-              style={{height: "36px", marginRight: "16px"}}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              sx={{
-                mr: 2,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: "1px",
-                color: "inherit",
-                textDecoration: "none",
-                flex: "1",
-              }}>
-              Saral Dye Chems
-            </Typography>
-          </Box>
-
-          <Box sx={{flexGrow: 1, display: {xs: "flex", md: "none"}}}>
-            <Box
-              flex={1}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
-              sx={{cursor: "pointer"}}
-              onClick={() => navigate("/")}>
-              <img
-                src={Logo}
-                alt="Saral Dye Chems"
-                loading="lazy"
-                style={{height: "36px", marginRight: "16px"}}
-              />
-            </Box>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit">
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: {xs: "block", md: "none"},
-              }}>
-              {headerTabs.map(page => (
-                <MenuItem
-                  key={page.label}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    navigate(get(page, "routeTo", location.pathname));
-                  }}>
-                  <Typography
-                    textAlign="center"
-                    color={"common.fontPrimary"}
-                    fontSize={"16px"}
-                    fontWeight={"700"}
-                    lineHeight={"21px"}>
-                    {page.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {xs: "none", md: "flex", justifyContent: "flex-end"},
-            }}>
-            {headerTabs.map(page => {
-              const isActive = Boolean(
-                location.pathname === get(page, "routeTo", "nil"),
-              );
-              return (
-                <Button
-                  key={page.label}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    handleNavigation(get(page, "routeTo", location.pathname));
-                  }}
-                  sx={{
-                    my: 2,
-                    mx: 6,
-                    color: isActive ? "primary" : "common.fontPrimary",
-                    borderBottom: isActive ? 2 : 0,
-                    borderColor: "secondary.main",
-                    borderRadius: "1px",
-                    textAlign: "center",
-                    fontSize: "16px",
-                  }}>
-                  <Typography
-                    color={isActive ? "primary" : "common.fontPrimary"}
-                    fontSize={"14px"}
-                    fontWeight={"700"}>
-                    {page.label}
-                  </Typography>
-                </Button>
-              );
-            })}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <div className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between pr-[8%] pl-[10%] pb-4 pt-4 items-center bg-white shadow-md">
+      <div className="w-[100px]">
+        <img src={logo} style={{width: "100%"}} alt="Logo" />
+      </div>
+      <div className="flex flex-row space-x-7">
+        {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
+          link => (
+            <a
+              key={link}
+              href={
+                link === "Home"
+                  ? "/"
+                  : link === "About Us"
+                  ? "/about-us"
+                  : link === "Contact Us"
+                  ? "/contact-us"
+                  : ""
+              }
+              onClick={() => handleLinkClick(link)}
+              className={`text-sm pb-2 pl-2 pr-2 ${
+                activeLink === link
+                  ? "border-b-2 border-[#3C5D87]"
+                  : "border-none"
+              } text-[#3C5D87]`}>
+              {link}
+            </a>
+          ),
+        )}
+      </div>
+    </div>
   );
 };
 
-export default Header;
+export default Index;

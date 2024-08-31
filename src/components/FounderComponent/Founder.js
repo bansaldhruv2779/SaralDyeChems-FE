@@ -1,94 +1,148 @@
-import React, {useState} from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  styled,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import SocialMediaComponent from "./SocialMediaComponent";
+// import React from "react";
+// import {Box, Typography, styled} from "@mui/material";
+// import Founder1 from "../../constants/Founder1.JPG";
+// import Founder2 from "../../constants/Founder2.JPG";
+// import Heading from "../Heading/Heading";
+// import bgImage from "../../assets/bgb.png";
+
+// // Styled components
+// const Container = styled(Box)(({theme}) => ({
+//   backgroundImage: `url(${bgImage})`,
+//   backgroundSize: "cover",
+//   backgroundPosition: "center",
+//   padding: "40px 8%",
+//   textAlign: "left",
+// }));
+
+// const FounderWrapper = styled(Box)(({theme}) => ({
+//   display: "flex",
+//   justifyContent: "center",
+//   gap: "30px",
+//   flexWrap: "wrap",
+// }));
+
+// const FounderCard = styled(Box)(({theme}) => ({
+//   width: "300px", // Increased width
+//   backgroundColor: "#FFFFFF",
+//   borderRadius: "8px",
+//   boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+//   overflow: "hidden",
+//   textAlign: "left",
+//   transition: "transform 0.3s ease",
+// }));
+
+// const FounderImage = styled("img")({
+//   width: "100%",
+//   height: "250px", // Increased height
+//   objectFit: "cover",
+// });
+
+// const FounderInfo = styled(Box)({
+//   padding: "20px",
+// });
+
+// const FounderName = styled(Typography)({
+//   fontSize: "1.3rem", // Increased font size
+//   fontWeight: "500",
+//   color: "#333333",
+// });
+
+// const FounderTitle = styled(Typography)({
+//   fontSize: "1.1rem", // Slightly increased font size
+//   color: "#777777",
+// });
+
+// const founders = [
+//   {
+//     name: "Vipul Kumar Gupta",
+//     title: "Founder",
+//     image: Founder1,
+//   },
+//   {
+//     name: "Sumit Kumar Gupta",
+//     title: "Founder",
+//     image: Founder2,
+//   },
+// ];
+
+// const Founder = () => {
+//   return (
+//     <Container>
+//       <Heading
+//         title="Our Founders"
+//         titlecolor="#FFF"
+//         desColor="#FFF"
+//         description="Engraving Lifelines Since 1987"
+//       />
+//       <FounderWrapper>
+//         {founders.map((founder, index) => (
+//           <FounderCard key={index}>
+//             <FounderImage src={founder.image} alt={founder.name} />
+//             <FounderInfo>
+//               <FounderName>{founder.name}</FounderName>
+//               <FounderTitle>{founder.title}</FounderTitle>
+//             </FounderInfo>
+//           </FounderCard>
+//         ))}
+//       </FounderWrapper>
+//     </Container>
+//   );
+// };
+
+// export default Founder;
+import React from "react";
+import {Box, Typography, styled} from "@mui/material";
 import Founder1 from "../../constants/Founder1.JPG";
 import Founder2 from "../../constants/Founder2.JPG";
+import Heading from "../Heading/Heading";
+import bgImage from "../../assets/bgb.png";
 
-const FounderBox = styled(Box)(({theme}) => ({
-  width: 250,
-  margin: "20px",
-  textAlign: "center",
-  transition: "transform 0.3s, box-shadow 0.3s",
-  "&:hover": {
-    transform: "translateY(-10px)",
-    boxShadow: theme.shadows[5],
-  },
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-    margin: "10px 2%",
-  },
+// Styled components
+const Container = styled(Box)(({theme}) => ({
+  backgroundImage: `url(${bgImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  padding: "40px 8%",
+  textAlign: "left",
+}));
+
+const FounderWrapper = styled(Box)(({theme}) => ({
+  display: "flex",
+  justifyContent: "center",
+  gap: "30px",
+  flexWrap: "wrap",
+}));
+
+const FounderCard = styled(Box)(({theme}) => ({
+  width: "300px", // Increased width
+  backgroundColor: "#FFFFFF",
+  borderRadius: "8px",
+  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+  overflow: "hidden",
+  textAlign: "left",
+  transition: "transform 0.3s ease",
 }));
 
 const FounderImage = styled("img")({
-  width: 200,
-  height: 200,
-  margin: "0 auto",
-  borderRadius: "50%",
+  width: "100%",
+  height: "250px", // Increased height
+  objectFit: "cover",
 });
 
-const StyledContainer = styled(Box)(({theme}) => ({
-  margin: "20px 8%",
-  textAlign: "center",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "column",
-    margin: "20px 2%",
-  },
-}));
+const FounderInfo = styled(Box)({
+  padding: "20px",
+});
 
-const LeftSection = styled(Box)(({theme}) => ({
-  padding: "60px 20px",
-  borderRadius: "10px",
-  width: "40%",
-  color: "#FFF",
-  textAlign: "center",
-  backgroundImage:
-    "url('https://img.freepik.com/free-photo/blue-toned-paper-sheets-with-copy-space_23-2148320450.jpg?t=st=1722664031~exp=1722667631~hmac=2532df60f7103e98950c6a3693f8dac937a2f7ab9986da089a8720789911f93a&w=2000')",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  [theme.breakpoints.down("md")]: {
-    width: "80%",
-    marginBottom: "20px",
-    padding: "30px 10px",
-    // marginLeft: "30px",
-  },
-}));
+const FounderName = styled(Typography)({
+  fontSize: "1.3rem", // Increased font size
+  fontWeight: "500",
+  color: "#333333",
+});
 
-const RightSection = styled(Box)(({theme}) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "#f5f5f5",
-  padding: "40px",
-  borderRadius: "10px",
-  width: "55%",
-  transition: "opacity 0.3s ease-in-out",
-  [theme.breakpoints.down("md")]: {
-    width: "100%",
-    padding: "10px",
-  },
-}));
-
-const FounderButton = styled(Button)(({theme}) => ({
-  margin: "10px 0",
-  backgroundColor: "#FFF",
-  color: "#7FA1C3",
-  fontWeight: "bold",
-  "&:hover": {
-    backgroundColor: "#fff",
-    color: "#555",
-  },
-}));
+const FounderTitle = styled(Typography)({
+  fontSize: "1.1rem", // Slightly increased font size
+  color: "#777777",
+});
 
 const founders = [
   {
@@ -104,47 +158,26 @@ const founders = [
 ];
 
 const Founder = () => {
-  const [selectedFounder, setSelectedFounder] = useState(founders[0]);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
-    <StyledContainer>
-      <LeftSection>
-        <Typography
-          variant="h3"
-          component="h2"
-          fontWeight={600}
-          color="#021961">
-          OUR FOUNDERS
-        </Typography>
-        <Typography fontStyle="italic" mb={3} color="#021961">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </Typography>
+    <Container>
+      <Heading
+        title="Our Founders"
+        titlecolor="#FFF"
+        desColor="#FFF"
+        description="Engraving Lifelines Since 1987"
+      />
+      <FounderWrapper>
         {founders.map((founder, index) => (
-          <FounderButton
-            key={index}
-            style={{marginRight: isMobile ? 0 : 10}}
-            onClick={() => setSelectedFounder(founder)}>
-            {founder.name}
-          </FounderButton>
+          <FounderCard key={index}>
+            <FounderImage src={founder.image} alt={founder.name} />
+            <FounderInfo>
+              <FounderName>{founder.name}</FounderName>
+              <FounderTitle>{founder.title}</FounderTitle>
+            </FounderInfo>
+          </FounderCard>
         ))}
-      </LeftSection>
-      <RightSection>
-        <FounderBox>
-          <FounderImage
-            src={selectedFounder.image}
-            alt={selectedFounder.name}
-          />
-          <Typography variant="h6" fontWeight="bold">
-            {selectedFounder.name}
-          </Typography>
-          <Typography>{selectedFounder.title}</Typography>
-          <SocialMediaComponent />
-        </FounderBox>
-      </RightSection>
-    </StyledContainer>
+      </FounderWrapper>
+    </Container>
   );
 };
 

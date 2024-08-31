@@ -13,6 +13,7 @@ import GalleryComponent from "../../components/GalleryComponent/GalleryComponent
 import Segment from "../../components/Segments/Segments";
 import Partners from "../../components/Partners/Partners";
 import CarouselDarkVariant from "../../components/Carousel/Carousel";
+import Heading from "../../components/Heading/Heading";
 
 const StyledCard = styled(Card)(({theme}) => ({
   borderRadius: "12px",
@@ -79,20 +80,15 @@ const Home = () => {
   return (
     <Box>
       <div id="Home"></div>
-      {Array.isArray(categories) && categories.length > 0 ? (
-        <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
-          {categories.map((item, index) => {
-            return (
-              <Box key={index} height={"80vh"}>
-                <img src={item.image} alt={item.product} />
-                <p className="legend">{item.category}</p>
-              </Box>
-            );
-          })}
-        </Carousel>
-      ) : null}
+      <CarouselDarkVariant />
       <div id="about">
-        <AboutComponent />
+        <Heading
+          title="Welcome to Saral Dye Chems"
+          description="Engraving Lifelines Sine 1987"
+          titlecolor="#3C5D87"
+          desColor="#000029"
+        />
+        <AboutComponent lastParagraph={false} />
       </div>
       <div id="products">
         <Segment />

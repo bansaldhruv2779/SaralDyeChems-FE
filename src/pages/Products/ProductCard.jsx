@@ -1,30 +1,159 @@
-import React from "react";
-// import {EvervaultCard, Icon} from "../ui/evervault-card";
+import React, {useEffect, useRef, useState} from "react";
+import image2 from "../../assets/photo.png";
+import background from "../../assets/prbgb.png";
+import productList from "./newProduct.json";
+import {fetchProductList} from "../../store/actions";
+import {useDispatch, useSelector} from "react-redux";
 
-export default function EvervaultCardDemo({imgSource}) {
+const ProductCard = () => {
+  const dispatch = useDispatch();
+  const {products} = useSelector(state => state.products);
+  const ref = useRef(0);
+  const params = new URL(document.location).searchParams;
+  const categoryId = params.get("category");
+  const categoryName = params.get("name");
+
+  const [allProducts, setAllProducts] = useState([]);
+
+  useEffect(() => {
+    const productsArray = [];
+
+    productList.data.forEach(category => {
+      if (!categoryId || category.category === categoryId) {
+        category.product.forEach(product => {
+          productsArray.push({
+            category: category.category,
+            name: product.name,
+            description: product.description,
+            image: product.image,
+            subCategory: product.subCategory || [],
+          });
+        });
+      }
+    });
+
+    setAllProducts(productsArray);
+  }, [categoryName, categoryId]);
+
+  useEffect(() => {
+    if (ref.current === 0) {
+      dispatch(fetchProductList.REQUEST({params: {categories: categoryId}}));
+      ref.current = 1;
+    }
+  }, [dispatch, categoryId]);
+
   return (
-    <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm  p-2 relative h-[30rem]">
-      <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        padding: "20px 5%",
+        justifyContent: "space-between",
+      }}>
+      {allProducts.map((product, index) => (
+        <div
+          key={index}
+          style={{
+            width: "100%",
+            maxWidth: "48%",
+            borderRadius: "10px",
+            margin: "10px 0",
+            backgroundColor: "#FFF",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+            padding: "20px",
+            boxSizing: "border-box",
+            flex: "1 1 calc(50% - 20px)", // Adjusts width on smaller screens
+          }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "3%",
+            }}>
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "200px",
+                height: "220px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",
+                zIndex: 1,
+              }}>
+              <img
+                src={image2}
+                alt={product.name}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  zIndex: -1,
+                  ...(index % 2 === 0
+                    ? {left: -30, bottom: 10} // For odd-indexed items
+                    : {top: 10, right: -30}), // For even-indexed items
+                }}>
+                <img
+                  src={background}
+                  style={{
+                    width: "120px",
+                    height: "120px",
+                    borderRadius: "50%",
+                  }}
+                  alt="Background"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              padding: "10px",
+            }}>
+            <p style={{color: "#3C5D86", fontSize: "22px", fontWeight: "500"}}>
+              {product.name}
+            </p>
+            <p style={{color: "#737879"}}>{product.description}</p>
 
-      <img src={imgSource} style={{height: "100%", width: "100%"}} />
+            {product.subCategory.length > 0 && (
+              <div
+                style={{
+                  padding: "5px 5px",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gap: "5px",
+                }}>
+                {product.subCategory.map((subCat, subIndex) => (
+                  <div
+                    key={subIndex}
+                    style={{
+                      gridColumn: subIndex % 2 === 0 ? "1 / 2" : "2 / 3",
+                      marginTop: "10px",
+                    }}>
+                    <p style={{color: "#000029"}}>{subCat.name}</p>
+                    {subCat.items.map((item, itemIndex) => (
+                      <li
+                        key={itemIndex}
+                        style={{
+                          color: "#737879",
+                          marginLeft: "10px",
+                        }}>
+                        {item}
+                      </li>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
-}
-
-export const Icon = ({className, ...rest}) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className={className}
-      {...rest}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-    </svg>
-  );
 };
+
+export default ProductCard;

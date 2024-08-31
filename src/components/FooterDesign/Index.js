@@ -1,262 +1,233 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Typography,
-  styled,
-  IconButton,
-  Link as MuiLink,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+// import React from "react";
+// import {
+//   IconBrandFacebook,
+//   IconBrandTwitter,
+//   IconBrandInstagram,
+//   IconChevronRight,
+// } from "@tabler/icons-react";
+// import logo from "../../assets/logo.png";
+
+// function Footer() {
+//   return (
+//     <footer className="bg-[#3C5D87] text-white py-8 text-[12px]">
+//       <div className="container mx-auto px-4 flex justify-between">
+//         <div className="w-1/4 mr-8">
+//           <div className="h-26 w-26 bg-transparent mb-4 ">
+//             <img
+//               src={logo}
+//               alt="Logo"
+//               className="h-full w-full object-contain"
+//             />
+//           </div>
+//         </div>
+//         <div className="w-1/4">
+//           <h3 className="font-bold mb-2">Domestic Network</h3>
+//           <ul>
+//             {[
+//               "Panjab",
+//               "Himachal Pradesh",
+//               "Haryana",
+//               "UP",
+//               "West Bengal",
+//               "Orissa",
+//               "Tamil Nadu",
+//               "Gujarat",
+//               "Rajasthan",
+//               "Madhya Pradesh",
+//               "Andhra Pradesh",
+//             ].map((state, index) => (
+//               <li key={index} className="mb-1">
+//                 • {state}
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="w-1/4">
+//           <h3 className="font-bold mb-2">International Network</h3>
+//           <ul>
+//             {["Nepal", "South Africa"].map((country, index) => (
+//               <li key={index} className="mb-1">
+//                 • {country}
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="w-1/4">
+//           <h3 className="font-bold mb-2">Top Products</h3>
+//           <ul>
+//             {[
+//               "Bolting Cloth",
+//               "Ezycoat 216",
+//               "Ezycoat 828",
+//               "Rotostar HT/MT",
+//               "Photoemulsion 747",
+//               "Endering Remover",
+//               "Nuspray Paint",
+//               "Ammonium Dichromate",
+//               "Arkabond",
+//               "Ezycoat 999C",
+//               "Acetone",
+//               "Ethyl Acetate",
+//               "Stripper",
+//             ].map((product, index) => (
+//               <li
+//                 key={index}
+//                 className="mb-1 flex"
+//                 style={{display: "flex", alignItems: "center"}}>
+//                 <IconChevronRight style={{width: "16px"}} />
+//                 {product}
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//         <div className="w-1/4">
+//           <h3 className="font-bold mb-2">Head Office</h3>
+//           <p className="mb-2">
+//             402, P-2, Best Business Park, Netaji Subhash Place, Pitampura,
+//             (110034)
+//           </p>
+
+//           <h3 className="font-bold mb-2">Branch Panipat</h3>
+//           <p className="mb-2">
+//             Plot No. 482, Sector-25, Part-II, Huda Ind, Area, Panipat-132103
+//           </p>
+
+//           <h3 className="font-bold mb-2">Branch Ludhiana</h3>
+//           <p className="mb-2">
+//             221/L, Indra Colony, Chandigarh Road, B/H.S.K. Marbal,
+//             Ludhiana-141008
+//           </p>
+
+//           <h3 className="font-bold mb-2">Contact Info</h3>
+//           <p className="mb-2">📧 saraldyes@gmail.com</p>
+//           <p>📞 +91 9810024522, +91 9810166261</p>
+//         </div>
+//       </div>
+//       <div className="container mx-auto px-4 mt-8 flex justify-between items-center">
+//         <p>&copy; 2024 Saral Dye Chems. All Rights Reserved</p>
+//         <div className="flex space-x-4">
+//           <IconBrandFacebook size={24} />
+//           <IconBrandTwitter size={24} />
+//           <IconBrandInstagram size={24} />
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+// export default Footer;
 import React from "react";
-import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import {createTheme, ThemeProvider} from "@mui/material/styles";
-import {FooterBg, LogoImage} from "../../assets";
-import {useNavigate} from "react-router";
+import {
+  IconBrandFacebook,
+  IconBrandTwitter,
+  IconBrandInstagram,
+  IconChevronRight,
+} from "@tabler/icons-react";
+import logo from "../../assets/animate.gif";
 
-const FooterLink = styled(Button)`
-  font-size: 16px;
-  margin-top: 12px;
-  display: block;
-`;
-
-const theme = createTheme({
-  typography: {
-    fontFamily: "Poppins, Arial, sans-serif",
-  },
-});
-
-const Footer = () => {
-  const navigate = useNavigate();
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const cities = [
-    "Mumbai",
-    "Delhi",
-    "Bengaluru",
-    "Kolkata",
-    "Chennai",
-    "Hyderabad",
-    "Ahmedabad",
-    "Pune",
-    "Jaipur",
-    "Surat",
-    "Kanpur",
-    "Lucknow",
-    "Nagpur",
-    "Indore",
-    "Bhopal",
-    "Visakhapatnam",
-    "Vadodara",
-    "Ghaziabad",
-    "Ludhiana",
-    "Agra",
-    "Nashik",
-  ];
-
-  const handleNavigation = path => {
-    navigate(path);
-  };
-
+function Footer() {
   return (
-    <Box
-      mt="50px"
-      minHeight="200px"
-      p="30px 20px"
-      position="sticky"
-      color="common.white"
-      style={{backgroundImage: `url(${FooterBg})`}}>
-      <ThemeProvider theme={theme}>
-        <Grid container direction="column" spacing={2}>
-          {/* <Grid item>
+    <footer className="bg-[#3C5D87] text-white py-8 text-[12px]">
+      <div className="container mx-auto px-4 flex flex-wrap md:flex-nowrap justify-between">
+        <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-8 flex justify-center md:justify-start">
+          <div className="h-56 w-26 bg-transparent mb-4">
             <img
-              src={LogoImage}
-              alt="Saral Dye Chems"
-              loading="lazy"
-              style={{height: "120px", width: "120px"}}
+              src={logo}
+              alt="Logo"
+              className="h-full w-full object-contain"
             />
-          </Grid> */}
+          </div>
+        </div>
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="font-bold mb-2">Domestic Network</h3>
+          <ul>
+            {[
+              "Panjab",
+              "Himachal Pradesh",
+              "Haryana",
+              "UP",
+              "West Bengal",
+              "Orissa",
+              "Tamil Nadu",
+              "Gujarat",
+              "Rajasthan",
+              "Madhya Pradesh",
+              "Andhra Pradesh",
+            ].map((state, index) => (
+              <li key={index} className="mb-1">
+                • {state}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="font-bold mb-2">International Network</h3>
+          <ul>
+            {["Nepal", "South Africa"].map((country, index) => (
+              <li key={index} className="mb-1">
+                • {country}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 className="font-bold mb-2">Top Products</h3>
+          <ul>
+            {[
+              "Bolting Cloth",
+              "Ezycoat 216",
+              "Ezycoat 828",
+              "Rotostar HT/MT",
+              "Photoemulsion 747",
+              "Endering Remover",
+              "Nuspray Paint",
+              "Ammonium Dichromate",
+              "Arkabond",
+              "Ezycoat 999C",
+              "Acetone",
+              "Ethyl Acetate",
+              "Stripper",
+            ].map((product, index) => (
+              <li key={index} className="mb-1 flex items-center">
+                <IconChevronRight className="mr-2" style={{width: "16px"}} />
+                {product}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="w-full md:w-1/4">
+          <h3 className="font-bold mb-2">Head Office</h3>
+          <p className="mb-2">
+            402, P-2, Best Business Park, Netaji Subhash Place, Pitampura,
+            (110034)
+          </p>
 
-          <Grid item>
-            <Box
-              display="flex"
-              flexDirection={isSmallScreen ? "column" : "row"}
-              justifyContent="space-evenly"
-              marginBottom="40px"
-              alignItems="flex-start">
-              <Typography fontSize="14px" fontWeight="bold">
-                TOP LOCATION
-              </Typography>
-              <Box
-                display="flex"
-                flexWrap="wrap"
-                gap={1}
-                sx={{width: isSmallScreen ? "100%" : "50%"}}>
-                {cities.map((city, index) => (
-                  <React.Fragment key={index}>
-                    <Typography fontWeight="bold" fontSize="13px">
-                      {city}
-                    </Typography>
-                    {index < cities.length - 1 && (
-                      <Typography fontSize="14px">•</Typography>
-                    )}
-                  </React.Fragment>
-                ))}
-              </Box>
-            </Box>
-          </Grid>
+          <h3 className="font-bold mb-2">Branch Panipat</h3>
+          <p className="mb-2">
+            Plot No. 482, Sector-25, Part-II, Huda Ind, Area, Panipat-132103
+          </p>
 
-          <Grid item>
-            <Box
-              display="flex"
-              flexDirection={isSmallScreen ? "column" : "row"}
-              justifyContent="space-evenly"
-              marginBottom="40px"
-              alignItems="flex-start">
-              <Typography fontSize="14px" fontWeight="bold">
-                TOP PRODUCTS
-              </Typography>
-              <Box
-                display="flex"
-                flexWrap="wrap"
-                gap={1}
-                sx={{width: isSmallScreen ? "100%" : "50%"}}>
-                {cities.map((city, index) => (
-                  <React.Fragment key={index}>
-                    <Typography fontWeight="bold" fontSize="13px">
-                      {city}
-                    </Typography>
-                    {index < cities.length - 1 && (
-                      <Typography fontSize="14px">•</Typography>
-                    )}
-                  </React.Fragment>
-                ))}
-              </Box>
-            </Box>
-          </Grid>
+          <h3 className="font-bold mb-2">Branch Ludhiana</h3>
+          <p className="mb-2">
+            221/L, Indra Colony, Chandigarh Road, B/H.S.K. Marbal,
+            Ludhiana-141008
+          </p>
 
-          <Grid item>
-            <Box
-              display="flex"
-              flexDirection={isSmallScreen ? "column" : "row"}
-              justifyContent="space-evenly"
-              marginBottom="40px"
-              alignItems="flex-start">
-              <Typography fontSize="14px" fontWeight="bold">
-                HEAD OFFICE
-              </Typography>
-              <Box
-                display="flex"
-                flexWrap="wrap"
-                sx={{width: isSmallScreen ? "100%" : "50%"}}
-                gap={1}>
-                <Typography fontWeight="bold" fontSize="13px">
-                  402, P-2, Best Business Park, Netaji Subhash Place, Pitampura,
-                  (110034)
-                </Typography>
-              </Box>
-            </Box>
-          </Grid>
-
-          <Grid item>
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              padding="0 14%">
-              <Box
-                display="flex"
-                flexDirection={isSmallScreen ? "column" : "row"}
-                justifyContent="space-between"
-                alignItems="center"
-                width="100%">
-                {[
-                  {name: "HOME", path: "/"},
-                  {name: "PRODUCTS", path: "/products"},
-                  {name: "TESTIMONIAL", path: "/testimonial"},
-                  {name: "ABOUT US", path: "/about"},
-                  {name: "CONTACT US", path: "/contact"},
-                ].map((item, index) => (
-                  <MuiLink
-                    key={index}
-                    onClick={() => handleNavigation(item.path)}
-                    underline="none"
-                    sx={{
-                      fontWeight: "bold",
-                      textTransform: "capitalize",
-                      fontSize: "15px",
-                      margin: isSmallScreen ? "10px 0" : "0 5px",
-                      cursor: "pointer",
-                      color: "inherit",
-                      position: "relative",
-                      paddingBottom: "5px",
-                      "&::after": {
-                        content: '""',
-                        position: "absolute",
-                        width: "0",
-
-                        height: "2px",
-                        bottom: "0",
-                        left: "50%",
-                        backgroundColor: "currentColor",
-                        transition: "width 0.3s ease, left 0.3s ease",
-                      },
-                      "&:hover::after": {
-                        width: "100%",
-                        left: "0",
-                      },
-                    }}>
-                    {item.name}
-                  </MuiLink>
-                ))}
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                marginTop: "40px",
-                justifyContent: "center",
-              }}>
-              <IconButton
-                color="buttonWhite"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <FacebookTwoToneIcon />
-              </IconButton>
-              <IconButton
-                color="buttonWhite"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton
-                color="buttonWhite"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <InstagramIcon />
-              </IconButton>
-            </Box>
-          </Grid>
-        </Grid>
-      </ThemeProvider>
-    </Box>
+          <h3 className="font-bold mb-2">Contact Info</h3>
+          <p className="mb-2">📧 saraldyes@gmail.com</p>
+          <p>📞 +91 9810024522, +91 9810166261</p>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 mt-8 flex flex-wrap items-center justify-between text-[12px]">
+        <p>&copy; 2024 Saral Dye Chems. All Rights Reserved</p>
+        <div className="flex space-x-4 mt-2">
+          <IconBrandFacebook size={24} />
+          <IconBrandTwitter size={24} />
+          <IconBrandInstagram size={24} />
+        </div>
+      </div>
+    </footer>
   );
-};
+}
 
 export default Footer;
