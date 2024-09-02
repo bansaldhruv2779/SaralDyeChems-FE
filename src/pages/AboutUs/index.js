@@ -15,6 +15,7 @@ import Founder from "../../components/FounderComponent/Founder";
 import CommonBackground from "../../components/CommonBackground/Index";
 import Achievements from "../../components/Achievements/Index";
 import Catered from "./Catered";
+import ScrollButton from "../../components/TopButton/Index";
 
 const AboutUs = () => {
   const theme = createTheme({
@@ -39,6 +40,7 @@ const AboutUs = () => {
         <Catered />
         <Founder />
         <Achievements />
+        <ScrollButton />
       </ThemeProvider>
     </>
   );

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 import {fetchCategoryList} from "../../store/actions";
-import {Box, Grid, Card, Typography, styled} from "@mui/material";
+import {Box, Grid, Card, Fab, Typography, styled} from "@mui/material";
 import {useNavigate} from "react-router";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {Carousel} from "react-responsive-carousel";
@@ -14,6 +14,7 @@ import Segment from "../../components/Segments/Segments";
 import Partners from "../../components/Partners/Partners";
 import CarouselDarkVariant from "../../components/Carousel/Carousel";
 import Heading from "../../components/Heading/Heading";
+import ScrollButton from "../../components/TopButton/Index";
 
 const StyledCard = styled(Card)(({theme}) => ({
   borderRadius: "12px",
@@ -96,6 +97,7 @@ const Home = () => {
       <div id="team">
         <GalleryComponent />
       </div>
+      <ScrollButton />
     </Box>
   );
 };

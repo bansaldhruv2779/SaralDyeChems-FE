@@ -53,7 +53,7 @@ const Catered = () => {
       <h2
         style={{
           color: "#3C5D87",
-          fontSize: "34px",
+          fontSize: "38px",
           fontWeight: "bold",
           textAlign: "center",
         }}>

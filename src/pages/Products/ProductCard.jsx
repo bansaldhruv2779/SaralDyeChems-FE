@@ -46,6 +46,7 @@ const ProductCard = () => {
     <div
       style={{
         display: "flex",
+        backgroundColor: "#F5F7FB",
         flexDirection: "row",
         flexWrap: "wrap",
         padding: "20px 5%",
@@ -60,7 +61,7 @@ const ProductCard = () => {
             borderRadius: "10px",
             margin: "10px 0",
             backgroundColor: "#FFF",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             padding: "20px",
             boxSizing: "border-box",
             flex: "1 1 calc(50% - 20px)", // Adjusts width on smaller screens
@@ -73,9 +74,9 @@ const ProductCard = () => {
             }}>
             <div
               style={{
-                width: "100%",
-                maxWidth: "200px",
-                height: "220px",
+                width: "200%",
+                maxWidth: "300px",
+                height: "320px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -95,14 +96,14 @@ const ProductCard = () => {
                   position: "absolute",
                   zIndex: -1,
                   ...(index % 2 === 0
-                    ? {left: -30, bottom: 10} // For odd-indexed items
-                    : {top: 10, right: -30}), // For even-indexed items
+                    ? {left: -30, bottom: 30} // For odd-indexed items
+                    : {top: 30, right: -30}), // For even-indexed items
                 }}>
                 <img
                   src={background}
                   style={{
-                    width: "120px",
-                    height: "120px",
+                    width: "180px",
+                    height: "180px",
                     borderRadius: "50%",
                   }}
                   alt="Background"
@@ -114,7 +115,12 @@ const ProductCard = () => {
             style={{
               padding: "10px",
             }}>
-            <p style={{color: "#3C5D86", fontSize: "22px", fontWeight: "500"}}>
+            <p
+              style={{
+                color: "#3C5D86",
+                fontWeight: "800",
+                fontSize: "22px",
+              }}>
               {product.name}
             </p>
             <p style={{color: "#737879"}}>{product.description}</p>

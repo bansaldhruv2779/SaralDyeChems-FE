@@ -10,6 +10,7 @@ import FlipHeading from "../../components/Flipword/FlipHeading";
 import ProductCard from "./ProductCard";
 import FeaturesSectionDemo from "./ProductView";
 import CommonBackground from "../../components/CommonBackground/Index";
+import ScrollButton from "../../components/TopButton/Index";
 
 const ProductSection = styled(Box)(({theme, direction}) => ({
   display: "flex",
@@ -151,6 +152,7 @@ const Products = () => {
         description="Flat bed screen printing chemicals are specialized dyes and agents used for precise, high-quality textile printing on flat surfaces."
       />
       <ProductCard />
+      <ScrollButton />
     </div>
   );
 };

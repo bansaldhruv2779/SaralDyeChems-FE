@@ -15,10 +15,10 @@ const Index = () => {
       }}>
       <h2
         style={{
-          fontSize: "44px",
+          fontSize: "36px",
           textAlign: "center",
           color: "white",
-          fontWeight: "500",
+          fontWeight: "bold",
           paddingBottom: "30px",
         }}>
         Why Choose Us?
@@ -28,6 +28,8 @@ const Index = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          marginLeft: "40px",
+          marginRight: "40px",
           justifyContent: "space-between",
         }}>
         <Card

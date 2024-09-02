@@ -134,14 +134,14 @@ const FounderInfo = styled(Box)({
 });
 
 const FounderName = styled(Typography)({
-  fontSize: "1.3rem", // Increased font size
+  fontSize: "1rem", // Increased font size
   fontWeight: "500",
   color: "#333333",
 });
 
 const FounderTitle = styled(Typography)({
-  fontSize: "1.1rem", // Slightly increased font size
-  color: "#777777",
+  fontSize: "0.8rem", // Slightly increased font size
+  color: "#3D3D3D",
 });
 
 const founders = [
@@ -151,7 +151,7 @@ const founders = [
     image: Founder1,
   },
   {
-    name: "Sumit Kumar Gupta",
+    name: "Sunit Kumar Gupta",
     title: "Founder",
     image: Founder2,
   },

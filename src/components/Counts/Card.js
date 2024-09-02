@@ -6,10 +6,10 @@ const Card = ({icon, title, description}) => {
       style={{
         display: "flex",
         borderRadius: "8px",
-        width: "20%",
+        width: "19%",
         height: "220px",
         flexDirection: "column",
-        margin: "10px",
+        margin: "5px",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFF",
@@ -36,7 +36,13 @@ const Card = ({icon, title, description}) => {
         }}>
         {title}
       </h2>
-      <p style={{fontSize: "14px", textAlign: "center", padding: "10px 10px"}}>
+      <p
+        style={{
+          fontSize: "13px",
+          height: "70px",
+          textAlign: "center",
+          padding: "10px 10px",
+        }}>
         {description}
       </p>
     </div>

@@ -15,7 +15,13 @@ const ProductCard = ({link, image, title}) => (
     to={link}
     className="relative bg-cover bg-center rounded-lg overflow-hidden h-56"
     style={{backgroundImage: `url(${image})`}}>
-    <div className="absolute bottom-0 left-0 w-full p-2 text-white text-left font-semibold">
+    <div
+      className="absolute bottom-0 left-0 w-full p-2 text-white text-left font-semibold"
+      style={{
+        background:
+          "linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) 100%)",
+        padding: "1rem",
+      }}>
       {title}
     </div>
   </Link>

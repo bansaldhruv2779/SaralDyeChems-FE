@@ -182,22 +182,26 @@
 // };
 
 // export default ContactUs;
+
 import {
   Box,
   Button,
+  Fab,
   Grid,
   InputAdornment,
   MenuItem,
   Select,
   TextField,
   Typography,
+  styled,
 } from "@mui/material";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Formik, Form} from "formik";
 import {contactUsValidator} from "../../utils/validators";
 import CommonBackground from "../../components/CommonBackground/Index";
 import PhoneIcon from "@mui/icons-material/Phone"; // Import the phone icon
-
+import ScrollButton from "../../components/TopButton/Index";
+import Branches from "../../components/Branches/Index";
 const ContactUs = () => {
   const submitHandler = values => {
     console.log("Values ===> ", values);
@@ -211,6 +215,7 @@ const ContactUs = () => {
         arrow={true}
         childRoute="Contact Us"
       />
+      <Branches />
       <Grid container spacing={3} sx={{padding: {xs: 2, sm: 5, md: 15}}}>
         <Grid item xs={12} md={6} sx={{paddingRight: {xs: 0, md: 2}}}>
           <iframe
@@ -389,6 +394,7 @@ const ContactUs = () => {
             )}
           </Formik>
         </Grid>
+        <ScrollButton />
       </Grid>
     </>
   );

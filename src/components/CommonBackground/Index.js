@@ -9,7 +9,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Index = ({title, arrow, mainRoute, childRoute, description}) => {
   return (
-    <div style={{height: "300px", position: "relative", marginBottom: "30px"}}>
+    <div style={{height: "300px", position: "relative"}}>
       <div
         className="bg-cover bg-center flex items-center"
         style={{
@@ -20,26 +20,38 @@ const Index = ({title, arrow, mainRoute, childRoute, description}) => {
 
       <div className="absolute inset-0 bg-[#0C1522] bg-opacity-85">
         <div>
-          <p
+          <h2
             style={{
               color: "white",
               marginTop: "150px",
-              fontSize: "40px",
+              fontSize: "32px",
               textAlign: "center",
               fontWeight: "bold",
             }}>
             {title}
-          </p>
+          </h2>
           <p
             style={{
               color: "white",
-              fontSize: "16px",
+              fontSize: "13px",
               textAlign: "center",
             }}>
             {mainRoute} {arrow && <ArrowForwardIosIcon fontSize="10px" />}{" "}
             {description !== " > "} {childRoute}
             {description && description}
           </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+            }}>
+            <a href="/contact-us">
+              <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-sm text-white font-bold py-2 px-4 rounded">
+                Get a quote
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
