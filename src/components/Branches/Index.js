@@ -17,27 +17,33 @@ const OfficeCard = ({title, icon, address, contact}) => (
   <Card
     sx={{
       borderRadius: "8px",
-      padding: "13px",
+      padding: "13px 0px",
       backgroundColor: "white",
-      width: "300px", // Fixed width
-      height: "180px", // Fixed height
+      width: "320px",
+      height: "180px",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
       cursor: !contact && "pointer",
     }}>
     <CardContent>
-      <Typography variant="h6" component="div" gutterBottom>
-        {title}
-      </Typography>
-      <Box display="flex" alignItems="center" mb={2}>
-        {icon && (
-          <div className="bg-[#3C5D87] rounded-full p-1 -mt-4 mr-4">{icon}</div>
-        )}
-        <Typography variant="body2" color="textSecondary">
-          {address}
+      {title && (
+        <Typography color="#3C5D86" variant="h6" component="div" gutterBottom>
+          {title}
         </Typography>
-      </Box>
+      )}
+      {address && (
+        <Box display="flex" alignItems="center" mb={2}>
+          {icon && (
+            <div className="bg-[#3C5D87]  rounded-full p-1 -mt-4 mr-4">
+              {icon}
+            </div>
+          )}
+          <Typography variant="body2" color="textSecondary">
+            {address}
+          </Typography>
+        </Box>
+      )}
       {contact && (
         <Box>
           <Typography variant="body2" color="textSecondary">
@@ -67,7 +73,7 @@ const OfficeCard = ({title, icon, address, contact}) => (
 );
 
 const OfficeLocations = props => (
-  <Box sx={{padding: "40px 0", backgroundColor: "#f4f6f8"}}>
+  <Box sx={{padding: "10px 0", backgroundColor: "#f4f6f8"}}>
     <Heading title=" Our Offices" titlecolor="#3C5D87" />
     <Grid container spacing={3} justifyContent="center">
       <Grid
