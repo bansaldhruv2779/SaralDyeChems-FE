@@ -21,11 +21,12 @@ const Card = ({icon, title, description}) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+
           padding: "10px",
           backgroundColor: "#D3DAF9",
           borderRadius: "10px",
         }}>
-        <img src={icon} />
+        <img src={icon} style={{width: "28px"}} />
       </div>
       <h2
         style={{
