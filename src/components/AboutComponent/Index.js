@@ -1,28 +1,26 @@
 import React from "react";
-import product from "../";
-import Heading from "../Heading/Heading";
 import about from "../../assets/about.png";
 
 const Index = ({route, lastParagraph}) => {
   return (
-    <div style={{paddingBottom: "80px"}}>
+    <div className="p-20">
       <div
         style={{
           display: "flex",
-          padding: "0 5%",
+          // padding: "0 5%",
           justifyContent: "center",
           flexDirection: "row",
-          alignItems: "center",
+          // alignItems: "center",
         }}>
         <div style={{width: "40%"}}>
           <img
             src={about}
             style={{
               width: "90%",
-              height: lastParagraph ? "550px" : "60%", // Adjust height based on condition
+              height: lastParagraph ? "100%" : "60%", // Adjust height based on condition
               borderRadius: "10px",
             }}
-
+            alt=""
             // style={{width: "90%", height: "60%", borderRadius: "10px"}}
           />
         </div>
@@ -35,7 +33,6 @@ const Index = ({route, lastParagraph}) => {
                 color: "#000029",
                 fontWeight: "600",
                 paddingLeft: "10px",
-                marginTop: "20px",
               }}>
               Leading Textile Chemilcals Distributor with over{" "}
               <span style={{color: "#5E7A9D"}}>36 years of Excellence</span>

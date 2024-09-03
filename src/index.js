@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import {Provider} from "react-redux";
-import {persistStore} from "redux-persist";
-import {PersistGate} from "redux-persist/integration/react";
-import {store} from "./store";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
 
@@ -12,7 +8,6 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-const persistor = persistStore(store);
 
 if (process.env.NODE_ENV !== "development") {
   console.log = () => {};
@@ -22,11 +17,7 @@ if (process.env.NODE_ENV !== "development") {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router />
-      </PersistGate>
-    </Provider>
+    <Router />
   </React.StrictMode>,
 );
 

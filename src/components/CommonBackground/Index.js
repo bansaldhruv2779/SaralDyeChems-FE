@@ -36,22 +36,24 @@ const Index = ({title, arrow, mainRoute, childRoute, description}) => {
               fontSize: "13px",
               textAlign: "center",
             }}>
-            {mainRoute} {arrow && <ArrowForwardIosIcon fontSize="10px" />}{" "}
+            {mainRoute} {arrow && <ArrowForwardIosIcon fontSize="10px" />}
             {description !== " > "} {childRoute}
             {description && description}
           </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "10px",
-            }}>
-            <a href="/contact-us">
-              <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-sm text-white font-bold py-2 px-4 rounded">
-                Get a quote
-              </button>
-            </a>
-          </div>
+          {title !== "About Us" && title !== "Contact Us" && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "10px",
+              }}>
+              <a href="/contact-us">
+                <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-sm text-white font-bold py-2 px-4 rounded">
+                  GET A QUOTE
+                </button>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

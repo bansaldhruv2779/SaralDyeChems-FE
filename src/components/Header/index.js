@@ -54,9 +54,11 @@ const Index = () => {
                     ? "/about-us"
                     : link === "Contact Us"
                     ? "/contact-us"
-                    : "#"
+                    : link === "Our Team"
+                    ? "/#team"
+                    : ""
                 }
-                onClick={() => handleLinkClick(link)}
+                onMouseOver={() => handleLinkClick(link)}
                 style={{fontSize: "12px"}}
                 className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
                   activeLink === link
@@ -99,6 +101,11 @@ const Index = () => {
                     href="/products?category=Textile Auxiliaries"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                     Textile Auxiliaries
+                  </a>
+                  <a
+                    href="/products?category=Machines"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                    Machines
                   </a>
                 </div>
               )}

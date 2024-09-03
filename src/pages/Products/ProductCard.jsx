@@ -1,14 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import image2 from "../../assets/photo.png";
 import background from "../../assets/prbgb.png";
 import productList from "./newProduct.json";
-import {fetchProductList} from "../../store/actions";
-import {useDispatch, useSelector} from "react-redux";
 
 const ProductCard = () => {
-  const dispatch = useDispatch();
-  const {products} = useSelector(state => state.products);
-  const ref = useRef(0);
   const params = new URL(document.location).searchParams;
   const categoryId = params.get("category");
   const categoryName = params.get("name");
@@ -34,13 +29,6 @@ const ProductCard = () => {
 
     setAllProducts(productsArray);
   }, [categoryName, categoryId]);
-
-  useEffect(() => {
-    if (ref.current === 0) {
-      dispatch(fetchProductList.REQUEST({params: {categories: categoryId}}));
-      ref.current = 1;
-    }
-  }, [dispatch, categoryId]);
 
   return (
     <div
