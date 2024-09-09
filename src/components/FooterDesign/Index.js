@@ -12,7 +12,7 @@ import logo from "../../assets/animate1.gif";
 
 function Footer() {
   return (
-    <footer className="bg-[#112641] text-white py-8 text-[12px]">
+    <footer className="bg-[#163359] text-white py-8 text-[12px]">
       <div className="container mx-auto px-4 flex flex-wrap md:flex-nowrap justify-between">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-8 flex justify-center md:justify-start">
           <div className="h-96 bg-transparent w-max	mb-4">

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import image2 from "../../assets/photo.png";
-import background from "../../assets/prbgb.png";
-import productList from "./newProduct.json";
+import purpleProductbg from "../../assets/purpleProductbg.png";
+import blueProductbg from "../../assets/blueProductbg.png";
+import {products as productList} from "./newProduct";
+import ImageHex from "./ImageHex";
 
 const ProductCard = () => {
   const params = new URL(document.location).searchParams;
@@ -12,7 +13,7 @@ const ProductCard = () => {
 
   useEffect(() => {
     const productsArray = [];
-
+    console.log(productList);
     productList.data.forEach(category => {
       if (!categoryId || category.category === categoryId) {
         category.product.forEach(product => {
@@ -38,7 +39,7 @@ const ProductCard = () => {
         flexDirection: "row",
         flexWrap: "wrap",
         padding: "20px 5%",
-        justifyContent: "space-between",
+        justifyContent: allProducts.length === 1 ? "center" : "space-between",
       }}>
       {allProducts.map((product, index) => (
         <div
@@ -71,14 +72,7 @@ const ProductCard = () => {
                 position: "relative",
                 zIndex: 1,
               }}>
-              <img
-                src={image2}
-                alt={product.name}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
+              <ImageHex image={product.image} alt={product.name} />
               <div
                 style={{
                   position: "absolute",
@@ -88,7 +82,7 @@ const ProductCard = () => {
                     : {top: 30, right: -30}), // For even-indexed items
                 }}>
                 <img
-                  src={background}
+                  src={index % 2 === 0 ? purpleProductbg : blueProductbg}
                   style={{
                     width: "180px",
                     height: "180px",

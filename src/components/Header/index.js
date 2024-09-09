@@ -59,6 +59,7 @@ const Index = () => {
                     : ""
                 }
                 onMouseOver={() => handleLinkClick(link)}
+                onClick={() => handleLinkClick(link)}
                 style={{fontSize: "12px"}}
                 className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
                   activeLink === link
@@ -103,9 +104,9 @@ const Index = () => {
                     Textile Auxiliaries
                   </a>
                   <a
-                    href="/products?category=Machines"
+                    href="/products?category=Printing Machines"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
-                    Machines
+                    Printing Machines
                   </a>
                 </div>
               )}

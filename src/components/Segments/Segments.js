@@ -56,9 +56,9 @@ function ProductsGrid() {
       title: "Textile Auxiliaries",
     },
     {
-      link: "/products?category=Machines",
+      link: "/products?category=Printing Machines",
       image: image6,
-      title: "Machines",
+      title: "Printing Machines",
     },
   ];
 
