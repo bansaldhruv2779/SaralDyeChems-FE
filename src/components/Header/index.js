@@ -19,6 +19,14 @@ const Index = () => {
     }
   };
 
+  const handleLinkHover = link => {
+    if (link === "Products") {
+      setShowProductsDropdown(!showProductsDropdown); // Toggle dropdown
+    } else {
+      setShowProductsDropdown(false); // Hide dropdown if another link is clicked
+    }
+  };
+
   // Set the active link based on the current URL
   useEffect(() => {
     const path = location.pathname;
@@ -57,9 +65,9 @@ const Index = () => {
                     ? "/contact-us"
                     : link === "Our Team"
                     ? "/#team"
-                    : ""
+                    : "#"
                 }
-                onMouseOver={() => handleLinkClick(link)}
+                onMouseOver={() => handleLinkHover(link)}
                 onClick={() => handleLinkClick(link)}
                 style={{fontSize: "12px"}}
                 className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
@@ -78,7 +86,9 @@ const Index = () => {
               </a>
 
               {link === "Products" && showProductsDropdown && (
-                <div className="absolute left-0 mt-2 rounded-md bg-white shadow-lg">
+                <div
+                  className="absolute left-0 mt-2 rounded-md bg-white shadow-lg"
+                  onMouseLeave={() => handleLinkHover(link)}>
                   <a
                     href="/products?category=Flat Bed Screen Printing Chemicals"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
@@ -105,9 +115,9 @@ const Index = () => {
                     Textile Auxiliaries
                   </a>
                   <a
-                    href="/products?category=Printing Machines"
+                    href="/products?category=Textile Printing Machines"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
-                    Printing Machines
+                    Textile Printing Machines
                   </a>
                 </div>
               )}

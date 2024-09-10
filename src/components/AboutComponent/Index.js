@@ -7,21 +7,18 @@ const AboutComponent = ({lastParagraph}) => {
       <div
         style={{
           display: "flex",
-          // padding: "0 5%",
           justifyContent: "center",
           flexDirection: "row",
-          // alignItems: "center",
         }}>
         <div style={{width: "40%"}}>
           <img
             src={about}
             style={{
               width: "90%",
-              height: lastParagraph ? "100%" : "60%", // Adjust height based on condition
+              height: "100%", // Adjust height based on condition
               borderRadius: "10px",
             }}
             alt=""
-            // style={{width: "90%", height: "60%", borderRadius: "10px"}}
           />
         </div>
         <div style={{width: "55%"}}>

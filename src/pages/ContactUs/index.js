@@ -79,10 +79,9 @@ const ContactUs = () => {
       categories: selectedCategory,
       products: selectedProduct,
     };
-
     const formData = new FormData();
     Object.keys(data).forEach(key => formData.append(key, data[key]));
-    formData.append("access_key", "6ba961e7-46a3-42f1-8e5b-1fb1ae50f472");
+    formData.append("access_key", "dcb8b93d-9885-473d-acde-5bf175471253");
     const object = JSON.stringify(Object.fromEntries(formData));
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -96,6 +95,10 @@ const ContactUs = () => {
     if (response.success) {
       toast.success("We Will Contact You Shortly.");
       resetForm();
+      setPhoneNumber("");
+      setSelectedProduct([]);
+      setSelectedCategory([]);
+      setProductList([]);
     }
   };
 

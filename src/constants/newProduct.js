@@ -1,6 +1,12 @@
 import flatBed1 from "../assets/flatBed1.png";
 import flatBed2 from "../assets/flatBed2.png";
-import textile from "../assets/textile.JPG";
+import Rotary1 from "../assets/Rotary1.png";
+import Rotary2 from "../assets/Rotary2.png";
+import TextileHex1 from "../assets/TextileHex1.png";
+import DigitalHex from "../assets/DigitalHex.png";
+import ScreenMaking1 from "../assets/ScreenMaking1.png";
+import ScreenMaking2 from "../assets/ScreenMaking2.png";
+import TextilePrintingMachines from "../assets/TextilePrintingMachines.png";
 
 export const products = {
   result: "true",
@@ -62,7 +68,7 @@ export const products = {
         {
           name: "",
           description: "",
-          image: "",
+          image: Rotary1,
           subCategory: [
             {
               name: "Photo Screen Emulsion",
@@ -81,7 +87,7 @@ export const products = {
         },
         {
           description: "",
-          image: "",
+          image: Rotary2,
           subCategory: [
             {
               name: "Thermoplastic Blanket Adhesive",
@@ -108,7 +114,7 @@ export const products = {
         {
           name: "Bolting Cloth",
           description: "",
-          image: "",
+          image: ScreenMaking1,
           subCategory: [
             {
               name: "Mono Polyester Mesh",
@@ -137,7 +143,7 @@ export const products = {
         {
           name: "",
           description: "",
-          image: "",
+          image: ScreenMaking2,
           subCategory: [
             {
               name: "Rotary Nickel Screens",
@@ -181,7 +187,7 @@ export const products = {
         {
           name: "Digital Printing Chemicals",
           description: "",
-          image: "",
+          image: DigitalHex,
           subCategory: [
             {
               name: "",
@@ -215,7 +221,7 @@ export const products = {
         {
           name: "",
           description: "",
-          image: textile,
+          image: TextileHex1,
           subCategory: [
             {
               name: "",
@@ -243,9 +249,12 @@ export const products = {
       ],
     },
     {
-      category: "Printing Machines",
+      category: "Textile Printing Machines",
       product: [
         {
+          name: "",
+          description: "",
+          image: TextilePrintingMachines,
           subCategory: [
             {
               name: "",

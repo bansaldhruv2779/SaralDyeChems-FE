@@ -26,7 +26,7 @@ const Card = ({icon, title, description}) => {
           backgroundColor: "#D3DAF9",
           borderRadius: "10px",
         }}>
-        <img src={icon} style={{width: "28px"}} />
+        <img src={icon} style={{width: "28px"}} alt={icon} />
       </div>
       <h2
         style={{

@@ -26,9 +26,15 @@ const ImageGallery = ({images, images2}) => {
 
   return (
     <Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {images.slice(0, 7).map((image, index) => (
-          <Grid item xs={6} md={3} lg={3} key={index}>
+          <Grid
+            item
+            xs={6}
+            md={3}
+            lg={3}
+            key={index}
+            className="w-[383px] h-[320px]">
             <img
               src={image.src}
               alt={`Gallery ${index}`}
@@ -37,6 +43,7 @@ const ImageGallery = ({images, images2}) => {
                 height: "100%",
                 borderRadius: "8px",
                 cursor: "pointer",
+                objectFit: "cover",
               }}
               onClick={() => handleOpen(index)}
             />

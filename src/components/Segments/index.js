@@ -13,11 +13,13 @@ import {Link} from "react-router-dom";
 const ProductCard = ({link, image, title}) => (
   <Link
     to={link}
-    className="relative bg-cover bg-center rounded-lg overflow-hidden h-64"
+    className="relative bg-cover bg-center rounded-lg overflow-hidden h-72"
     style={{backgroundImage: `url(${image})`}}>
     <div
       className="absolute bottom-0 left-0 w-full p-2 text-white text-left font-semibold"
       style={{
+        background:
+          "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)",
         padding: "1rem",
       }}>
       {title}
@@ -54,9 +56,9 @@ function ProductsGrid() {
       title: "Textile Auxiliaries",
     },
     {
-      link: "/products?category=Printing Machines",
+      link: "/products?category=Textile Printing Machines",
       image: image6,
-      title: "Printing Machines",
+      title: "Textile Printing Machines",
     },
   ];
 
@@ -70,7 +72,7 @@ function ProductsGrid() {
         description="A serene and tranquil retreat, this house in the woods offers a peaceful escape from the hustle and bustle of city life."
         desColor="#FFF"
       />
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-36">
         {products.map(product => (
           <ProductCard
             key={product.title}

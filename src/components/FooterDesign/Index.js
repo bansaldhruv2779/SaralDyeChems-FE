@@ -23,7 +23,7 @@ function Footer() {
           <h3 className="font-bold mb-2">Domestic Network</h3>
           <ul>
             {[
-              "Panjab",
+              "Punjab",
               "Himachal Pradesh",
               "Haryana",
               "UP",
@@ -84,13 +84,13 @@ function Footer() {
             (110034)
           </div>
 
-          <h3 className="font-bold mb-2">Branch Panipat</h3>
+          <h3 className="font-bold mb-2">Panipat Office</h3>
           <div className="flex flex-row mb-5">
             <IconMapPin className="mr-2" style={{width: "1.5rem"}} />
             Plot No. 482, Sector-25, Part-II, Huda Ind, Area, Panipat-132103
           </div>
 
-          <h3 className="font-bold mb-2">Branch Ludhiana</h3>
+          <h3 className="font-bold mb-2">Ludhiana Office</h3>
           <div className="flex flex-row mb-5">
             <IconMapPin className="mr-2" style={{width: "1.5rem"}} />
             221/L, Indra Colony, Chandigarh Road, B/H.S.K. Marbal,

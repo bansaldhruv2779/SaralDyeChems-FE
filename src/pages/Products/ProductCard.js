@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from "react";
-import purpleProductbg from "../../assets/purpleProductbg.png";
-import blueProductbg from "../../assets/blueProductbg.png";
 import {products as productList} from "../../constants/newProduct";
-import ImageHex from "../../components/ImageHex";
 
 const ProductCard = () => {
   const params = new URL(document.location).searchParams;
@@ -72,25 +69,7 @@ const ProductCard = () => {
                 position: "relative",
                 zIndex: 1,
               }}>
-              <ImageHex image={product.image} alt={product.name} />
-              <div
-                style={{
-                  position: "absolute",
-                  zIndex: -1,
-                  ...(index % 2 === 0
-                    ? {left: -30, bottom: 30} // For odd-indexed items
-                    : {top: 30, right: -30}), // For even-indexed items
-                }}>
-                <img
-                  src={index % 2 === 0 ? purpleProductbg : blueProductbg}
-                  style={{
-                    width: "180px",
-                    height: "180px",
-                    borderRadius: "50%",
-                  }}
-                  alt="Background"
-                />
-              </div>
+              <img src={product.image} alt={product.name} />
             </div>
           </div>
           <div
