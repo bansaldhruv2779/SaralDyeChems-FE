@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import purpleProductbg from "../../assets/purpleProductbg.png";
 import blueProductbg from "../../assets/blueProductbg.png";
-import {products as productList} from "./newProduct";
-import ImageHex from "./ImageHex";
+import {products as productList} from "../../constants/newProduct";
+import ImageHex from "../../components/ImageHex";
 
 const ProductCard = () => {
   const params = new URL(document.location).searchParams;

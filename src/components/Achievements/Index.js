@@ -1,12 +1,12 @@
 import React from "react";
-import Heading from "../Heading/Heading";
+import Heading from "../Heading";
 import AchievementCard from "./AchievementCard";
-import Icon2 from "../../Files/Clients.png";
-import Icon1 from "../../Files/products.png";
-import Icon3 from "../../Files/Company Strength.png";
+import Icon2 from "../../assets/Clients.png";
+import Icon1 from "../../assets/products.png";
+import Icon3 from "../../assets/Company Strength.png";
 import {Box, useTheme, useMediaQuery} from "@mui/material";
 
-const Index = () => {
+const Achievements = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -49,4 +49,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Achievements;

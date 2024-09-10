@@ -1,16 +1,16 @@
 import React from "react";
-import {Container, Typography} from "@mui/material";
+import {Container} from "@mui/material";
 
 import ImageRound from "./ImageRound";
-import bedsheet from "../../assets/bedsheet.png";
-import blanket from "../../assets/blanket.png";
-import homefurn from "../../assets/homefurn.png";
-import carpet from "../../assets/carpet.png";
-import sarees from "../../assets/sarees.png";
-import hosiery from "../../assets/hosiery.png";
-import weddingCards from "../../assets/weddingCards.png";
-import shoes from "../../assets/shoes.png";
-import suits from "../../assets/suits.jpg";
+import bedsheet from "../assets/bedsheet.png";
+import blanket from "../assets/blanket.png";
+import homefurn from "../assets/homefurn.png";
+import carpet from "../assets/carpet.png";
+import sarees from "../assets/sarees.png";
+import hosiery from "../assets/hosiery.png";
+import weddingCards from "../assets/weddingCards.png";
+import shoes from "../assets/shoes.png";
+import suits from "../assets/suits.jpg";
 
 const Catered = () => {
   const industries = [

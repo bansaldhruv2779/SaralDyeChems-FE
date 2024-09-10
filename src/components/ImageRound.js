@@ -12,6 +12,7 @@ const ImageRound = ({image, title}) => {
       <img
         src={image}
         style={{width: "80px", height: "80px", borderRadius: "50px"}}
+        alt={title}
       />
       <p style={{paddingTop: "8px", fontSize: "13px"}}>{title}</p>
     </div>

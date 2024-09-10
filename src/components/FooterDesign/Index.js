@@ -8,7 +8,7 @@ import {
   IconPhone,
   IconBrandTwitterFilled,
 } from "@tabler/icons-react";
-import logo from "../../assets/animate1.gif";
+import logo from "../../assets/animateLogo.gif";
 
 function Footer() {
   return (

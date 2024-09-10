@@ -1,13 +1,14 @@
 import React from "react";
 import bgImage from "../../assets/bg.png"; // Replace with actual logo image paths
-import logo1 from "../../assets/logoImage.jpeg"; // Replace with actual logo image paths
-import logo2 from "../../assets/logoImage.jpeg";
-import logo3 from "../../assets/logoImage.jpeg";
-import auth from "../../assets/auth.png";
-import arrowImage from "../../Files/arrow_right.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Index = ({title, arrow, mainRoute, childRoute, description}) => {
+const CommonBackground = ({
+  title,
+  arrow,
+  mainRoute,
+  childRoute,
+  description,
+}) => {
   return (
     <div style={{height: "300px", position: "relative"}}>
       <div
@@ -60,4 +61,4 @@ const Index = ({title, arrow, mainRoute, childRoute, description}) => {
   );
 };
 
-export default Index;
+export default CommonBackground;

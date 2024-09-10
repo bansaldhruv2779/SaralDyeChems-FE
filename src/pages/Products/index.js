@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import CommonBackground from "../../components/CommonBackground/Index";
-import ScrollButton from "../../components/TopButton/Index";
+import CommonBackground from "../../components/CommonBackground";
+import ScrollButton from "../../components/TopButton";
 
 const Products = () => {
   const params = new URL(document.location).searchParams;

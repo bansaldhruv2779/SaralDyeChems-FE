@@ -1,5 +1,5 @@
 import React from "react";
-import Heading from "../Heading/Heading";
+import Heading from "../Heading";
 import Gallery from "./Gallery"; // Assuming you have a Gallery component to handle the images
 
 const images = [
@@ -30,6 +30,10 @@ const images = [
   {
     src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
     alt: "Team Photo 6",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    alt: "Team Photo 7",
   },
 ];
 const images2 = [

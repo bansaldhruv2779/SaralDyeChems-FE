@@ -1,182 +1,92 @@
-import {Box, Grid, IconButton, Typography, styled} from "@mui/material";
 import React from "react";
-import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import founderImage from "../../assets/rTkJ7v-man-png-image.png";
+import {Box, Typography, styled} from "@mui/material";
+import Founder1 from "../../assets/Founder1.JPG";
+import Founder2 from "../../assets/Founder2.JPG";
+import Heading from "../Heading";
+import bgImage from "../../assets/bgb.png";
 
-const StyleBox = styled(Box)(({theme, isGreen}) => ({
-  // width: "250px",
-  backgroundColor: "lightblue",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  margin: "0px 8%",
+// Styled components
+const Container = styled(Box)(() => ({
+  backgroundImage: `url(${bgImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  padding: "40px 8%",
+  textAlign: "left",
 }));
 
-const SingleBox = styled(Box)(({theme, isGreen}) => ({
-  // backgroundColor: "white",
-  width: "100%",
-  margin: "0px  10px 10px",
+const FounderWrapper = styled(Box)(() => ({
   display: "flex",
-  flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
-  alignContent: "center",
-  textAlign: "center",
-  // height: "90%",
+  gap: "30px",
+  flexWrap: "wrap",
 }));
 
-const ImageBox = styled(Box)(({theme, isGreen}) => ({
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  margin: "0px 8%",
+const FounderCard = styled(Box)(() => ({
+  width: "300px", // Increased width
+  backgroundColor: "#FFFFFF",
+  borderRadius: "8px",
+  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+  overflow: "hidden",
+  textAlign: "left",
+  transition: "transform 0.3s ease",
+}));
+
+const FounderImage = styled("img")({
   width: "100%",
-}));
+  height: "250px", // Increased height
+  objectFit: "cover",
+});
 
-const BottomBoxFounder = styled(Box)(({theme, isMiddle}) => ({
-  // width: "250px",
-  // display: "flex",
-  // flexDirection: "column",÷
-  // justifyContent: "space-between",
-  // margin: "0px 8%",
+const FounderInfo = styled(Box)({
+  padding: "20px",
+});
 
-  backgroundColor: isMiddle ? "#FFF" : "#EEE",
-  // width: "50%",
-  width: "100%",
-}));
+const FounderName = styled(Typography)({
+  fontSize: "1rem", // Increased font size
+  fontWeight: "500",
+  color: "#333333",
+});
 
-const Index = () => {
+const FounderTitle = styled(Typography)({
+  fontSize: "0.8rem", // Slightly increased font size
+  color: "#3D3D3D",
+});
+
+const founders = [
+  {
+    name: "Vipul Kumar Gupta",
+    title: "Founder",
+    image: Founder1,
+  },
+  {
+    name: "Sunit Kumar Gupta",
+    title: "Founder",
+    image: Founder2,
+  },
+];
+
+const Founder = () => {
   return (
-    <Box>
-      <StyleBox>
-        <SingleBox>
-          <ImageBox bgcolor="#EEE" height="300px">
-            <img src={founderImage} width="50%" height="100%" />
-          </ImageBox>
-          <BottomBoxFounder>
-            <Typography margin="20px 0">Vipul Kumar Gupta</Typography>
-            <Typography margin="20px 0">Founder</Typography>
-            <Grid marginBottom="20px" xs={8}>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <FacebookTwoToneIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <InstagramIcon />
-              </IconButton>
-            </Grid>
-          </BottomBoxFounder>
-        </SingleBox>
-        <SingleBox>
-          <ImageBox bgcolor="#FFF" height="300px">
-            <img src={founderImage} width="50%" height="100%" />
-          </ImageBox>
-          <BottomBoxFounder isMiddle>
-            <Typography margin="20px 0">Sunit Kumar Gupta</Typography>
-            <Typography margin="20px 0">Founder</Typography>
-            <Grid marginBottom="20px">
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <FacebookTwoToneIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <InstagramIcon />
-              </IconButton>
-            </Grid>
-          </BottomBoxFounder>
-        </SingleBox>
-        <SingleBox>
-          <ImageBox bgcolor="#EEE" height="300px">
-            <img src={founderImage} width="50%" height="100%" />
-          </ImageBox>
-          <BottomBoxFounder>
-            <Typography margin="20px 0">Sunit Kumar Gupta</Typography>
-            <Typography margin="20px 0">Founder</Typography>
-            <Grid marginBottom="20px">
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <FacebookTwoToneIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton
-                color="buttonBlue"
-                sx={{
-                  mr: "16px",
-                  "&:hover": {
-                    color: "secondary.main",
-                  },
-                }}>
-                <InstagramIcon />
-              </IconButton>
-            </Grid>
-          </BottomBoxFounder>
-        </SingleBox>
-      </StyleBox>
-    </Box>
+    <Container>
+      <Heading
+        title="Our Founders"
+        titlecolor="#FFF"
+        desColor="#FFF"
+        description="Engraving Lifelines Since 1987"
+      />
+      <FounderWrapper>
+        {founders.map((founder, index) => (
+          <FounderCard key={index}>
+            <FounderImage src={founder.image} alt={founder.name} />
+            <FounderInfo>
+              <FounderName>{founder.name}</FounderName>
+              <FounderTitle>{founder.title}</FounderTitle>
+            </FounderInfo>
+          </FounderCard>
+        ))}
+      </FounderWrapper>
+    </Container>
   );
 };
 
-export default Index;
+export default Founder;

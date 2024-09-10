@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {useLocation} from "react-router-dom";
-import logo from "../../landscape.png";
+import {useLocation, useNavigate} from "react-router-dom";
+import logo from "../../assets/landscape.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const Index = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const location = useLocation(); // Get the current location
+  const navigate = useNavigate();
 
   const [showProductsDropdown, setShowProductsDropdown] = useState(false);
 
@@ -39,7 +40,7 @@ const Index = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between pr-[8%] pl-[10%] pb-4 pt-4 items-center bg-white shadow-md">
-      <div className="w-[170px]">
+      <div className="w-[170px] cursor-pointer" onClick={() => navigate("/")}>
         <img src={logo} style={{width: "100%"}} alt="Logo" />
       </div>
       <div className="flex flex-row space-x-7">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Heading = ({title, description, titlecolor, desColor}) => {
   return (
-    <div style={{paddingTop: "50px"}}>
+    <div style={{paddingTop: "2rem"}}>
       <h2
         style={{
           fontSize: "34px",
@@ -16,7 +16,7 @@ const Heading = ({title, description, titlecolor, desColor}) => {
         style={{
           fontSize: "13px",
           textAlign: "center",
-          marginBottom: "30px",
+          marginBottom: "2rem",
           color: desColor,
         }}>
         {description}

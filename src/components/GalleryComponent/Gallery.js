@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Box, Grid, Modal, IconButton} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const ImageGallery = ({images, images2}) => {
   const [open, setOpen] = useState(false);
@@ -45,21 +44,21 @@ const ImageGallery = ({images, images2}) => {
         ))}
         {images.length > 6 && (
           <Grid item xs={6} md={3}>
-            <Box
+            <div
+              className="relative bg-cover bg-center flex items-center"
               style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                borderRadius: "8px",
+                backgroundImage: `url(${images[7].src})`,
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
                 color: "#fff",
                 cursor: "pointer",
+                borderRadius: "0.5rem",
+                height: "100%",
               }}
               onClick={() => handleOpen(0)}>
-              View All
-            </Box>
+              <div className="absolute inset-0 bg-[#000000b8] bg-opacity-85 rounded-lg"></div>
+              <h1 className="relative z-10">View All</h1>
+            </div>
           </Grid>
         )}
       </Grid>
@@ -105,14 +104,12 @@ const ImageGallery = ({images, images2}) => {
             }}>
             <IconButton
               sx={{
-                color: "#000",
-                backgroundColor: "#fff",
-                boxShadow: "0px 2px 4px rgba(0,0,0,0.2)",
+                color: "#fff",
                 margin: "0 8px",
               }}
               onClick={handlePrevious}
               aria-label="previous image">
-              <ArrowBackIosNewIcon />
+              <ArrowBackIcon />
             </IconButton>
             <img
               src={images[currentImageIndex].src}
@@ -127,14 +124,12 @@ const ImageGallery = ({images, images2}) => {
             />
             <IconButton
               sx={{
-                color: "#000",
-                backgroundColor: "#fff",
-                boxShadow: "0px 2px 4px rgba(0,0,0,0.2)",
+                color: "#fff",
                 margin: "0 8px",
               }}
               onClick={handleNext}
               aria-label="next image">
-              <ArrowForwardIosIcon />
+              <ArrowForwardIcon />
             </IconButton>
           </Box>
 
@@ -144,7 +139,7 @@ const ImageGallery = ({images, images2}) => {
               display: "flex",
               justifyContent: "center",
               mt: 2,
-              gap: 1,
+              gap: 2,
               overflowX: "auto",
             }}>
             {images2.map((image, index) => (

@@ -1,12 +1,12 @@
 import React from "react";
 import {Box} from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import AboutComponent from "../../components/AboutComponent/Index";
-import GalleryComponent from "../../components/GalleryComponent/GalleryComponent";
-import Segment from "../../components/Segments/Segments";
-import CarouselDarkVariant from "../../components/Carousel/Carousel";
-import Heading from "../../components/Heading/Heading";
-import ScrollButton from "../../components/TopButton/Index";
+import AboutComponent from "../../components/AboutComponent";
+import GalleryComponent from "../../components/GalleryComponent";
+import Segment from "../../components/Segments";
+import CarouselDarkVariant from "../../components/Carousel";
+import Heading from "../../components/Heading";
+import ScrollButton from "../../components/TopButton";
 
 const Home = () => {
   return (

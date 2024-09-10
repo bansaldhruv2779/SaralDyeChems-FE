@@ -1,6 +1,6 @@
 import React from "react";
 import bgImage from "../../assets/bg.png"; // Replace with actual logo image paths
-import auth from "../../assets/auth.png";
+import authorisedDealer from "../../assets/authorisedDealer.png";
 
 const HeroSection = () => {
   return (
@@ -30,7 +30,11 @@ const HeroSection = () => {
           <div className="absolute -top-4 left-[30%] bg-[#000029] text-lg text-white px-4 py-1 rounded-md">
             Authorized Dealers Of
           </div>
-          <img src={auth} style={{width: "100%", height: "240px"}} alt="" />
+          <img
+            src={authorisedDealer}
+            style={{width: "100%", height: "240px"}}
+            alt=""
+          />
         </div>
       </div>
     </div>

@@ -10,8 +10,7 @@ import {
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import Heading from "../Heading/Heading";
+import Heading from "../Heading";
 
 const OfficeCard = ({title, icon, address, contact}) => (
   <Card
@@ -97,7 +96,7 @@ const OfficeLocations = props => (
           )
         }>
         <OfficeCard
-          title="Branch Panipat"
+          title="Panipat Office"
           icon={<LocationOnOutlinedIcon sx={{color: "white"}} />}
           address="Plot No. 482, Sector-25, Part-II, Huda Ind, Area, Panipat-132103"
         />
@@ -110,7 +109,7 @@ const OfficeLocations = props => (
           )
         }>
         <OfficeCard
-          title="Branch Ludhiana"
+          title="Ludhiana Office"
           icon={<LocationOnOutlinedIcon sx={{color: "white"}} />}
           address="221/L, Indra Colony, Chandigarh Road, B/H.S.K. Marbal, Ludhiana-141008"
         />

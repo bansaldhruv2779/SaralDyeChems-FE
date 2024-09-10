@@ -6,20 +6,18 @@ import image3 from "../../assets/screen.png";
 import image4 from "../../assets/digital-1.png";
 import image5 from "../../assets/textile-aux-1.png";
 import image6 from "../../assets/textile.JPG";
-import Heading from "../Heading/Heading";
+import Heading from "../Heading";
 import {Link} from "react-router-dom";
 
 // Reusable ProductCard Component
 const ProductCard = ({link, image, title}) => (
   <Link
     to={link}
-    className="relative bg-cover bg-center rounded-lg overflow-hidden h-56"
+    className="relative bg-cover bg-center rounded-lg overflow-hidden h-64"
     style={{backgroundImage: `url(${image})`}}>
     <div
       className="absolute bottom-0 left-0 w-full p-2 text-white text-left font-semibold"
       style={{
-        background:
-          "linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) 100%)",
         padding: "1rem",
       }}>
       {title}

@@ -1,6 +1,6 @@
-import flatBed1 from "../../assets/flatBed1.png";
-import flatBed2 from "../../assets/flatBed2.png";
-import textile from "../../assets/textile.JPG";
+import flatBed1 from "../assets/flatBed1.png";
+import flatBed2 from "../assets/flatBed2.png";
+import textile from "../assets/textile.JPG";
 
 export const products = {
   result: "true",
@@ -262,5 +262,3 @@ export const products = {
     },
   ],
 };
-
-export default {products};

@@ -1,7 +1,7 @@
 import React from "react";
 import about from "../../assets/about.png";
 
-const Index = ({route, lastParagraph}) => {
+const AboutComponent = ({lastParagraph}) => {
   return (
     <div className="p-20">
       <div
@@ -115,4 +115,4 @@ const Index = ({route, lastParagraph}) => {
   );
 };
 
-export default Index;
+export default AboutComponent;

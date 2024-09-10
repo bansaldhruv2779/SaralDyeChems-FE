@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "./Card";
-import Icon1 from "../../Files/Industry Expertise.png";
-import Icon2 from "../../Files/Faster Deliveries.png";
-import Icon3 from "../../Files/Premium Quality.png";
-import Icon4 from "../../Files/Customer Support.png";
-import Icon5 from "../../Files/Flexible Payment Terms.png";
+import Icon1 from "../../assets/Industry Expertise.png";
+import Icon2 from "../../assets/Faster Deliveries.png";
+import Icon3 from "../../assets/Premium Quality.png";
+import Icon4 from "../../assets/Customer Support.png";
+import Icon5 from "../../assets/Flexible Payment Terms.png";
 
-const Index = () => {
+const Counts = () => {
   return (
     <div
       style={{
@@ -62,4 +62,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Counts;

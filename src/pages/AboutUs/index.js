@@ -1,21 +1,12 @@
-import React, {useState, useEffect} from "react";
-import {
-  Box,
-  Grid,
-  IconButton,
-  ThemeProvider,
-  Typography,
-  createTheme,
-  styled,
-} from "@mui/material";
-import CategoryIcon from "@mui/icons-material/Category";
-import CountComponent from "../../components/Counts/Index";
-import AboutComponent from "../../components/AboutComponent/Index";
-import Founder from "../../components/FounderComponent/Founder";
-import CommonBackground from "../../components/CommonBackground/Index";
-import Achievements from "../../components/Achievements/Index";
-import Catered from "./Catered";
-import ScrollButton from "../../components/TopButton/Index";
+import React from "react";
+import {ThemeProvider, createTheme} from "@mui/material";
+import CountComponent from "../../components/Counts";
+import AboutComponent from "../../components/AboutComponent";
+import Founder from "../../components/FounderComponent";
+import CommonBackground from "../../components/CommonBackground";
+import Achievements from "../../components/Achievements";
+import Catered from "../../components/Catered";
+import ScrollButton from "../../components/TopButton";
 
 const AboutUs = () => {
   const theme = createTheme({
