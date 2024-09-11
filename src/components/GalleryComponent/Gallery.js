@@ -34,7 +34,7 @@ const ImageGallery = ({images, images2}) => {
             md={3}
             lg={3}
             key={index}
-            className="w-[383px] h-[320px]">
+            className=" w-[100%] h-[200px] lg:w-[383px] lg:h-[320px]">
             <img
               src={image.src}
               alt={`Gallery ${index}`}

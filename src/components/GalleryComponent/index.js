@@ -101,7 +101,7 @@ const images2 = [
 
 const GalleryComponent = () => {
   return (
-    <div style={{padding: "3rem 9rem"}}>
+    <div className=" py-2 px-6 lg:py-12 lg:px-36">
       <Heading
         title="Our Team and Gallery"
         titlecolor="#3C5D87"

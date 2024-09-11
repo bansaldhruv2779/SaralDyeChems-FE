@@ -41,9 +41,10 @@ const ProductCard = () => {
       {allProducts.map((product, index) => (
         <div
           key={index}
+          className=" w-full sm:max-w-full md:max-w-[48%] lg:max-w-[48%]"
           style={{
-            width: "100%",
-            maxWidth: "48%",
+            // width: "100%",
+            // maxWidth: "48%",
             borderRadius: "10px",
             margin: "10px 0",
             backgroundColor: "#FFF",

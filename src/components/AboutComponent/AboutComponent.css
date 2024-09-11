@@ -1,0 +1,22 @@
+.about-box {
+  max-width: 40%;
+}
+.aboutContent-box {
+  max-width: 55%;
+}
+
+@media (min-width: 768px) {
+  .about-box {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-content {
+    justify-content: space-between; /* Keep space between image and text */
+  }
+
+  .about-image img {
+    width: 90%;
+  }
+}

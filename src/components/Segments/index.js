@@ -72,7 +72,7 @@ function ProductsGrid() {
         description="A serene and tranquil retreat, this house in the woods offers a peaceful escape from the hustle and bustle of city life."
         desColor="#FFF"
       />
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-36">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-10 lg:px-36 md:px-30">
         {products.map(product => (
           <ProductCard
             key={product.title}

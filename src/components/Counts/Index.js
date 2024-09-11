@@ -30,6 +30,7 @@ const Counts = () => {
           alignItems: "center",
           marginLeft: "40px",
           marginRight: "40px",
+          flexWrap: "wrap",
           justifyContent: "space-between",
         }}>
         <Card

@@ -1,0 +1,24 @@
+.card-container {
+  width: 100%; /* Default to 100% for mobile devices */
+}
+
+/* Tablets in portrait mode and smaller devices */
+@media (min-width: 600px) {
+  .card-container {
+    width: 48%; /* Adjust for tablet portrait view */
+  }
+}
+
+/* Tablets in landscape mode and smaller laptops */
+@media (min-width: 768px) {
+  .card-container {
+    width: 30%; /* Adjust for larger tablets */
+  }
+}
+
+/* Laptops and larger screens */
+@media (min-width: 1024px) {
+  .card-container {
+    width: 19%; /* For larger screens */
+  }
+}

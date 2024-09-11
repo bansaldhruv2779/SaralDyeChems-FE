@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.css";
 
 const Card = ({icon, title, description}) => {
   return (
@@ -6,7 +7,6 @@ const Card = ({icon, title, description}) => {
       style={{
         display: "flex",
         borderRadius: "8px",
-        width: "19%",
         height: "220px",
         flexDirection: "column",
         margin: "5px",
@@ -15,13 +15,13 @@ const Card = ({icon, title, description}) => {
         backgroundColor: "#FFF",
         paddingTop: "20px",
         paddingBottom: "20px",
-      }}>
+      }}
+      className="card-container">
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-
           padding: "10px",
           backgroundColor: "#D3DAF9",
           borderRadius: "10px",
