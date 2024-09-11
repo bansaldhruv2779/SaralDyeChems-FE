@@ -19,7 +19,7 @@ const Home = () => {
           titlecolor="#3C5D87"
           desColor="#000029"
         />
-        <AboutComponent home={true}/>
+        <AboutComponent home={true} />
       </div>
       <div id="products">
         <Segment />
