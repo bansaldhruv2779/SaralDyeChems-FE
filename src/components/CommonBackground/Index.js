@@ -1,5 +1,4 @@
 import React from "react";
-import bgImage from "../../assets/bg.png"; // Replace with actual logo image paths
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const CommonBackground = ({
@@ -10,12 +9,13 @@ const CommonBackground = ({
   description,
 }) => {
   return (
-    <div style={{height: "300px", position: "relative"}}>
+    <div style={{height: "380px", position: "relative"}}>
       <div
         className="bg-cover bg-center flex items-center"
         style={{
-          backgroundImage: `url(${bgImage})`,
-          height: "300px", // Set height to 100px
+          backgroundImage:
+            "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bg.png)",
+          height: "380px", // Set height to 100px
           width: "100%",
         }}></div>
 
@@ -46,8 +46,9 @@ const CommonBackground = ({
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "10px",
-              }}>
+                // marginTop: "10px",
+              }}
+              className="lg:mt-12 mt-3">
               <a href="/contact-us">
                 <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-sm text-white font-bold py-2 px-4 rounded">
                   GET A QUOTE

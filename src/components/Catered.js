@@ -1,54 +1,44 @@
 import React from "react";
 import {Container} from "@mui/material";
-
 import ImageRound from "./ImageRound";
-import bedsheet from "../assets/bedsheet.png";
-import blanket from "../assets/blanket.png";
-import homefurn from "../assets/homefurn.png";
-import carpet from "../assets/carpet.png";
-import sarees from "../assets/sarees.png";
-import hosiery from "../assets/hosiery.png";
-import weddingCards from "../assets/weddingCards.png";
-import shoes from "../assets/shoes.png";
-import suits from "../assets/suits.jpg";
 
 const Catered = () => {
   const industries = [
     {
       title: "Bedsheet",
-      image: bedsheet,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/bedsheet.png",
     },
     {
       title: "Carpet",
-      image: carpet,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/carpet.png",
     },
     {
       title: "Blanket",
-      image: blanket,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/blanket.png",
     },
     {
       title: "Suits",
-      image: suits,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/suits.jpg?updatedAt=1726072289920",
     },
     {
       title: "Sarees",
-      image: sarees,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/sarees.png",
     },
     {
       title: "Hosiery",
-      image: hosiery,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/hosiery.png",
     },
     {
       title: "Wedding Cards",
-      image: weddingCards,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/weddingCards.png",
     },
     {
       title: "Shoes",
-      image: shoes,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/shoes.png",
     },
     {
       title: "Home Furnishing",
-      image: homefurn,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/homefurn.png",
     },
   ];
   return (

@@ -9,11 +9,6 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-if (process.env.NODE_ENV !== "development") {
-  console.log = () => {};
-  console.warn = () => {};
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

@@ -1,13 +1,3 @@
-import flatBed1 from "../assets/flatBed1.png";
-import flatBed2 from "../assets/flatBed2.png";
-import Rotary1 from "../assets/Rotary1.png";
-import Rotary2 from "../assets/Rotary2.png";
-import TextileHex1 from "../assets/TextileHex1.png";
-import DigitalHex from "../assets/DigitalHex.png";
-import ScreenMaking1 from "../assets/ScreenMaking1.png";
-import ScreenMaking2 from "../assets/ScreenMaking2.png";
-import TextilePrintingMachines from "../assets/TextilePrintingMachines.png";
-
 export const products = {
   result: "true",
   data: [
@@ -17,26 +7,45 @@ export const products = {
         {
           name: "Photo Screen Emulsion",
           description: "",
-          image: flatBed1,
+          image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/flatBed1.png",
           subCategory: [
             {
               name: "Bichromate Emulsion",
-              items: ["Ezycoat 585", "Ezycoat 999 Plus", "Ezycoat 999 Star"],
+              items: [
+                "Ezycoat 585",
+                "Ezycoat 999 Plus",
+                "Ezycoat 999 Star",
+                "Photokina CS-5 WR",
+                "Photokina A-1 Emulsion",
+              ],
             },
             {
               name: "Diazo Emulsion",
-              items: ["Ezycoat 333", "Ezycoat 090"],
+              items: [
+                "Ezycoat 333",
+                "Ezycoat 090",
+                "Photokina CP Tex",
+                "Photokina CP-5",
+                "Photokina Image Mate DZ-343",
+                "Photokina Textile DW",
+                "Shebro DIG 28 Plus",
+                "Shebro DIW 234",
+              ],
             },
             {
               name: "Dual Cure Emulsion",
               items: ["Ezycoat HD9"],
+            },
+            {
+              name: "SBQ Emulsion",
+              items: ["Shebro SPT"],
             },
           ],
         },
         {
           name: "",
           description: "",
-          image: flatBed2,
+          image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/flatBed2.png",
           subCategory: [
             {
               name: "Screen Block Emulsion",
@@ -48,11 +57,21 @@ export const products = {
                 "Ezycoat 720N",
                 "Ezycoat 108H",
                 "Ezycoat 1 Plus Hardener",
+                "Shebro Hardener A+B",
               ],
             },
             {
               name: "Thermoplastic Blanket Adhesive",
               items: ["Bluetex LT", "Bluetex MT", "Bluetex HT", "Bluetex RC9"],
+            },
+            {
+              name: "Screen Chemicals",
+              items: [
+                "Shebro Screen Wash 126",
+                "Photokina Screen Wash 3",
+                "Photokina Haze Remover HR-S",
+                "Photokina Decoating Gel Plus",
+              ],
             },
             {
               name: "Leveling Agent",
@@ -68,7 +87,7 @@ export const products = {
         {
           name: "",
           description: "",
-          image: Rotary1,
+          image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/Rotary1.png",
           subCategory: [
             {
               name: "Photo Screen Emulsion",
@@ -87,7 +106,7 @@ export const products = {
         },
         {
           description: "",
-          image: Rotary2,
+          image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/Rotary2.png",
           subCategory: [
             {
               name: "Thermoplastic Blanket Adhesive",
@@ -112,9 +131,10 @@ export const products = {
       category: "Screen Making Auxillaries",
       product: [
         {
-          name: "Bolting Cloth",
-          description: "",
-          image: ScreenMaking1,
+          name: "Bolting Cloth (All Sizes)",
+          description: "White / Yellow / Indian / Chinese / Imported",
+          image:
+            "https://ik.imagekit.io/u51majcf2/SaralDyeChems/ScreenMaking1.png",
           subCategory: [
             {
               name: "Mono Polyester Mesh",
@@ -143,11 +163,12 @@ export const products = {
         {
           name: "",
           description: "",
-          image: ScreenMaking2,
+          image:
+            "https://ik.imagekit.io/u51majcf2/SaralDyeChems/ScreenMaking2.png",
           subCategory: [
             {
-              name: "Rotary Nickel Screens",
-              items: [],
+              name: "Rotary Nickel Screens (All Sizes)",
+              items: ["Harish", "Unikon"],
             },
             {
               name: "Frame Adhesive",
@@ -155,6 +176,7 @@ export const products = {
                 "Ezycoat 828 (Metal Frame)",
                 "Ezycoat FA99 (Aluminium Frame)",
                 "Arkabond 930",
+                "Photokina CSP Frame Adhesive",
               ],
             },
             {
@@ -175,6 +197,8 @@ export const products = {
                 "Wooden/Steel Stopper",
                 "ALPPP",
                 "Frame Fittings",
+                "Polyurethane Squeegee",
+                "Coating Trough",
               ],
             },
           ],
@@ -187,7 +211,8 @@ export const products = {
         {
           name: "Digital Printing Chemicals",
           description: "",
-          image: DigitalHex,
+          image:
+            "https://ik.imagekit.io/u51majcf2/SaralDyeChems/DigitalHex.png",
           subCategory: [
             {
               name: "",
@@ -221,7 +246,8 @@ export const products = {
         {
           name: "",
           description: "",
-          image: TextileHex1,
+          image:
+            "https://ik.imagekit.io/u51majcf2/SaralDyeChems/TextileHex1.png",
           subCategory: [
             {
               name: "",
@@ -254,7 +280,8 @@ export const products = {
         {
           name: "",
           description: "",
-          image: TextilePrintingMachines,
+          image:
+            "https://ik.imagekit.io/u51majcf2/SaralDyeChems/TextilePrintingMachines.png",
           subCategory: [
             {
               name: "",

@@ -1,6 +1,5 @@
 import React from "react";
 import {Box} from "@mui/material";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import AboutComponent from "../../components/AboutComponent";
 import GalleryComponent from "../../components/GalleryComponent";
 import Segment from "../../components/Segments";

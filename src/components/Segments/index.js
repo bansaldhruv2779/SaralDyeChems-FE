@@ -1,11 +1,4 @@
 import React from "react";
-import bgImage from "../../assets/bgb.png";
-import image1 from "../../assets/flatbed.png";
-import image2 from "../../assets/rotary-2.png";
-import image3 from "../../assets/screen.png";
-import image4 from "../../assets/digital-1.png";
-import image5 from "../../assets/textile-aux-1.png";
-import image6 from "../../assets/textile.JPG";
 import Heading from "../Heading";
 import {Link} from "react-router-dom";
 
@@ -32,32 +25,32 @@ function ProductsGrid() {
   const products = [
     {
       link: "/products?category=Flat Bed Screen Printing Chemicals",
-      image: image1,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/flatbed.png",
       title: "Flat Bed Screen Printing Chemicals",
     },
     {
       link: "/products?category=Rotary Screen Printing Chemicals",
-      image: image2,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/rotary-2.png",
       title: "Rotary Screen Printing Chemicals",
     },
     {
       link: "/products?category=Screen Making Auxillaries",
-      image: image3,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/screen.png",
       title: "Screen Making Auxillaries",
     },
     {
       link: "/products?category=Digital Printing Chemicals",
-      image: image4,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/digital-1.png",
       title: "Digital Printing Chemicals",
     },
     {
       link: "/products?category=Textile Auxiliaries",
-      image: image5,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/textile-aux-1.png",
       title: "Textile Auxiliaries",
     },
     {
       link: "/products?category=Textile Printing Machines",
-      image: image6,
+      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/textile.JPG",
       title: "Textile Printing Machines",
     },
   ];
@@ -65,7 +58,7 @@ function ProductsGrid() {
   return (
     <div
       className="bg-cover bg-center py-10"
-      style={{backgroundImage: `url(${bgImage})`}}>
+      style={{backgroundImage: "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)"}}>
       <Heading
         title="Business Segments"
         titlecolor="#FFF"

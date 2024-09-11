@@ -10,7 +10,6 @@ const ProductCard = () => {
 
   useEffect(() => {
     const productsArray = [];
-    console.log(productList);
     productList.data.forEach(category => {
       if (!categoryId || category.category === categoryId) {
         category.product.forEach(product => {
@@ -43,8 +42,6 @@ const ProductCard = () => {
           key={index}
           className=" w-full sm:max-w-full md:max-w-[48%] lg:max-w-[48%]"
           style={{
-            // width: "100%",
-            // maxWidth: "48%",
             borderRadius: "10px",
             margin: "10px 0",
             backgroundColor: "#FFF",

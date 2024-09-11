@@ -1,100 +1,88 @@
 import React from "react";
 import Heading from "../Heading";
 import Gallery from "./Gallery"; // Assuming you have a Gallery component to handle the images
-import image1 from "../../assets/1.jpeg";
-import image2 from "../../assets/2.jpg";
-import image3 from "../../assets/3.jpeg";
-import image4 from "../../assets/4.jpeg";
-import image5 from "../../assets/5.jpeg";
-import image6 from "../../assets/6.jpg";
-import image7 from "../../assets/7.jpeg";
-import image8 from "../../assets/8.jpeg";
-import image9 from "../../assets/9.jpeg";
-import image10 from "../../assets/10.jpeg";
-import image11 from "../../assets/11.jpeg";
-import image12 from "../../assets/12.jpeg";
 
 const images = [
   {
-    src: image1,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/1.jpeg",
     alt: "Team Photo 1",
   },
   {
-    src: image2,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/2.jpg",
     alt: "Team Photo 2",
   },
   {
-    src: image3,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/3.jpeg",
     alt: "Team Photo 3",
   },
   {
-    src: image4,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/4.jpeg",
     alt: "Team Photo 4",
   },
   {
-    src: image5,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/5.jpeg",
     alt: "Team Photo 5",
   },
   {
-    src: image6,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/6.jpg",
     alt: "Team Photo 6",
   },
   {
-    src: image7,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/7.jpeg",
     alt: "Team Photo 7",
   },
   {
-    src: image8,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
     alt: "Team Photo 8",
   },
 ];
 const images2 = [
   {
-    src: image1,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/1.jpeg",
     alt: "Team Photo 1",
   },
   {
-    src: image2,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/2.jpg",
     alt: "Team Photo 2",
   },
   {
-    src: image3,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/3.jpeg",
     alt: "Team Photo 3",
   },
   {
-    src: image4,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/4.jpeg",
     alt: "Team Photo 4",
   },
   {
-    src: image5,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/5.jpeg",
     alt: "Team Photo 5",
   },
   {
-    src: image6,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/6.jpg",
     alt: "Team Photo 6",
   },
   {
-    src: image7,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/7.jpeg",
     alt: "Team Photo 7",
   },
   {
-    src: image8,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
     alt: "Team Photo 8",
   },
   {
-    src: image9,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
     alt: "Team Photo 9",
   },
   {
-    src: image10,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/10.jpeg",
     alt: "Team Photo 10",
   },
   {
-    src: image11,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/11.jpeg",
     alt: "Team Photo 11",
   },
   {
-    src: image12,
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/12.jpeg",
     alt: "Team Photo 12",
   },
 ];

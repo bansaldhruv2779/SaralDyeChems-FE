@@ -1,10 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import Icon1 from "../../assets/Industry Expertise.png";
-import Icon2 from "../../assets/Faster Deliveries.png";
-import Icon3 from "../../assets/Premium Quality.png";
-import Icon4 from "../../assets/Customer Support.png";
-import Icon5 from "../../assets/Flexible Payment Terms.png";
 
 const Counts = () => {
   return (
@@ -34,27 +29,27 @@ const Counts = () => {
           justifyContent: "space-between",
         }}>
         <Card
-          icon={Icon1}
+          icon="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Industry%20Expertise.png"
           title="Industry Expertise"
           description="Decades of experience in providing top-tier screen engraving chemicals tailored for precision and durability."
         />
         <Card
-          icon={Icon2}
+          icon="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Faster%20Deliveries.png"
           title="Faster Deliveries"
           description="We work hard to deliver products at your door step within no time. "
         />
         <Card
-          icon={Icon3}
+          icon="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Premium%20Quality.png"
           title="Premium Quality"
           description="Our chemicals are rigorously tested to ensure consistent, high-quality results every time."
         />
         <Card
-          icon={Icon4}
+          icon="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Customer%20Support.png"
           title="Customer Support"
           description="Dedicated technical support to help you select the right products and optimize your workflow."
         />
         <Card
-          icon={Icon5}
+          icon="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Flexible%20Payment%20Terms.png"
           title="Flexible Payment Terms"
           description="High value for your investment with cost-effective solutions without compromising on quality."
         />

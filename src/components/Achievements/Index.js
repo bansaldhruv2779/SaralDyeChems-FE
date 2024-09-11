@@ -1,9 +1,6 @@
 import React from "react";
 import Heading from "../Heading";
 import AchievementCard from "./AchievementCard";
-import Icon2 from "../../assets/Clients.png";
-import Icon1 from "../../assets/products.png";
-import Icon3 from "../../assets/Company Strength.png";
 import {Box, useTheme, useMediaQuery} from "@mui/material";
 
 const Achievements = () => {
@@ -14,7 +11,7 @@ const Achievements = () => {
     <div>
       <Heading
         title="Achievements"
-        description="A serene and tranquil retreat, this house in the woods offers a peaceful escape from the hustle and bustle of city life"
+        description=""
         titlecolor="#3C5D87"
         desColor="#000029"
       />
@@ -27,22 +24,22 @@ const Achievements = () => {
           gap: isSmallScreen ? "20px" : "0px",
         }}>
         <AchievementCard
-          image={Icon1}
+          image="https://ik.imagekit.io/u51majcf2/SaralDyeChems/products.png?updatedAt=1726064872104"
           title="400+"
           secTitle="Products"
-          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          description=""
         />
         <AchievementCard
-          image={Icon2}
+          image="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Clients.png?updatedAt=1726064863846"
           title="1000+"
           secTitle="Clients"
-          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          description=""
         />
         <AchievementCard
-          image={Icon3}
+          image="https://ik.imagekit.io/u51majcf2/SaralDyeChems/Company%20Strength.png?updatedAt=1726064864738"
           title="20+"
           secTitle="Company Strength"
-          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          description=""
         />
       </Box>
     </div>

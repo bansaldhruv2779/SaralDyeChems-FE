@@ -1,13 +1,12 @@
 import React from "react";
 import {Box, Typography, styled} from "@mui/material";
-import Founder1 from "../../assets/Founder1.JPG";
-import Founder2 from "../../assets/Founder2.JPG";
+import Founder1 from "../../assets/Founder1.jpg";
+import Founder2 from "../../assets/Founder2.jpg";
 import Heading from "../Heading";
-import bgImage from "../../assets/bgb.png";
 
 // Styled components
 const Container = styled(Box)(() => ({
-  backgroundImage: `url(${bgImage})`,
+  backgroundImage: "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   padding: "40px 8%",
