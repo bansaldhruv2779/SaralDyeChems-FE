@@ -141,7 +141,7 @@ const Index = () => {
                       <a
                         href="/products?category=Textile Printing Machines"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
-                        Textile Printing Machinesaaaa
+                        Textile Printing Machines
                       </a>
                     </div>
                   )}
