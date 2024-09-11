@@ -1,8 +1,8 @@
 import React from "react";
 
-const AboutComponent = ({lastParagraph}) => {
+const AboutComponent = ({home = false}) => {
   return (
-    <div className="lg:p-20 p-4">
+    <div className={home ? "lg:px-20 lg:pb-20 lg:pt-6  p-4" : "lg:p-20 p-4"}>
       <div
         style={{
           display: "flex",
@@ -91,20 +91,18 @@ const AboutComponent = ({lastParagraph}) => {
               have built a strong reputation for our reliability,
               professionalism, and exceptional customer service.
             </p>
-            {lastParagraph && (
-              <p
-                style={{
-                  fontSize: "13px",
-                  color: "#484949",
-                  marginBottom: "30px",
-                }}>
-                At Saral, we are committed to providing our clients with the
-                best products, service, and experience. We strive to stay ahead
-                of the curve by continuously innovating and expanding our range
-                of products and services. We look forward to serving you and
-                your business with our quality textile chemicals.
-              </p>
-            )}
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#484949",
+                marginBottom: "30px",
+              }}>
+              At Saral, we are committed to providing our clients with the best
+              products, service, and experience. We strive to stay ahead of the
+              curve by continuously innovating and expanding our range of
+              products and services. We look forward to serving you and your
+              business with our quality textile chemicals.
+            </p>
           </div>
         </div>
       </div>

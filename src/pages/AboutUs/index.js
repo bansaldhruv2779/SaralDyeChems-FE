@@ -26,7 +26,7 @@ const AboutUs = () => {
           mainRoute="Home"
           childRoute="About Us"
         />
-        <AboutComponent lastParagraph={true} />
+        <AboutComponent />
         <CountComponent />
         <Catered />
         <Founder />
