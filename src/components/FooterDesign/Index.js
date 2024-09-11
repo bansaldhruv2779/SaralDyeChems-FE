@@ -13,7 +13,11 @@ function Footer() {
       <div className="container mx-auto px-4 flex flex-wrap md:flex-nowrap justify-between">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-8 flex justify-center md:justify-start">
           <div className="h-96 bg-transparent w-max">
-            <img src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/animateLogo.gif" alt="Logo" className="h-full w-full object-cover" />
+            <img
+              src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/animateLogo.gif"
+              alt="Logo"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
         <div className="w-full md:w-1/4 mb-6 md:mb-0">
@@ -137,9 +141,12 @@ function Footer() {
             <Link
               href="https://m.indiamart.com/saraldyechems/"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/indiaMart.png" alt="indiaMart" style={{width: "1.25rem"}} />
+              rel="noopener noreferrer">
+              <img
+                src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/indiaMart.png"
+                alt="indiaMart"
+                style={{width: "1.25rem"}}
+              />
             </Link>
             <Link
               href="https://m.indiamart.com/saraldyechems/"

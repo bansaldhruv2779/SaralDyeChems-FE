@@ -18,7 +18,8 @@ const Catered = () => {
     },
     {
       title: "Suits",
-      image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/suits.jpg?updatedAt=1726072289920",
+      image:
+        "https://ik.imagekit.io/u51majcf2/SaralDyeChems/suits.jpg?updatedAt=1726072289920",
     },
     {
       title: "Sarees",

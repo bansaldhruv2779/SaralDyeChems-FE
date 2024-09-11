@@ -48,7 +48,11 @@ const Index = () => {
     <div>
       <div className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between pr-[8%] pl-[10%] pb-4 pt-4 items-center bg-white shadow-md">
         <div className="w-[170px] cursor-pointer" onClick={() => navigate("/")}>
-          <img src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/landscape.png" style={{width: "100%"}} alt="Logo" />
+          <img
+            src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/landscape.png"
+            style={{width: "100%"}}
+            alt="Logo"
+          />
         </div>
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-row space-x-12">

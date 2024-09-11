@@ -27,14 +27,20 @@ const OfficeCard = ({title, icon, address, contact}) => (
     }}>
     <CardContent>
       {title && (
-        <Typography color="#3C5D86" variant="h6" component="div" gutterBottom={title !== "Contact Info" ? true : false}>
+        <Typography
+          color="#3C5D86"
+          variant="h6"
+          component="div"
+          gutterBottom={title !== "Contact Info" ? true : false}>
           {title}
         </Typography>
       )}
       {address && (
         <Box display="flex" alignItems="center" mb={2}>
           {icon && (
-            <div className="bg-[#3C5D87] rounded-full p-1 mr-4" style={{marginTop: title === "Ludhiana Office" && "-1rem"}}>
+            <div
+              className="bg-[#3C5D87] rounded-full p-1 mr-4"
+              style={{marginTop: title === "Ludhiana Office" && "-1rem"}}>
               {icon}
             </div>
           )}

@@ -58,7 +58,10 @@ function ProductsGrid() {
   return (
     <div
       className="bg-cover bg-center py-10"
-      style={{backgroundImage: "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)"}}>
+      style={{
+        backgroundImage:
+          "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)",
+      }}>
       <Heading
         title="Business Segments"
         titlecolor="#FFF"

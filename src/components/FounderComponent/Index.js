@@ -6,7 +6,8 @@ import Heading from "../Heading";
 
 // Styled components
 const Container = styled(Box)(() => ({
-  backgroundImage: "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)",
+  backgroundImage:
+    "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bgb.png)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   padding: "40px 8%",
