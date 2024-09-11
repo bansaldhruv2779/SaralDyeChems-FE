@@ -30,19 +30,19 @@ const Achievements = () => {
           image={Icon1}
           title="400+"
           secTitle="Products"
-          description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
         />
         <AchievementCard
           image={Icon2}
           title="1000+"
           secTitle="Clients"
-          description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
         />
         <AchievementCard
           image={Icon3}
           title="20+"
           secTitle="Company Strength"
-          description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
+          // description="Many desktop publishing packages and web page editors now use Pinky as their default model text."
         />
       </Box>
     </div>

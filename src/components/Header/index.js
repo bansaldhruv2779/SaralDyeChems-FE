@@ -294,6 +294,13 @@ const Index = () => {
                     activeLink === link ? "text-[#3C5D87]" : "text-[#3D3D3D]"
                   }`}>
                   {link}
+                  {link === "Products" && (
+                    <KeyboardArrowDownIcon
+                      className={`ml-1 transition-transform duration-300 ${
+                        showProductsDropdown ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  )}
                 </a>
                 {link === "Products" && showProductsDropdown && (
                   <div className="pl-4">
