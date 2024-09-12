@@ -23,7 +23,6 @@ const Index = () => {
   };
 
   const handleLinkHover = link => {
-    // setActiveLink(link);
     if (link === "Products") {
       setShowProductsDropdown(true);
     } else {
@@ -33,7 +32,6 @@ const Index = () => {
   };
 
   const handleLinkLeave = link => {
-    // setActiveLink(link);
     if (link === "Products") {
       setShowProductsDropdown(false);
     } else {
@@ -90,10 +88,11 @@ const Index = () => {
                         ? "/contact-us"
                         : link === "Our Team"
                         ? "/#team"
-                        : "javascript:void(0);"
+                        : "#"
                     }
+                    role="button"
                     style={{fontSize: "12px"}}
-                    className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
+                    className={`text-sm pb-2 pl-2 pr-2 flex items-center hover:text-[#3C5D87] ${
                       activeLink === link
                         ? "border-b-2 border-[#3C5D87] text-[#3C5D87]"
                         : "border-none text-[#3D3D3D]"
@@ -175,8 +174,9 @@ const Index = () => {
                       ? "/contact-us"
                       : link === "Our Team"
                       ? "/#team"
-                      : "javascript:void(0);"
+                      : "#"
                   }
+                  role="button"
                   onClick={() => handleLinkClick(link)}
                   className={`block text-sm py-2 ${
                     activeLink === link ? "text-[#3C5D87]" : "text-[#3D3D3D]"
