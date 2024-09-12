@@ -132,7 +132,7 @@ export const products = {
       product: [
         {
           name: "Bolting Cloth (All Sizes)",
-          description: "White / Yellow / Indian / Chinese / Imported",
+          description: "White / Yellow / Indian / Imported",
           image:
             "https://ik.imagekit.io/u51majcf2/SaralDyeChems/ScreenMaking1.png",
           subCategory: [

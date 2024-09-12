@@ -61,7 +61,7 @@ function Footer() {
               "Ezycoat 828",
               "Rotostar HT/MT",
               "Photoemulsion 747",
-              "Endering Remover",
+              "Endring Remover",
               "Nuspray Paint",
               "Ammonium Dichromate",
               "Arkabond",

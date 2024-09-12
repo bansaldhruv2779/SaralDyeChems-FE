@@ -90,7 +90,6 @@ const Index = () => {
                         ? "/#team"
                         : "#"
                     }
-                    role="button"
                     style={{fontSize: "12px"}}
                     className={`text-sm pb-2 pl-2 pr-2 flex items-center hover:text-[#3C5D87] ${
                       activeLink === link
@@ -110,36 +109,36 @@ const Index = () => {
                     <div
                       className="absolute left-0 mt-2 rounded-md bg-white shadow-lg"
                       onMouseLeave={() => handleLinkLeave(link)}>
-                      <Link
-                        to="/products?category=Flat Bed Screen Printing Chemicals"
+                      <a
+                        href="/products?category=Flat Bed Screen Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Flat bed Screen Printing Chemicals
-                      </Link>
-                      <Link
-                        to="/products?category=Rotary Screen Printing Chemicals"
+                      </a>
+                      <a
+                        href="/products?category=Rotary Screen Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Rotary Screen Printing Chemicals
-                      </Link>
-                      <Link
-                        to="/products?category=Screen Making Auxillaries"
+                      </a>
+                      <a
+                        href="/products?category=Screen Making Auxillaries"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Screen Making Auxillaries
-                      </Link>
-                      <Link
-                        to="/products?category=Digital Printing Chemicals"
+                      </a>
+                      <a
+                        href="/products?category=Digital Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Digital Printing Chemicals
-                      </Link>
-                      <Link
-                        to="/products?category=Textile Auxiliaries"
+                      </a>
+                      <a
+                        href="/products?category=Textile Auxiliaries"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Textile Auxiliaries
-                      </Link>
-                      <Link
-                        to="/products?category=Textile Printing Machines"
+                      </a>
+                      <a
+                        href="/products?category=Textile Printing Machines"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Textile Printing Machines
-                      </Link>
+                      </a>
                     </div>
                   )}
                 </div>
@@ -176,7 +175,6 @@ const Index = () => {
                       ? "/#team"
                       : "#"
                   }
-                  role="button"
                   onClick={() => handleLinkClick(link)}
                   className={`block text-sm py-2 ${
                     activeLink === link ? "text-[#3C5D87]" : "text-[#3D3D3D]"
@@ -192,36 +190,36 @@ const Index = () => {
                 </Link>
                 {link === "Products" && showProductsDropdown && (
                   <div className="pl-4">
-                    <Link
-                      to="/products?category=Flat Bed Screen Printing Chemicals"
+                    <a
+                      href="/products?category=Flat Bed Screen Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Flat bed Screen Printing Chemicals
-                    </Link>
-                    <Link
-                      to="/products?category=Rotary Screen Printing Chemicals"
+                    </a>
+                    <a
+                      href="/products?category=Rotary Screen Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Rotary Screen Printing Chemicals
-                    </Link>
-                    <Link
-                      to="/products?category=Screen Making Auxillaries"
+                    </a>
+                    <a
+                      href="/products?category=Screen Making Auxillaries"
                       className="block text-sm text-gray-700 py-2">
                       Screen Making Auxillaries
-                    </Link>
-                    <Link
-                      to="/products?category=Digital Printing Chemicals"
+                    </a>
+                    <a
+                      href="/products?category=Digital Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Digital Printing Chemicals
-                    </Link>
-                    <Link
-                      to="/products?category=Textile Auxiliaries"
+                    </a>
+                    <a
+                      href="/products?category=Textile Auxiliaries"
                       className="block text-sm text-gray-700 py-2">
                       Textile Auxiliaries
-                    </Link>
-                    <Link
-                      to="/products?category=Textile Printing Machines"
+                    </a>
+                    <a
+                      href="/products?category=Textile Printing Machines"
                       className="block text-sm text-gray-700 py-2">
                       Textile Printing Machines
-                    </Link>
+                    </a>
                   </div>
                 )}
               </div>
