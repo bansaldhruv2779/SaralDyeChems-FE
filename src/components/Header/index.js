@@ -79,9 +79,7 @@ const Index = () => {
           {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
             link => (
               <div key={link} className="relative">
-                <div
-                  onMouseOver={() => handleLinkHover(link)}
-                  onClick={() => handleLinkClick(link)}>
+                <div onMouseOver={() => handleLinkHover(link)}>
                   <a
                     href={
                       link === "Home"
@@ -92,7 +90,7 @@ const Index = () => {
                         ? "/contact-us"
                         : link === "Our Team"
                         ? "/#team"
-                        : "#"
+                        : "javascript:void(0);"
                     }
                     style={{fontSize: "12px"}}
                     className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
@@ -177,7 +175,7 @@ const Index = () => {
                       ? "/contact-us"
                       : link === "Our Team"
                       ? "/#team"
-                      : "#"
+                      : "javascript:void(0);"
                   }
                   onClick={() => handleLinkClick(link)}
                   className={`block text-sm py-2 ${
