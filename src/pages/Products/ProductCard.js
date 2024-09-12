@@ -1,11 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {products as productList} from "../../constants/newProduct";
 
-const ProductCard = () => {
-  const params = new URL(document.location).searchParams;
-  const categoryId = params.get("category");
-  const categoryName = params.get("name");
-
+const ProductCard = ({categoryId}) => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +21,7 @@ const ProductCard = () => {
     });
 
     setAllProducts(productsArray);
-  }, [categoryName, categoryId]);
+  }, [categoryId]);
 
   return (
     <div

@@ -29,6 +29,7 @@ const CommonBackground = ({
               fontSize: "32px",
               textAlign: "center",
               fontWeight: "bold",
+              textTransform: "capitalize",
             }}>
             {title}
           </h2>

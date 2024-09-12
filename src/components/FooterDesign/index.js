@@ -6,6 +6,7 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 import {Link} from "@mui/material";
+import animateLogo from "../../assets/animateLogo.gif";
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-8 flex justify-center md:justify-start">
           <div className="h-96 bg-transparent w-max">
             <img
-              src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/animateLogo.gif"
+              src={animateLogo}
               alt="Logo"
               className="h-full w-full object-cover"
             />
