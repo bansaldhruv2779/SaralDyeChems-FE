@@ -1,228 +1,366 @@
-import {Box, Button, Grid, TextField, Typography} from "@mui/material";
-import React from "react";
-import {Form, Formik} from "formik";
-import {contactUsValidator} from "../../utils/validators";
-import {Buildings} from "../../assets";
+import {
+  Box,
+  Grid,
+  TextField,
+  Typography,
+  Select,
+  Chip,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
+import React, {useState} from "react";
+import {Formik, Form} from "formik";
+import CommonBackground from "../../components/CommonBackground";
+import ScrollButton from "../../components/TopButton";
+import Branches from "../../components/Branches";
+import {toast} from "react-toastify";
+import {MuiTelInput} from "mui-tel-input";
+import {products as Products} from "../../constants/newProduct";
 
 const ContactUs = () => {
-  const submitHandler = values => {
-    console.log("Values ===> ", values);
+  const [selectedAddress, setSelectedAddress] = useState(
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.906022777617!2d77.14522311508397!3d28.69245768239411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d033c7babc08b%3A0xa8cf1b11bd4a141e!2sSaral%20Dye%20Chems!5e0!3m2!1sen!2sin!4v1681490100997!5m2!1sen!2sin",
+  );
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [ProductList, setProductList] = useState([]);
+
+  const changeAddress = address => {
+    setSelectedAddress(address);
+  };
+
+  const handlePhoneNumberChange = value => {
+    setPhoneNumber(value);
+  };
+
+  const handleCategoryChange = event => {
+    const {
+      target: {value},
+    } = event;
+    const productsArray = [];
+    event.target.value.forEach(item => {
+      Products.data.forEach(category => {
+        if (!item || category.category === item) {
+          category.product.forEach(product => {
+            product.subCategory.forEach(category => {
+              category.name !== ""
+                ? productsArray.push(category.name)
+                : category.items.forEach(item => {
+                    productsArray.push(item);
+                  });
+            });
+          });
+        }
+      });
+    });
+    setProductList(productsArray);
+
+    setSelectedCategory(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value,
+    );
+  };
+
+  const handleProductChange = event => {
+    const {
+      target: {value},
+    } = event;
+    setSelectedProduct(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value,
+    );
+  };
+
+  const submitHandler = async (values, {resetForm}) => {
+    const data = {
+      ...values,
+      phoneNumber: phoneNumber,
+      categories: selectedCategory,
+      products: selectedProduct,
+    };
+    const formData = new FormData();
+    Object.keys(data).forEach(key => formData.append(key, data[key]));
+    formData.append("access_key", "dcb8b93d-9885-473d-acde-5bf175471253");
+    const object = JSON.stringify(Object.fromEntries(formData));
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: object,
+    }).then(res => res.json());
+
+    if (response.success) {
+      toast.success("We Will Contact You Shortly.");
+      resetForm();
+      setPhoneNumber("");
+      setSelectedProduct([]);
+      setSelectedCategory([]);
+      setProductList([]);
+    }
   };
 
   return (
-    <Grid
-      container
-      spacing={6}
-      sx={{marginY: "30px", position: "relative", px: "60px"}}>
-      <Grid item xs={12}>
-        <Typography variant="h4" fontWeight="600">
-          Our Offices
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={4} lg={2}>
-            <Box
-              bgcolor="primary.main"
-              display="flex"
-              flexDirection="column"
-              height="112px"
-              width="142px"
-              boxSizing="border-box"
-              borderRadius="12px"
-              alignItems={"center"}
-              justifyContent="space-around"
-              p="10px"
-              sx={{
-                cursor: "pointer",
-              }}>
-              <Buildings />
-              <Typography
-                variant="subtitle2"
-                fontWeight={600}
-                color="primary.contrastText">
-                Delhi
-              </Typography>
-            </Box>
-
-            <Box
-              bgcolor="primary.main"
-              display="flex"
-              flexDirection="column"
-              height="112px"
-              width="142px"
-              boxSizing="border-box"
-              borderRadius="12px"
-              alignItems={"center"}
-              justifyContent="space-around"
-              p="10px"
-              mt="12px"
-              sx={{
-                cursor: "pointer",
-              }}>
-              <Buildings />
-              <Typography
-                variant="subtitle2"
-                fontWeight={600}
-                color="primary.contrastText">
-                Panipat
-              </Typography>
-            </Box>
-
-            <Box
-              bgcolor="primary.main"
-              display="flex"
-              flexDirection="column"
-              height="112px"
-              width="142px"
-              boxSizing="border-box"
-              borderRadius="12px"
-              alignItems={"center"}
-              justifyContent="space-around"
-              p="10px"
-              mt="12px"
-              sx={{
-                cursor: "pointer",
-              }}>
-              <Buildings />
-              <Typography
-                variant="subtitle2"
-                fontWeight={600}
-                color="primary.contrastText">
-                Ludhiana
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} md={8} lg={10}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.906022777617!2d77.14522311508397!3d28.69245768239411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d033c7babc08b%3A0xa8cf1b11bd4a141e!2sSaral%20Dye%20Chems!5e0!3m2!1sen!2sin!4v1681490100997!5m2!1sen!2sin"
-              width="100%"
-              height="450"
-              style={{border: "0px"}}
-              allowfullscreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Delhi Office"></iframe>
-          </Grid>
+    <>
+      <CommonBackground
+        title="Contact Us"
+        mainRoute="Home"
+        arrow={true}
+        childRoute="Contact Us"
+      />
+      <Branches changeAddress={changeAddress} />
+      <Grid
+        container
+        spacing={3}
+        sx={{padding: {xs: 2, sm: 5, md: 15}}}
+        style={{backgroundColor: "#F5F7FB"}}>
+        <Grid item xs={12} md={6} sx={{paddingRight: {xs: 0, md: 2}}}>
+          <iframe
+            title={selectedAddress}
+            src={selectedAddress}
+            width="100%"
+            height="550"
+            style={{border: "0px"}}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"></iframe>
         </Grid>
+        <Grid item xs={12} md={6} sx={{paddingLeft: {xs: 0, md: 2}}}>
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: {xs: 2, md: 6},
+              fontSize: {xs: 20, md: 26},
+              borderLeft: "2px solid #3C5D87",
+              // fontFamily: "Helvetica Neue",
+              paddingLeft: {xs: 1, md: "10px"},
+              color: "#3C5D87",
+            }}>
+            Love to Hear From You
+          </Typography>
+          <div>
+            <Formik
+              initialValues={{
+                name: "",
+                companyName: "",
+                email: "",
+                message: "",
+              }}
+              onSubmit={submitHandler}>
+              {({values, handleChange}) => (
+                <Form>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}>
+                      <label style={{fontSize: "14px"}}>Name *</label>
+                      <TextField
+                        placeholder="Enter your name"
+                        name="name"
+                        value={values.name}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                      />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        marginLeft: "10px",
+                      }}>
+                      <label style={{fontSize: "14px"}}>Company Name *</label>
+                      <TextField
+                        placeholder="Enter company name"
+                        name="companyName"
+                        value={values.companyName}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                      />
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      marginTop: "20px",
+                      alignItems: "center",
+                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        alignItems: "flex-start",
+                        flexDirection: "column",
+                      }}>
+                      <label style={{fontSize: "14px"}}>Email *</label>
+                      <TextField
+                        placeholder="Enter your email"
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        required
+                        autoComplete="email"
+                        fullWidth
+                      />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        marginLeft: "10px",
+                      }}>
+                      <label style={{fontSize: "14px"}}>Phone Number *</label>
+                      <MuiTelInput
+                        fullWidth
+                        defaultCountry="IN"
+                        value={phoneNumber}
+                        name="phoneNumber"
+                        onChange={handlePhoneNumberChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      marginTop: "20px",
+                      alignItems: "center",
+                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        alignItems: "flex-start",
+                        flexDirection: "column",
+                      }}>
+                      <FormControl sx={{width: "100%"}}>
+                        <label style={{fontSize: "14px"}}>Categories</label>
+                        <Select
+                          defaultValue="none"
+                          placeholder="Select Category"
+                          multiple
+                          value={selectedCategory}
+                          onChange={handleCategoryChange}
+                          renderValue={selected => (
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: 0.5,
+                              }}>
+                              {selected.map(value => (
+                                <Chip key={value} label={value} />
+                              ))}
+                            </Box>
+                          )}>
+                          {Products.data.map(product => (
+                            <MenuItem
+                              key={product.category}
+                              value={product.category}>
+                              {product.category}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "50%",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        marginLeft: "10px",
+                      }}>
+                      <FormControl sx={{width: "100%"}}>
+                        <label style={{fontSize: "14px"}}>Product</label>
+                        <Select
+                          multiple
+                          value={selectedProduct}
+                          onChange={handleProductChange}
+                          renderValue={selected => (
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: 0.5,
+                              }}>
+                              {selected.map(value => (
+                                <Chip key={value} label={value} />
+                              ))}
+                            </Box>
+                          )}>
+                          {ProductList.map((name, index) => (
+                            <MenuItem key={index} value={name}>
+                              {name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginTop: "20px",
+                    }}>
+                    <label style={{fontSize: "14px"}}>Message</label>
+                    <TextField
+                      fullWidth
+                      placeholder="Enter your message...."
+                      name="message"
+                      onChange={handleChange}
+                      value={values.message}
+                      multiline
+                      rows={3}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      marginTop: "20px",
+                    }}>
+                    <button
+                      type="submit"
+                      style={{
+                        width: "142px",
+                        height: "48px",
+                        backgroundColor: "#3C5D87",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "8px",
+                        cursor: "pointer",
+                      }}>
+                      Submit
+                    </button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </Grid>
+        <ScrollButton />
       </Grid>
-      <Grid item xs={12} md={6} mt="20px">
-        <Typography
-          variant="h5"
-          color="common.fontPrimary"
-          fontWeight="600"
-          fontSize={"32px"}>
-          Love to hear from you,
-          <br />
-          Get in touch 👋
-        </Typography>
-        <Formik
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            message: "",
-          }}
-          validationSchema={contactUsValidator}
-          onSubmit={submitHandler}>
-          {({errors, touched}) => (
-            <Form>
-              <Grid container spacing={4} rowGap={6} sx={{mt: "20px"}}>
-                <Grid item xs={12} sm={6} sx={{paddingX: "10px"}}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    label="First Name"
-                    name="firstName"
-                  />
-                  {touched.firstName && errors.firstName ? (
-                    <Typography variant="subtitle1" color="error">
-                      {errors.firstName}
-                    </Typography>
-                  ) : null}
-                </Grid>
-                <Grid item xs={12} sm={6} sx={{paddingX: "10px"}}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    label="Last Name"
-                    name="lastName"
-                  />
-                  {touched.lastName && errors.lastName ? (
-                    <Typography variant="subtitle1" color="error">
-                      {errors.lastName}
-                    </Typography>
-                  ) : null}
-                </Grid>
-                <Grid item xs={12} sm={6} sx={{paddingX: "10px"}}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    label="Email"
-                    name="email"
-                    autoComplete="email"
-                  />
-                  {touched.email && errors.email ? (
-                    <Typography variant="subtitle1" color="error">
-                      {errors.email}
-                    </Typography>
-                  ) : null}
-                </Grid>
-                <Grid item xs={12} sm={6} sx={{paddingX: "10px"}}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    label="Phone Number"
-                    name="phone"
-                  />
-                  {touched.phone && errors.phone ? (
-                    <Typography variant="subtitle1" color="error">
-                      {errors.phone}
-                    </Typography>
-                  ) : null}
-                </Grid>
-                <Grid item xs={12} sm={12} sx={{paddingX: "10px"}}>
-                  <TextField
-                    margin="normal"
-                    fullWidth
-                    label="Message"
-                    name="message"
-                  />
-                  {touched.message && errors.message ? (
-                    <Typography variant="subtitle1" color="error">
-                      {errors.message}
-                    </Typography>
-                  ) : null}
-                </Grid>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                sx={{
-                  paddingTop: "50px",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  color="primary"
-                  sx={{
-                    padding: "18px, 32px, 18px, 32px",
-                    marginY: "auto",
-                    width: {xs: "100%", sm: "auto"},
-                  }}>
-                  Send Message
-                </Button>
-              </Grid>
-            </Form>
-          )}
-        </Formik>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 

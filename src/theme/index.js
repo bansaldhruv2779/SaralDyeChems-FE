@@ -1,6 +1,11 @@
 import {createTheme} from "@mui/material";
 
-const defaultFontFamily = ["Noto Sans", "-apple-system", "Arial", "Roboto"];
+const defaultFontFamily = [
+  "Helvetica Neue",
+  "-apple-system",
+  "Arial",
+  "Roboto",
+];
 
 function createShadow(px) {
   return `0 0 ${px}px 0 rgba(53, 64, 82,.05)`;

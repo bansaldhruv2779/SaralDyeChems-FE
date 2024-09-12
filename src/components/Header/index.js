@@ -1,171 +1,238 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import {Menu as MenuIcon} from "@mui/icons-material";
-import React, {useState} from "react";
-import {headerTabs} from "../../constants/headers";
-import {get} from "lodash";
-import {useLocation, useNavigate} from "react-router";
-import {Logo} from "../../assets";
+import React, {useState, useEffect} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close"; // Import close icon
+import {IconButton} from "@mui/material";
 
-const Header = props => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
-  const navigate = useNavigate();
+const Index = () => {
+  const [activeLink, setActiveLink] = useState("Home");
+  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleOpenNavMenu = event => {
-    setAnchorElNav(event.currentTarget);
+  const handleLinkClick = link => {
+    setActiveLink(link);
+    if (link === "Products") {
+      setShowProductsDropdown(!showProductsDropdown);
+    } else {
+      setShowProductsDropdown(false);
+      setMobileMenuOpen(false);
+    }
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleLinkHover = link => {
+    // setActiveLink(link);
+    if (link === "Products") {
+      setShowProductsDropdown(true);
+    } else {
+      setShowProductsDropdown(false);
+      setMobileMenuOpen(false);
+    }
   };
+
+  const handleLinkLeave = link => {
+    // setActiveLink(link);
+    if (link === "Products") {
+      setShowProductsDropdown(false);
+    } else {
+      setShowProductsDropdown(false);
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const handleMobileMenuToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  useEffect(() => {
+    const path = location.pathname;
+    switch (path) {
+      case "/":
+        setActiveLink("Home");
+        break;
+      case "/about-us":
+        setActiveLink("About Us");
+        break;
+      case "/contact-us":
+        setActiveLink("Contact Us");
+        break;
+      default:
+        setActiveLink("Products");
+        break;
+    }
+  }, [location.pathname]);
 
   return (
-    <AppBar position="sticky" sx={{maxWidth: "100vw", bgcolor: "white"}}>
-      <Container
-        maxWidth="xl"
-        sx={{backgroundColor: "white", color: "black", px: "0px"}}>
-        <Toolbar disableGutters>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {xs: "none", md: "flex", cursor: "pointer"},
-            }}
-            onClick={() => navigate("/")}>
-            <img
-              src={Logo}
-              alt="Saral Dye Chems"
-              loading="lazy"
-              style={{height: "36px", marginRight: "16px"}}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              sx={{
-                mr: 2,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: "1px",
-                color: "inherit",
-                textDecoration: "none",
-                flex: "1",
-              }}>
-              Saral Dye Chems
-            </Typography>
-          </Box>
+    <div>
+      <div className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between pr-[8%] pl-[10%] pb-4 pt-4 items-center bg-white shadow-md">
+        <div className="w-[170px] cursor-pointer" onClick={() => navigate("/")}>
+          <img
+            src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/landscape.png"
+            style={{width: "100%"}}
+            alt="Logo"
+          />
+        </div>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex flex-row space-x-12">
+          {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
+            link => (
+              <div key={link} className="relative">
+                <div
+                  onMouseOver={() => handleLinkHover(link)}
+                  onClick={() => handleLinkClick(link)}>
+                  <a
+                    href={
+                      link === "Home"
+                        ? "/"
+                        : link === "About Us"
+                        ? "/about-us"
+                        : link === "Contact Us"
+                        ? "/contact-us"
+                        : link === "Our Team"
+                        ? "/#team"
+                        : "#"
+                    }
+                    style={{fontSize: "12px"}}
+                    className={`text-sm pb-2 pl-2 pr-2 flex items-center ${
+                      activeLink === link
+                        ? "border-b-2 border-[#3C5D87] text-[#3C5D87]"
+                        : "border-none text-[#3D3D3D]"
+                    }`}>
+                    {link}
+                    {link === "Products" && (
+                      <KeyboardArrowDownIcon
+                        className={`ml-1 transition-transform duration-300 ${
+                          showProductsDropdown ? "rotate-180" : "rotate-0"
+                        }`}
+                      />
+                    )}
+                  </a>
+                  {link === "Products" && showProductsDropdown && (
+                    <div
+                      className="absolute left-0 mt-2 rounded-md bg-white shadow-lg"
+                      onMouseLeave={() => handleLinkLeave(link)}>
+                      <a
+                        href="/products?category=Flat Bed Screen Printing Chemicals"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Flat bed Screen Printing Chemicals
+                      </a>
+                      <a
+                        href="/products?category=Rotary Screen Printing Chemicals"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Rotary Screen Printing Chemicals
+                      </a>
+                      <a
+                        href="/products?category=Screen Making Auxillaries"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Screen Making Auxillaries
+                      </a>
+                      <a
+                        href="/products?category=Digital Printing Chemicals"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Digital Printing Chemicals
+                      </a>
+                      <a
+                        href="/products?category=Textile Auxiliaries"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Textile Auxiliaries
+                      </a>
+                      <a
+                        href="/products?category=Textile Printing Machines"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
+                        Textile Printing Machines
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ),
+          )}
+        </div>
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center">
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={handleMobileMenuToggle}>
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </IconButton>
+        </div>
+      </div>
 
-          <Box sx={{flexGrow: 1, display: {xs: "flex", md: "none"}}}>
-            <Box
-              flex={1}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
-              sx={{cursor: "pointer"}}
-              onClick={() => navigate("/")}>
-              <img
-                src={Logo}
-                alt="Saral Dye Chems"
-                loading="lazy"
-                style={{height: "36px", marginRight: "16px"}}
-              />
-            </Box>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit">
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: {xs: "block", md: "none"},
-              }}>
-              {headerTabs.map(page => (
-                <MenuItem
-                  key={page.label}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    navigate(get(page, "routeTo", location.pathname));
-                  }}>
-                  <Typography
-                    textAlign="center"
-                    color={"common.fontPrimary"}
-                    fontSize={"16px"}
-                    fontWeight={"700"}
-                    lineHeight={"21px"}>
-                    {page.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {xs: "none", md: "flex", justifyContent: "flex-end"},
-            }}>
-            {headerTabs.map(page => {
-              const isActive = Boolean(
-                location.pathname === get(page, "routeTo", "nil"),
-              );
-              return (
-                <Button
-                  key={page.label}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    navigate(get(page, "routeTo", location.pathname));
-                  }}
-                  sx={{
-                    my: 2,
-                    mx: 6,
-                    color: isActive ? "primary" : "common.fontPrimary",
-                    borderBottom: isActive ? 2 : 0,
-                    borderColor: "secondary.main",
-                    borderRadius: "1px",
-                    textAlign: "center",
-                    fontSize: "16px",
-                  }}>
-                  <Typography
-                    color={isActive ? "primary" : "common.fontPrimary"}
-                    fontSize={"14px"}
-                    fontWeight={"700"}>
-                    {page.label}
-                  </Typography>
-                </Button>
-              );
-            })}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+      {/* Mobile Expanded Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white w-full shadow-lg p-4 fixed top-[64px] left-0 right-0 z-40">
+          {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
+            link => (
+              <div key={link} className="relative py-2">
+                <a
+                  href={
+                    link === "Home"
+                      ? "/"
+                      : link === "About Us"
+                      ? "/about-us"
+                      : link === "Contact Us"
+                      ? "/contact-us"
+                      : link === "Our Team"
+                      ? "/#team"
+                      : "#"
+                  }
+                  onClick={() => handleLinkClick(link)}
+                  className={`block text-sm py-2 ${
+                    activeLink === link ? "text-[#3C5D87]" : "text-[#3D3D3D]"
+                  }`}>
+                  {link}
+                  {link === "Products" && (
+                    <KeyboardArrowDownIcon
+                      className={`ml-1 transition-transform duration-300 ${
+                        showProductsDropdown ? "rotate-180" : "rotate-0"
+                      }`}
+                    />
+                  )}
+                </a>
+                {link === "Products" && showProductsDropdown && (
+                  <div className="pl-4">
+                    <a
+                      href="/products?category=Flat Bed Screen Printing Chemicals"
+                      className="block text-sm text-gray-700 py-2">
+                      Flat bed Screen Printing Chemicals
+                    </a>
+                    <a
+                      href="/products?category=Rotary Screen Printing Chemicals"
+                      className="block text-sm text-gray-700 py-2">
+                      Rotary Screen Printing Chemicals
+                    </a>
+                    <a
+                      href="/products?category=Screen Making Auxillaries"
+                      className="block text-sm text-gray-700 py-2">
+                      Screen Making Auxillaries
+                    </a>
+                    <a
+                      href="/products?category=Digital Printing Chemicals"
+                      className="block text-sm text-gray-700 py-2">
+                      Digital Printing Chemicals
+                    </a>
+                    <a
+                      href="/products?category=Textile Auxiliaries"
+                      className="block text-sm text-gray-700 py-2">
+                      Textile Auxiliaries
+                    </a>
+                    <a
+                      href="/products?category=Textile Printing Machines"
+                      className="block text-sm text-gray-700 py-2">
+                      Textile Printing Machines
+                    </a>
+                  </div>
+                )}
+              </div>
+            ),
+          )}
+        </div>
+      )}
+    </div>
   );
 };
 
-export default Header;
+export default Index;
