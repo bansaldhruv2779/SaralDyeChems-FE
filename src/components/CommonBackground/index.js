@@ -1,5 +1,6 @@
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import {Link} from "react-router-dom";
 
 const CommonBackground = ({
   title,
@@ -46,14 +47,13 @@ const CommonBackground = ({
               style={{
                 display: "flex",
                 justifyContent: "center",
-                // marginTop: "10px",
               }}
               className="lg:mt-12 mt-3">
-              <a href="/contact-us">
+              <Link to="/contact-us">
                 <button className="bg-[#3C5D87] hover:bg-[#3C5D87] text-sm text-white font-bold py-2 px-4 rounded">
                   GET A QUOTE
                 </button>
-              </a>
+              </Link>
             </div>
           )}
         </div>

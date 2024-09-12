@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, Link} from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close"; // Import close icon
@@ -78,8 +78,8 @@ const Index = () => {
             link => (
               <div key={link} className="relative">
                 <div onMouseOver={() => handleLinkHover(link)}>
-                  <a
-                    href={
+                  <Link
+                    to={
                       link === "Home"
                         ? "/"
                         : link === "About Us"
@@ -105,41 +105,41 @@ const Index = () => {
                         }`}
                       />
                     )}
-                  </a>
+                  </Link>
                   {link === "Products" && showProductsDropdown && (
                     <div
                       className="absolute left-0 mt-2 rounded-md bg-white shadow-lg"
                       onMouseLeave={() => handleLinkLeave(link)}>
-                      <a
-                        href="/products?category=Flat Bed Screen Printing Chemicals"
+                      <Link
+                        to="/products?category=Flat Bed Screen Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Flat bed Screen Printing Chemicals
-                      </a>
-                      <a
-                        href="/products?category=Rotary Screen Printing Chemicals"
+                      </Link>
+                      <Link
+                        to="/products?category=Rotary Screen Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Rotary Screen Printing Chemicals
-                      </a>
-                      <a
-                        href="/products?category=Screen Making Auxillaries"
+                      </Link>
+                      <Link
+                        to="/products?category=Screen Making Auxillaries"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Screen Making Auxillaries
-                      </a>
-                      <a
-                        href="/products?category=Digital Printing Chemicals"
+                      </Link>
+                      <Link
+                        to="/products?category=Digital Printing Chemicals"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Digital Printing Chemicals
-                      </a>
-                      <a
-                        href="/products?category=Textile Auxiliaries"
+                      </Link>
+                      <Link
+                        to="/products?category=Textile Auxiliaries"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Textile Auxiliaries
-                      </a>
-                      <a
-                        href="/products?category=Textile Printing Machines"
+                      </Link>
+                      <Link
+                        to="/products?category=Textile Printing Machines"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         Textile Printing Machines
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -164,8 +164,8 @@ const Index = () => {
           {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
             link => (
               <div key={link} className="relative py-2">
-                <a
-                  href={
+                <Link
+                  to={
                     link === "Home"
                       ? "/"
                       : link === "About Us"
@@ -189,39 +189,39 @@ const Index = () => {
                       }`}
                     />
                   )}
-                </a>
+                </Link>
                 {link === "Products" && showProductsDropdown && (
                   <div className="pl-4">
-                    <a
-                      href="/products?category=Flat Bed Screen Printing Chemicals"
+                    <Link
+                      to="/products?category=Flat Bed Screen Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Flat bed Screen Printing Chemicals
-                    </a>
-                    <a
-                      href="/products?category=Rotary Screen Printing Chemicals"
+                    </Link>
+                    <Link
+                      to="/products?category=Rotary Screen Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Rotary Screen Printing Chemicals
-                    </a>
-                    <a
-                      href="/products?category=Screen Making Auxillaries"
+                    </Link>
+                    <Link
+                      to="/products?category=Screen Making Auxillaries"
                       className="block text-sm text-gray-700 py-2">
                       Screen Making Auxillaries
-                    </a>
-                    <a
-                      href="/products?category=Digital Printing Chemicals"
+                    </Link>
+                    <Link
+                      to="/products?category=Digital Printing Chemicals"
                       className="block text-sm text-gray-700 py-2">
                       Digital Printing Chemicals
-                    </a>
-                    <a
-                      href="/products?category=Textile Auxiliaries"
+                    </Link>
+                    <Link
+                      to="/products?category=Textile Auxiliaries"
                       className="block text-sm text-gray-700 py-2">
                       Textile Auxiliaries
-                    </a>
-                    <a
-                      href="/products?category=Textile Printing Machines"
+                    </Link>
+                    <Link
+                      to="/products?category=Textile Printing Machines"
                       className="block text-sm text-gray-700 py-2">
                       Textile Printing Machines
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
