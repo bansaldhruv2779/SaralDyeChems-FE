@@ -24,32 +24,32 @@ function ProductsGrid() {
   // Product data array
   const products = [
     {
-      link: "/products/flat-bed-screen-printing-chemicals",
+      link: "/products/Flat-Bed-Screen-Printing-Chemicals",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/flatbed.png",
       title: "Flat Bed Screen Printing Chemicals",
     },
     {
-      link: "/products/rotary-screen-printing-chemicals",
+      link: "/products/Rotary-Screen-Printing-Chemicals",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/rotary-2.png",
       title: "Rotary Screen Printing Chemicals",
     },
     {
-      link: "/products/screen-making-auxillaries",
+      link: "/products/Screen-Making-Auxillaries",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/screen.png",
       title: "Screen Making Auxillaries",
     },
     {
-      link: "/products/digital-printing-chemicals",
+      link: "/products/Digital-Printing-Chemicals",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/digital-1.png",
       title: "Digital Printing Chemicals",
     },
     {
-      link: "/products/textile-auxiliaries",
+      link: "/products/Textile-Auxiliaries",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/textile-aux-1.png",
       title: "Textile Auxiliaries",
     },
     {
-      link: "/products/textile-printing-machines",
+      link: "/products/Textile-Printing-Machines",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/textile.JPG",
       title: "Textile Printing Machines",
     },

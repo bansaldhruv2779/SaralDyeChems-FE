@@ -41,7 +41,7 @@ const ContactUs = () => {
     const productsArray = [];
     event.target.value.forEach(item => {
       Products.data.forEach(category => {
-        if (!item || category.category === item) {
+        if (!item || category.category === item.replaceAll(" ", "-")) {
           category.product.forEach(product => {
             product.subCategory.forEach(category => {
               category.name !== ""
@@ -274,8 +274,8 @@ const ContactUs = () => {
                           {Products.data.map(product => (
                             <MenuItem
                               key={product.category}
-                              value={product.category}>
-                              {product.category}
+                              value={product.category.replaceAll("-", " ")}>
+                              {product.category.replaceAll("-", " ")}
                             </MenuItem>
                           ))}
                         </Select>

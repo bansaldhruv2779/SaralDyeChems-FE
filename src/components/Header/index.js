@@ -14,27 +14,27 @@ const Index = () => {
 
   const categories = [
     {
-      id: "flat-bed-screen-printing-chemicals",
+      id: "Flat-Bed-Screen-Printing-Chemicals",
       label: "Flat bed Screen Printing Chemicals",
     },
     {
-      id: "rotary-screen-printing-chemicals",
+      id: "Rotary-Screen-Printing-Chemicals",
       label: "Rotary Screen Printing Chemicals",
     },
     {
-      id: "screen-making-auxillaries",
+      id: "Screen-Making-Auxillaries",
       label: "Screen Making Auxillaries",
     },
     {
-      id: "digital-printing-chemicals",
+      id: "Digital-Printing-Chemicals",
       label: "Digital Printing Chemicals",
     },
     {
-      id: "textile-auxiliaries",
+      id: "Textile-Auxiliaries",
       label: "Textile Auxiliaries",
     },
     {
-      id: "textile-printing-machines",
+      id: "Textile-Printing-Machines",
       label: "Textile Printing Machines",
     },
   ];

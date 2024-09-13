@@ -2,7 +2,7 @@ export const products = {
   result: "true",
   data: [
     {
-      category: "flat-bed-screen-printing-chemicals",
+      category: "Flat-Bed-Screen-Printing-Chemicals",
       product: [
         {
           name: "Photo Screen Emulsion",
@@ -82,7 +82,7 @@ export const products = {
       ],
     },
     {
-      category: "rotary-screen-printing-chemicals",
+      category: "Rotary-Screen-Printing-Chemicals",
       product: [
         {
           name: "",
@@ -128,7 +128,7 @@ export const products = {
       ],
     },
     {
-      category: "screen-making-auxillaries",
+      category: "Screen-Making-Auxillaries",
       product: [
         {
           name: "Bolting Cloth (All Sizes)",
@@ -206,7 +206,7 @@ export const products = {
       ],
     },
     {
-      category: "digital-printing-chemicals",
+      category: "Digital-Printing-Chemicals",
       product: [
         {
           name: "Digital Printing Chemicals",
@@ -241,7 +241,7 @@ export const products = {
       ],
     },
     {
-      category: "textile-auxiliaries",
+      category: "Textile-Auxiliaries",
       product: [
         {
           name: "Textile Auxiliaries",
@@ -275,7 +275,7 @@ export const products = {
       ],
     },
     {
-      category: "textile-printing-machines",
+      category: "Textile-Printing-Machines",
       product: [
         {
           name: "Textile Printing Machines",
