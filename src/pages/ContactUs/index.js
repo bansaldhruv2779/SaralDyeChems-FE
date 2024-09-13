@@ -38,22 +38,19 @@ const ContactUs = () => {
     const {
       target: {value},
     } = event;
-    const productsArray = [];
-    event.target.value.forEach(item => {
-      Products.data.forEach(category => {
-        if (!item || category.category === item.replaceAll(" ", "-")) {
-          category.product.forEach(product => {
-            product.subCategory.forEach(category => {
-              category.name !== ""
-                ? productsArray.push(category.name)
-                : category.items.forEach(item => {
-                    productsArray.push(item);
-                  });
-            });
-          });
-        }
-      });
-    });
+    const productsArray = Products.data
+      .filter(category =>
+        event.target.value.some(
+          item => item?.replaceAll(" ", "-") === category.category,
+        ),
+      )
+      .flatMap(category =>
+        category.product.flatMap(product =>
+          product.subCategory.flatMap(subCategory =>
+            subCategory.name ? [subCategory.name] : subCategory.items,
+          ),
+        ),
+      );
     setProductList(productsArray);
 
     setSelectedCategory(
