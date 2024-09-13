@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutComponent = ({home = false}) => {
   return (
-    <div className={home ? "lg:px-20 lg:pb-20 lg:pt-6  p-4" : "lg:p-20 p-4"}>
+    <div className={home ? "lg:px-20 lg:pb-20 lg:pt-6 p-4" : "lg:p-20 p-4"}>
       <div
         style={{
           display: "flex",
@@ -11,18 +11,14 @@ const AboutComponent = ({home = false}) => {
           flexWrap: "wrap",
           gap: "20px",
         }}>
-        <div style={{flex: "1 1 200px"}} className="about-box">
+        <div style={{flex: "1 1 12.5rem"}} className="about-box">
           <img
             src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/about.png"
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "10px",
-            }}
+            className="w-full h-full rounded-xl"
             alt="About Saral Dye Chems"
           />
         </div>
-        <div style={{flex: "1 1 400px"}} className="aboutContent-box">
+        <div style={{flex: "1 1 25rem"}} className="aboutContent-box">
           <div>
             <h2
               style={{

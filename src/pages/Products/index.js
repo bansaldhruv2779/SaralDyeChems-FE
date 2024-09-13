@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ProductCard from "./ProductCard";
 import CommonBackground from "../../components/CommonBackground";
 import ScrollButton from "../../components/TopButton";
+import {useParams} from "react-router-dom";
 
 const Products = () => {
-  const params = new URL(document.location).searchParams;
-  const categoryId = params.get("category");
+  const {categoryId} = useParams();
 
   return (
     <div>

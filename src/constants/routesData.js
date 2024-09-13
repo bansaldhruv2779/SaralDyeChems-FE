@@ -20,7 +20,7 @@ const routesData = [
     exact: true,
   },
   {
-    path: "/products",
+    path: "/products/:categoryId",
     Component: Products,
     publicRoute: true,
     exact: true,

@@ -137,12 +137,12 @@ const Index = () => {
                       className="absolute left-0 mt-2 rounded-md bg-white shadow-lg"
                       onMouseLeave={() => handleLinkLeave(link)}>
                       {categories.map(category => (
-                        <a
+                        <Link
                           key={category.id}
-                          href={`/products?category=${category.id}`}
+                          to={`/products/${category.id}`}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                           {category.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -196,12 +196,12 @@ const Index = () => {
                 {link === "Products" && showProductsDropdown && (
                   <div className="pl-4">
                     {categories.map(category => (
-                      <a
+                      <Link
                         key={category.id}
-                        href={`/products?category=${category.id}`}
+                        to={`/products/${category.id}`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         {category.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
