@@ -167,7 +167,10 @@ const Index = () => {
         <div className="md:hidden bg-white w-full shadow-lg p-4 fixed top-[64px] left-0 right-0 z-40">
           {["Home", "Products", "About Us", "Our Team", "Contact Us"].map(
             link => (
-              <div key={link} className="relative py-2">
+              <div
+                key={link}
+                className="relative py-2"
+                onClick={() => handleLinkClick(link)}>
                 <Link
                   to={
                     link === "Home"
@@ -180,7 +183,6 @@ const Index = () => {
                       ? "/#team"
                       : "#"
                   }
-                  onClick={() => handleLinkClick(link)}
                   className={`block text-sm py-2 ${
                     activeLink === link ? "text-[#3C5D87]" : "text-[#3D3D3D]"
                   }`}>
@@ -199,6 +201,7 @@ const Index = () => {
                       <Link
                         key={category.id}
                         to={`/products/${category.id}`}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-nowrap">
                         {category.label}
                       </Link>
