@@ -244,7 +244,7 @@ export const products = {
       category: "textile-auxiliaries",
       product: [
         {
-          name: "",
+          name: "Textile Auxiliaries",
           description: "",
           image:
             "https://ik.imagekit.io/u51majcf2/SaralDyeChems/TextileHex1.png",
@@ -278,7 +278,7 @@ export const products = {
       category: "textile-printing-machines",
       product: [
         {
-          name: "",
+          name: "Textile Printing Machines",
           description: "",
           image:
             "https://ik.imagekit.io/u51majcf2/SaralDyeChems/TextilePrintingMachines.png",
