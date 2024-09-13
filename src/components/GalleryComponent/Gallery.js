@@ -3,7 +3,7 @@ import {Box, Grid, Modal, IconButton} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const ImageGallery = ({images, images2}) => {
+const ImageGallery = ({images}) => {
   const [open, setOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -149,7 +149,7 @@ const ImageGallery = ({images, images2}) => {
               gap: 2,
               overflowX: "auto",
             }}>
-            {images2.map((image, index) => (
+            {images.map((image, index) => (
               <img
                 key={index}
                 src={image.src}
@@ -157,7 +157,7 @@ const ImageGallery = ({images, images2}) => {
                 style={{
                   maxWidth: "150px", // Maximum width
                   maxHeight: "100px", // Maximum height
-                  width: `calc(${100 / images2.length}% - 10px)`,
+                  width: `calc(${100 / images.length}% - 10px)`,
                   // Dynamic width based on number of images
                   height: "auto",
                   cursor: "pointer",

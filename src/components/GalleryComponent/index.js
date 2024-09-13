@@ -35,42 +35,8 @@ const images = [
     src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
     alt: "Team Photo 8",
   },
-];
-const images2 = [
   {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/1.jpeg",
-    alt: "Team Photo 1",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/2.jpg",
-    alt: "Team Photo 2",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/3.jpeg",
-    alt: "Team Photo 3",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/4.jpeg",
-    alt: "Team Photo 4",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/5.jpeg",
-    alt: "Team Photo 5",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/6.jpg",
-    alt: "Team Photo 6",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/7.jpeg",
-    alt: "Team Photo 7",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
-    alt: "Team Photo 8",
-  },
-  {
-    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/8.jpeg",
+    src: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/9.jpeg",
     alt: "Team Photo 9",
   },
   {
@@ -96,7 +62,7 @@ const GalleryComponent = () => {
         desColor="#000029"
         description=""
       />
-      <Gallery images={images} images2={images2} />
+      <Gallery images={images} />
     </div>
   );
 };
