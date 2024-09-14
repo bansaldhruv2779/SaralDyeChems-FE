@@ -1,9 +1,9 @@
-import {Home, ContactUs, Products, AboutUs} from "../pages";
+import {Home, ContactUs, Products, AboutUs, Maintenance} from "../pages";
 
 const routesData = [
   {
     path: "/",
-    Component: Home,
+    Component: Maintenance,
     publicRoute: true,
     exact: true,
   },
