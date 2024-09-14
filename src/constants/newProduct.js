@@ -14,6 +14,8 @@ export const products = {
               items: [
                 "Ezycoat 585",
                 "Ezycoat 999 Plus",
+                "Ezycoat 999C",
+                "Ezycoat 999J",
                 "Ezycoat 999 Star",
                 "Photokina CS-5 WR",
                 "Photokina A-1 Emulsion",
@@ -24,10 +26,10 @@ export const products = {
               items: [
                 "Ezycoat 333",
                 "Ezycoat 090",
+                "1 Plus Diazo Emulsion",
+                "SDC 37",
                 "Photokina CP Tex",
-                "Photokina CP-5",
-                "Photokina Image Mate DZ-343",
-                "Photokina Textile DW",
+                "Image Mate DZ-343",
                 "Shebro DIG 28 Plus",
                 "Shebro DIW 234",
               ],
@@ -38,7 +40,11 @@ export const products = {
             },
             {
               name: "SBQ Emulsion",
-              items: ["Shebro SPT"],
+              items: ["Shebro SPT-HV"],
+            },
+            {
+              name: "High Density Emulsion",
+              items: ["Ulano QTX & Phat Films"],
             },
           ],
         },
@@ -57,6 +63,7 @@ export const products = {
                 "Ezycoat 720N",
                 "Ezycoat 108H",
                 "Ezycoat 1 Plus Hardener",
+                "Ezycoat PS9",
                 "Shebro Hardener A+B",
               ],
             },
@@ -68,7 +75,6 @@ export const products = {
               name: "Screen Chemicals",
               items: [
                 "Shebro Screen Wash 126",
-                "Photokina Screen Wash 3",
                 "Photokina Haze Remover HR-S",
                 "Photokina Decoating Gel Plus",
               ],
@@ -91,16 +97,7 @@ export const products = {
           subCategory: [
             {
               name: "Photo Screen Emulsion",
-              items: [
-                "Ezycoat 414",
-                "Ezycoat 414 Plus",
-                "Ezycoat 4500 DL",
-                "Rotary Emulsion 747",
-              ],
-            },
-            {
-              name: "Screen Hardener",
-              items: ["Ezycoat PS9"],
+              items: ["Ezycoat 414", "Ezycoat 4500 DL", "Rotary Emulsion 747"],
             },
           ],
         },
@@ -131,32 +128,26 @@ export const products = {
       category: "Screen-Making-Auxillaries",
       product: [
         {
-          name: "Bolting Cloth (All Sizes)",
+          name: "Bolting Cloth / Screen Mesh (All Widths)",
           description: "White / Yellow / Indian / Imported",
           image:
             "https://ik.imagekit.io/u51majcf2/SaralDyeChems/ScreenMaking1.png",
           subCategory: [
             {
               name: "Mono Polyester Mesh",
-              items: [
-                "Normal (Loom)",
-                "Sulzer Made",
-                "Water Jet",
-                "Heat Set",
-                "Export Quality",
-              ],
+              items: ["Power Loom", "Rapier Loom", "Sulzer", "Water Jet"],
             },
             {
               name: "Multi Polyester Mesh",
-              items: ["Normal (Loom)", "Sulzer Made", "Heat Set"],
+              items: ["Power Loom", "Rapier Loom", "Sulzer"],
             },
             {
               name: "Nylon Mesh",
-              items: ["Normal (Loom)", "Sulzer Made"],
+              items: ["Power Loom", "Rapier Loom", "Sulzer"],
             },
             {
               name: "Imported Mesh",
-              items: ["Imported Mesh (Yellow)"],
+              items: ["Imported Mesh (White)", "Imported Mesh (Yellow)"],
             },
           ],
         },
@@ -168,14 +159,18 @@ export const products = {
           subCategory: [
             {
               name: "Rotary Nickel Screens (All Sizes)",
-              items: ["Harish", "Unikon"],
+              items: [
+                "Harish",
+                "Unikon",
+                "Nickel Screens India Pvt. Ltd. (Nasik)",
+              ],
             },
             {
               name: "Frame Adhesive",
               items: [
                 "Ezycoat 828 (Metal Frame)",
                 "Ezycoat FA99 (Aluminium Frame)",
-                "Arkabond 930",
+                "Arkabond 930 (Aluminium Frame)",
                 "Photokina CSP Frame Adhesive",
               ],
             },
@@ -188,12 +183,14 @@ export const products = {
                 "USL Auto Clear",
                 "Ethyl Acetate",
                 "Cyclo",
+                "Pine Oil",
+                "Glycerine",
+                "Amyl",
               ],
             },
             {
               name: "Auxiliary Items",
               items: [
-                "Pre-stretched Frame",
                 "Wooden/Steel Stopper",
                 "ALPPP",
                 "Frame Fittings",
@@ -215,7 +212,18 @@ export const products = {
             "https://ik.imagekit.io/u51majcf2/SaralDyeChems/DigitalHex.png",
           subCategory: [
             {
-              name: "",
+              name: "Digital Printing Inks",
+              items: [
+                "Kyocera",
+                "Konica Minolta",
+                "Epson DX-5 / i3200",
+                "Fuji",
+                "Samba",
+                "Ricoh",
+              ],
+            },
+            {
+              name: "Padding Chemicals",
               items: [
                 "Sodium Alginate",
                 "Rotostar MT/HT",
@@ -223,14 +231,9 @@ export const products = {
                 "Decoating Thinner",
                 "Resist Salt",
                 "Dye Fixer",
-              ],
-            },
-            {
-              name: "",
-              items: [
                 "Guar Gum",
                 "Toluene",
-                "Non-ionic",
+                "Non-ionic Soap",
                 "Sodium Bi-Carbonate",
                 "Soda Ash",
                 "Ethyl Acetate",
@@ -286,6 +289,11 @@ export const products = {
             {
               name: "",
               items: [
+                "Flat Bed Stretching Machine",
+                "UV LED Light Camera",
+                "UV LED Screen Exposure",
+                "Operating Panel",
+                "Vacuum System",
                 "Laser Stripping Machine",
                 "Curing Oven",
                 "Rotary Screen Coating",

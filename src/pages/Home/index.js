@@ -5,7 +5,7 @@ import GalleryComponent from "../../components/GalleryComponent";
 import Segment from "../../components/Segments";
 import CarouselDarkVariant from "../../components/Carousel";
 import Heading from "../../components/Heading";
-import ScrollButton from "../../components/TopButton";
+import ScrollButton from "../../components/ScrollButton";
 
 const Home = () => {
   return (

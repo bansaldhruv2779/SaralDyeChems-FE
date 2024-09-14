@@ -21,7 +21,7 @@ const CommonBackground = ({
         }}></div>
 
       <div className="absolute inset-0 bg-[#0C1522] bg-opacity-85">
-        <div>
+        <div className="lg:mt-44">
           <h2
             style={{
               color: "white",

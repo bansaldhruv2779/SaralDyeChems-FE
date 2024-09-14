@@ -60,13 +60,15 @@ function Footer() {
               "Bolting Cloth",
               "Ezycoat 216",
               "Ezycoat 828",
+              "Ezycoat 999C",
               "Rotostar HT/MT",
+              "Image Mate DZ-343",
+              "Photokina CS-5 WR",
               "Photoemulsion 747",
               "Endring Remover",
               "Nuspray Paint",
               "Ammonium Dichromate",
               "Arkabond",
-              "Ezycoat 999C",
               "Acetone",
               "Ethyl Acetate",
               "Stripper",
@@ -131,11 +133,41 @@ function Footer() {
           <h3 className="font-bold mb-2">Contact Info</h3>
           <div className="flex flex-row mb-2">
             <IconMail className="mr-2" style={{width: "1.25rem"}} />
-            saraldyes@gmail.com
+            <Link
+              href="mailto:saraldyes@gmail.com"
+              underline="always"
+              rel="noopener noreferrer"
+              sx={{
+                cursor: "pointer",
+                color: "inherit",
+              }}>
+              saraldyes@gmail.com
+            </Link>
           </div>
           <div className="flex flex-row mb-2">
             <IconPhone className="mr-2" style={{width: "1.25rem"}} />
-            +91 9810024522, +91 9810166261
+            <Link
+              href="tel:+919810024522"
+              underline="always"
+              rel="noopener noreferrer"
+              sx={{
+                cursor: "pointer",
+                color: "inherit",
+              }}>
+              +91 9810024522
+            </Link>
+            ,
+            <Link
+              href="tel:+919810166261"
+              underline="always"
+              rel="noopener noreferrer"
+              sx={{
+                cursor: "pointer",
+                color: "inherit",
+                marginLeft: "0.25rem",
+              }}>
+              +91 9810166261
+            </Link>
           </div>
           <h3 className="font-bold mb-2">Indiamart</h3>
           <div className="flex flex-row mb-2">

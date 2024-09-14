@@ -2,12 +2,12 @@ import React from "react";
 import Header from "../Header";
 import {useLocation} from "react-router";
 import Footer from "../FooterDesign";
-// import Footer from "../Footer";
 import {Box} from "@mui/material";
 
-export default function Layout({children}) {
+export default function Layout({maintenance, children}) {
   const location = useLocation();
-  const disableLayout = ["/404", "/"].includes(location.pathname);
+  const disableLayout =
+    ["/404", "/maintenance"].includes(location.pathname) || maintenance;
   return (
     <div>
       {!disableLayout && <Header />}

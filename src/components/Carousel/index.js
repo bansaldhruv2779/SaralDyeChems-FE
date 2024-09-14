@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = () => {
   return (
     <div
-      className="relative bg-cover bg-center flex items-center h-[90vh] lg:h-[80vh]"
+      className="relative bg-cover bg-center flex items-center h-[100vh] lg:h-[80vh]"
       style={{
         backgroundImage:
           "url(https://ik.imagekit.io/u51majcf2/SaralDyeChems/bg.png)",
@@ -16,7 +16,7 @@ const HeroSection = () => {
         {/* Left Section - Text Content */}
         <div className="text-white max-w-2xl mb-8 lg:mb-0 sm:mt-1 lg:ml-4">
           <h1 className="text-3xl lg:text-5xl font-bold mb-2 lg:leading-snug">
-            Premier Screen Engraving Chemical Solutions
+            Premier Screen Engraving & Digital Printing Chemical Solutions
           </h1>
           <p className="text-sm mb-4 lg:mb-8">
             India&apos;s Trusted Distributor of High-Quality Chemicals for

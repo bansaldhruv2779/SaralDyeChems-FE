@@ -28,7 +28,7 @@ const AboutComponent = ({home = false}) => {
                 fontWeight: "600",
                 paddingLeft: "10px",
               }}>
-              Leading Textile Chemicals Distributor with over{" "}
+              Leading Textile Chemicals Distributor with over
               <span style={{color: "#5E7A9D"}}>36 years of Excellence</span>
             </h2>
           </div>
@@ -46,7 +46,7 @@ const AboutComponent = ({home = false}) => {
               age of 21 and named it after his mother, symbolizing the love and
               dedication towards his family. Initially, the company traded
               engraving chemicals and soon became an authorized agent of
-              Bluecoat Pvt Ltd.
+              Bluecoat (Bluetex) India Pvt Ltd.
             </p>
             <p
               style={{
@@ -57,10 +57,11 @@ const AboutComponent = ({home = false}) => {
               Within a few years, Saral had established a name for itself in the
               textile chemicals industry, which enabled Mr Vipul to purchase his
               own office in Tilak Bazaar - one of the biggest chemical trading
-              markets in India. The company&apos;s growth was phenomenal, and
-              soon Mr Sunit Kumar Gupta, Mr Vipul&apos;s younger brother, joined
-              the business and played a pivotal role in the company&apos;s
-              success.
+              markets in India. The company's growth was phenomenal, and soon Mr
+              Sunit Kumar Gupta, Mr Vipul's younger brother, joined the business
+              played a pivotal role in the company's success. His contribution
+              helped to further expand the company's reach and take it to new
+              heights.
             </p>
             <p
               style={{
@@ -70,10 +71,10 @@ const AboutComponent = ({home = false}) => {
               }}>
               Today, Saral is a well-known name in the textile chemicals
               industry, with offices in Delhi, Panipat, and Ludhiana. Our
-              offices cater to all the markets of Punjab, Haryana, and even
-              international markets like Nepal. Saral takes pride in offering a
-              wide array of screen making materials, flat bed chemicals, rotary
-              chemicals, and many more.
+              offices cater to all the markets of India and international
+              markets. Saral takes pride in offering a wide array of screen
+              making materials, flat bed chemicals, rotary chemicals, digital
+              printing inks and many more.
             </p>
             <p
               style={{

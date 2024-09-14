@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import CommonBackground from "../../components/CommonBackground";
-import ScrollButton from "../../components/TopButton";
+import ScrollButton from "../../components/ScrollButton";
 import {useParams} from "react-router-dom";
 
 const Products = () => {

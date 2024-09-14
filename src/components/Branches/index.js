@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   IconButton,
+  Link,
 } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -16,7 +17,6 @@ const OfficeCard = ({title, icon, address, contact}) => (
   <Card
     sx={{
       borderRadius: "8px",
-      // padding: "13px 0px",
       backgroundColor: "white",
       width: "320px",
       height: "135px",
@@ -57,7 +57,16 @@ const OfficeCard = ({title, icon, address, contact}) => (
                 <IconButton sx={{color: "#3C5D87", marginRight: "8px"}}>
                   <EmailIcon />
                 </IconButton>
-                {contact.email}
+                <Link
+                  href={`mailto:${contact.email}`}
+                  underline="none"
+                  rel="noopener noreferrer"
+                  sx={{
+                    cursor: "pointer",
+                    color: "inherit",
+                  }}>
+                  {contact.email}
+                </Link>
               </>
             )}
           </Typography>
@@ -67,7 +76,28 @@ const OfficeCard = ({title, icon, address, contact}) => (
                 <IconButton sx={{color: "#3C5D87", marginRight: "8px"}}>
                   <PhoneIcon />
                 </IconButton>
-                {contact.phone}
+                <Link
+                  href="tel:+919810024522"
+                  underline="none"
+                  rel="noopener noreferrer"
+                  sx={{
+                    cursor: "pointer",
+                    color: "inherit",
+                  }}>
+                  +91 9810024522
+                </Link>
+                ,
+                <Link
+                  href="tel:+919810166261"
+                  underline="none"
+                  rel="noopener noreferrer"
+                  sx={{
+                    cursor: "pointer",
+                    color: "inherit",
+                    marginLeft: "0.25rem",
+                  }}>
+                  +91 9810166261
+                </Link>
               </>
             )}
           </Typography>

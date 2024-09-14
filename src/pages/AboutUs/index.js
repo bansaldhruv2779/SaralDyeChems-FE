@@ -6,7 +6,7 @@ import Founder from "../../components/FounderComponent";
 import CommonBackground from "../../components/CommonBackground";
 import Achievements from "../../components/Achievements";
 import Catered from "../../components/Catered";
-import ScrollButton from "../../components/TopButton";
+import ScrollButton from "../../components/ScrollButton";
 
 const AboutUs = () => {
   const theme = createTheme({
