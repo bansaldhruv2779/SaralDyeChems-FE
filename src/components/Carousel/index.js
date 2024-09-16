@@ -20,7 +20,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-sm mb-4 lg:mb-8">
             India&apos;s Trusted Distributor of High-Quality Chemicals for
-            Precision Screen Engraving
+            Precision Screen Engraving and Digital Printing
           </p>
           <a href="/#products">
             <button className="bg-[#3C5D87] hover:bg-[#ffffff] hover:text-[#3C5D87] text-white py-3 px-5 rounded text-xs font-bold">

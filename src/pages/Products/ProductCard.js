@@ -1,27 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {products as productList} from "../../constants/newProduct";
+import React from "react";
 
-const ProductCard = ({categoryId}) => {
-  const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    const productsArray = [];
-    productList.data.forEach(category => {
-      if (!categoryId || category.category === categoryId) {
-        category.product.forEach(product => {
-          productsArray.push({
-            category: category.category,
-            name: product.name,
-            description: product.description,
-            image: product.image,
-            subCategory: product.subCategory || [],
-          });
-        });
-      }
-    });
-
-    setAllProducts(productsArray);
-  }, [categoryId]);
+const ProductCard = ({allProducts}) => {
 
   return (
     <div

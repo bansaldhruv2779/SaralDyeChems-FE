@@ -3,6 +3,8 @@ export const products = {
   data: [
     {
       category: "Flat-Bed-Screen-Printing-Chemicals",
+      description:
+        "Flat bed screen printing chemicals are specialized dyes and agents used for precise, high-quality textile printing on flat surfaces.",
       product: [
         {
           name: "Photo Screen Emulsion",
@@ -89,6 +91,8 @@ export const products = {
     },
     {
       category: "Rotary-Screen-Printing-Chemicals",
+      description:
+        "Rotary printing is a printing method where images or patterns are transferred onto a substrate using a rotating cylinder or drum, commonly used for high-speed production.",
       product: [
         {
           name: "",
@@ -126,6 +130,8 @@ export const products = {
     },
     {
       category: "Screen-Making-Auxillaries",
+      description:
+        "Screen making auxiliaries are chemical products used to prepare, coat, and enhance the screens used in flatbed screen printing, ensuring optimal design transfer and print quality.",
       product: [
         {
           name: "Bolting Cloth / Screen Mesh (All Widths)",
@@ -203,7 +209,9 @@ export const products = {
       ],
     },
     {
-      category: "Digital-Printing-Chemicals",
+      category: "Digital-Printing-Chemicals-&-Inks",
+      description:
+        "Digital printing is a modern printing method that transfers digital images directly onto various materials without the need for printing plates, offering high precision and flexibility.",
       product: [
         {
           name: "Digital Printing Chemicals",
@@ -245,6 +253,8 @@ export const products = {
     },
     {
       category: "Textile-Auxiliaries",
+      description:
+        "Textile chemical auxiliaries are specialized compounds used in textile processing to enhance various properties such as dyeing, printing, finishing, and fabric performance.",
       product: [
         {
           name: "Textile Auxiliaries",
@@ -260,6 +270,7 @@ export const products = {
                 "Stretch Khadi",
                 "Gold Binder",
                 "Printing Guar Gum",
+                "Nuspray Paint",
               ],
             },
             {
@@ -279,6 +290,8 @@ export const products = {
     },
     {
       category: "Textile-Printing-Machines",
+      description:
+        "Textile printing machines are specialized devices used to apply designs, patterns, or images onto fabrics using various printing techniques like screen, rotary, or digital printing.",
       product: [
         {
           name: "Textile Printing Machines",

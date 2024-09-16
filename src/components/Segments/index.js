@@ -39,9 +39,9 @@ function ProductsGrid() {
       title: "Screen Making Auxillaries",
     },
     {
-      link: "/products/Digital-Printing-Chemicals",
+      link: "/products/Digital-Printing-Chemicals-&-Inks",
       image: "https://ik.imagekit.io/u51majcf2/SaralDyeChems/digital-1.png",
-      title: "Digital Printing Chemicals",
+      title: "Digital Printing Chemicals & Inks",
     },
     {
       link: "/products/Textile-Auxiliaries",

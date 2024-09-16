@@ -7,6 +7,7 @@ import {
 } from "@tabler/icons-react";
 import {Link} from "@mui/material";
 import animateLogo from "../../assets/animateLogo.gif";
+import {Link as Redirect} from "react-router-dom";
 
 function Footer() {
   return (
@@ -57,25 +58,65 @@ function Footer() {
           <h3 className="font-bold mb-2">Top Products</h3>
           <ul>
             {[
-              "Bolting Cloth",
-              "Ezycoat 216",
-              "Ezycoat 828",
-              "Ezycoat 999C",
-              "Rotostar HT/MT",
-              "Image Mate DZ-343",
-              "Photokina CS-5 WR",
-              "Photoemulsion 747",
-              "Endring Remover",
-              "Nuspray Paint",
-              "Ammonium Dichromate",
-              "Arkabond",
-              "Acetone",
-              "Ethyl Acetate",
-              "Stripper",
+              {
+                name: "Bolting Cloth",
+                link: "/products/Screen-Making-Auxillaries",
+              },
+              {
+                name: "Ezycoat 216",
+                link: "/products/Flat-Bed-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Ezycoat 828",
+                link: "/products/Screen-Making-Auxillaries",
+              },
+              {
+                name: "Ezycoat 999C",
+                link: "/products/Flat-Bed-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Rotostar HT/MT",
+                link: "/products/Rotary-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Image Mate DZ-343",
+                link: "/products/Flat-Bed-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Photokina CS-5 WR",
+                link: "/products/Flat-Bed-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Photoemulsion 747",
+                link: "/products/Rotary-Screen-Printing-Chemicals",
+              },
+              {
+                name: "Endring Remover",
+                link: "/products/Rotary-Screen-Printing-Chemicals",
+              },
+              {name: "Nuspray Paint", link: "/products/Textile-Auxiliaries"},
+              {
+                name: "Ammonium Dichromate",
+                link: "/products/Screen-Making-Auxillaries",
+              },
+              {name: "Arkabond", link: "/products/Screen-Making-Auxillaries"},
+              {name: "Acetone", link: "/products/Screen-Making-Auxillaries"},
+              {
+                name: "Ethyl Acetate",
+                link: "/products/Digital-Printing-Chemicals",
+              },
+              {
+                name: "Stripper",
+                link: "/products/Rotary-Screen-Printing-Chemicals",
+              },
             ].map((product, index) => (
               <li key={index} className="mb-1 flex items-center">
                 <IconChevronRight className="mr-2" style={{width: "16px"}} />
-                {product}
+                <Redirect
+                  to={product.link}
+                  className="text-inherit	cursor-pointer hover:underline">
+                  {product.name}
+                </Redirect>
               </li>
             ))}
           </ul>

@@ -26,8 +26,8 @@ const Index = () => {
       label: "Screen Making Auxillaries",
     },
     {
-      id: "Digital-Printing-Chemicals",
-      label: "Digital Printing Chemicals",
+      id: "Digital-Printing-Chemicals-&-Inks",
+      label: "Digital Printing Chemicals & Inks",
     },
     {
       id: "Textile-Auxiliaries",
