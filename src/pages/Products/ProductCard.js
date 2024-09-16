@@ -1,7 +1,6 @@
 import React from "react";
 
 const ProductCard = ({allProducts}) => {
-
   return (
     <div
       style={{

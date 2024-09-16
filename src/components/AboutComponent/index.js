@@ -29,7 +29,9 @@ const AboutComponent = ({home = false}) => {
                 paddingLeft: "10px",
               }}>
               Leading Textile Chemicals Distributor with over
-              <span style={{color: "#5E7A9D", marginLeft: "0.5rem"}}>36 years of Excellence</span>
+              <span style={{color: "#5E7A9D", marginLeft: "0.5rem"}}>
+                36 years of Excellence
+              </span>
             </h2>
           </div>
           <div>
