@@ -8,7 +8,7 @@ const ProductCard = ({link, image, title}) => (
     to={link}
     className="relative bg-cover bg-center rounded-lg overflow-hidden h-64 md:h-72"
     style={{backgroundImage: `url(${image})`}}>
-    <div className="absolute bottom-0 left-0 w-full p-4 text-white font-semibold bg-gradient-to-t from-black via-transparent to-transparent">
+    <div className="absolute bottom-0 left-0 w-full p-4 text-white text-left font-semibold bg-gradient-to-b from-transparent to-black">
       {title}
     </div>
   </Link>
