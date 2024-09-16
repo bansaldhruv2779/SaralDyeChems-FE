@@ -36,7 +36,7 @@ const HeroSection = () => {
           </div>
           <img
             src="https://ik.imagekit.io/u51majcf2/SaralDyeChems/authorisedDealer.png"
-            style={{width: "100%", height: "240px"}}
+            className="w-full h-[240px] object-contain rounded-lg"
             alt=""
           />
         </div>

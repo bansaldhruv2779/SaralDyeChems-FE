@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Box, Grid, Modal, IconButton} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CloseIcon from "@mui/icons-material/Close";
 
 const ImageGallery = ({images}) => {
   const [open, setOpen] = useState(false);
@@ -91,14 +92,16 @@ const ImageGallery = ({images}) => {
           <IconButton
             sx={{
               position: "absolute",
-              top: "10px",
-              right: "10px",
-              color: "#000",
+              top: 16,
+              right: 16,
+              color: "white",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
             }}
             onClick={handleClose}>
-            <p style={{fontSize: "16px", fontWeight: "600", color: "white"}}>
-              Close
-            </p>
+            <CloseIcon />
           </IconButton>
 
           {/* Main Image */}
@@ -111,6 +114,8 @@ const ImageGallery = ({images}) => {
             }}>
             <IconButton
               sx={{
+                position: "absolute",
+                left: 16,
                 color: "#fff",
                 margin: "0 8px",
               }}
@@ -121,16 +126,12 @@ const ImageGallery = ({images}) => {
             <img
               src={images[currentImageIndex].src}
               alt={`Large ${currentImageIndex}`}
-              style={{
-                maxWidth: "80%",
-                maxHeight: "80vh",
-                objectFit: "contain",
-                borderRadius: "8px",
-                boxShadow: "0px 4px 8px rgba(0,0,0,0.2)",
-              }}
+              className="max-w-full h-[25vh] lg:h-[80vh] object-contain rounded-lg shadow-md"
             />
             <IconButton
               sx={{
+                position: "absolute",
+                right: 16,
                 color: "#fff",
                 margin: "0 8px",
               }}
@@ -148,29 +149,20 @@ const ImageGallery = ({images}) => {
               mt: 2,
               gap: 2,
               overflowX: "auto",
+              width: "100%",
             }}>
             {images.map((image, index) => (
               <img
                 key={index}
                 src={image.src}
                 alt={`Thumbnail ${index}`}
-                style={{
-                  maxWidth: "150px", // Maximum width
-                  maxHeight: "100px", // Maximum height
-                  width: `calc(${100 / images.length}% - 10px)`,
-                  // Dynamic width based on number of images
-                  height: "auto",
-                  cursor: "pointer",
-                  borderRadius: "8px",
-                  border:
+                className={`max-w-[150px] max-h-[100px] h-auto cursor-pointer rounded-lg
+                  ${
                     currentImageIndex === index
-                      ? "2px solid #007bff"
-                      : "2px solid transparent",
-                  boxShadow:
-                    currentImageIndex === index
-                      ? "0px 2px 4px rgba(0,0,0,0.2)"
-                      : "none",
-                }}
+                      ? "border-2 border-[#007bff] shadow-md"
+                      : "border-2 border-transparent"
+                  }`}
+                style={{width: `calc(${100 / images.length}% - 4px)`}}
                 onClick={() => setCurrentImageIndex(index)}
               />
             ))}
