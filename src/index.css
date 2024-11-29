@@ -15,3 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue"), local("HelveticaNeue"), local("Helvetica-Neue"),
+    local("HelveticaNeueLTStd-Roman");
+  font-weight: 300;
+  font-style: normal;
+}
+body,
+input,
+textarea,
+button {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}

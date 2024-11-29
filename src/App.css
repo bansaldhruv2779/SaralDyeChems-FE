@@ -31,6 +31,9 @@
 .App-link {
   color: #61dafb;
 }
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 @keyframes App-logo-spin {
   from {

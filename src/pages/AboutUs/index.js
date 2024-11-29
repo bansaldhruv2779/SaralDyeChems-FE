@@ -1,17 +1,12 @@
-import React, {useState, useEffect} from "react";
-import {
-  Box,
-  Grid,
-  IconButton,
-  ThemeProvider,
-  Typography,
-  createTheme,
-  styled,
-} from "@mui/material";
-import CategoryIcon from "@mui/icons-material/Category";
-import CountComponent from "../../components/Counts/Index";
-import AboutComponent from "../../components/AboutComponent/Index";
-import Founder from "../../components/FounderComponent/Founder";
+import React from "react";
+import {ThemeProvider, createTheme} from "@mui/material";
+import CountComponent from "../../components/Counts";
+import AboutComponent from "../../components/AboutComponent";
+import Founder from "../../components/FounderComponent";
+import CommonBackground from "../../components/CommonBackground";
+import Achievements from "../../components/Achievements";
+import Catered from "../../components/Catered";
+import ScrollButton from "../../components/TopButton";
 
 const AboutUs = () => {
   const theme = createTheme({
@@ -25,20 +20,19 @@ const AboutUs = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid
-          padding="0 8%"
-          display="flex"
-          alignItems="center"
-          height="200px"
-          bgcolor="#F0F0F0">
-          <Typography fontSize="55px" color="#021961" fontWeight="700">
-            About Us
-          </Typography>
-        </Grid>
+        <CommonBackground
+          title="About Us"
+          arrow={true}
+          mainRoute="Home"
+          childRoute="About Us"
+        />
+        <AboutComponent />
+        <CountComponent />
+        <Catered />
+        <Founder />
+        <Achievements />
+        <ScrollButton />
       </ThemeProvider>
-      <AboutComponent />
-      <CountComponent />
-      <Founder />
     </>
   );
 };

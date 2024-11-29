@@ -1,15 +1,9 @@
-import {Login, Home, ContactUs, Products, AboutUs} from "../pages";
+import {Home, ContactUs, Products, AboutUs} from "../pages";
 
 const routesData = [
   {
     path: "/",
     Component: Home,
-    publicRoute: true,
-    exact: true,
-  },
-  {
-    path: "/login",
-    Component: Login,
     publicRoute: true,
     exact: true,
   },
@@ -31,12 +25,6 @@ const routesData = [
     publicRoute: true,
     exact: true,
   },
-  // {
-  //   path: "/orders",
-  //   Component: AllOrders,
-  //   publicRoute: false,
-  //   exact: false,
-  // },
 ];
 
 export default routesData;
