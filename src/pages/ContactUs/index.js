@@ -90,7 +90,9 @@ const ContactUs = () => {
     }).then(res => res.json());
 
     if (response.success) {
-      toast.success("We Will Contact You Shortly.");
+      toast.success("We Will Contact You Shortly.", {
+        autoClose: 15000,
+      });
       resetForm();
       setPhoneNumber("");
       setSelectedProduct([]);
