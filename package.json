@@ -7,11 +7,32 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rm -rf node_modules && rm -rf yarn.lock && rm -rf Gemfile.lock && rm -rf ios/Pods && rm -rf ios/Podfile.lock",
+    "setup": "yarn && cd ios && pod install && cd ../"
   },
   "dependencies": {
+    "@react-native/gradle-plugin": "^0.78.0",
+    "@react-navigation/bottom-tabs": "^7.2.0",
+    "@react-navigation/drawer": "^7.1.1",
+    "@react-navigation/native": "^7.0.14",
+    "@react-navigation/stack": "^7.1.1",
+    "@reduxjs/toolkit": "^2.5.1",
+    "axios": "^1.8.1",
+    "lucide-react-native": "^0.479.0",
     "react": "18.3.1",
-    "react-native": "0.77.0"
+    "react-native": "0.77.0",
+    "react-native-gesture-handler": "^2.22.1",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-mmkv": "^3.2.0",
+    "react-native-picker-select": "^9.3.1",
+    "react-native-reanimated": "^3.14.0",
+    "react-native-safe-area-context": "^5.2.0",
+    "react-native-screens": "^4.6.0",
+    "react-native-svg": "^15.11.2",
+    "react-native-vector-icons": "^10.2.0",
+    "react-redux": "^9.2.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
