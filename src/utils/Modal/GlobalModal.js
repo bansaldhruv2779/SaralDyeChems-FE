@@ -1,97 +1,65 @@
-// import React from 'react';
-// import {Modal} from 'react-native';
-// import {useSelector, useDispatch} from 'react-redux';
-// import {closeModal} from '../../redux/slices/modalSlice';
-// import {callbackRegistry} from './callbackRegistry';
-// import ConfirmModal from './ConfirmModal';
-// import {ProductModal} from '../../screens';
-
-// const MODAL_COMPONENTS = {
-//   CONFIRM_MODAL: ConfirmModal,
-// };
-
-// const GlobalModal = () => {
-//   const dispatch = useDispatch();
-//   const {isOpen, modalType, modalProps, callbackId} = useSelector(
-//     state => state.modal,
-//   );
-
-//   const handleClose = () => {
-//     dispatch(closeModal());
-//   };
-
-//   const handleConfirm = () => {
-//     // Invoke the callback by ID instead of directly
-//     if (callbackId) {
-//       callbackRegistry.invoke(callbackId);
-//     }
-//     handleClose();
-//   };
-
-//   if (!isOpen || !modalType) {
-//     return null;
-//   }
-
-//   const SpecificModal = MODAL_COMPONENTS[modalType];
-
-//   if (!SpecificModal) {
-//     return null;
-//   }
-
-// const selectedProductItem = useSelector(state => state.cart.selectedProduct);
-// const isProductModalOpen = useSelector(
-//   state => state.cart.isProductModalOpen,
-// );
-
-//   return (
-// <>
-// {isProductModalOpen && (
-//   <ProductModal
-//     visible={isProductModalOpen}
-//     onClose={() => dispatch(closeModal())}
-//     product={selectedProductItem}
-//   />
-// )}
-// </>
-//     <Modal
-//       visible={isOpen}
-//       transparent={true}
-//       animationType="fade"
-//       onRequestClose={handleClose}>
-//       <SpecificModal {...modalProps} onClose={handleClose} />
-//     </Modal>
-//   );
-// };
-
-// export default GlobalModal;
-// GlobalModal.js
-
-// GlobalModal.js
 import React from 'react';
+import {Modal, View, StyleSheet, Dimensions} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {closeModal} from '../../redux/slices/modalSlice';
-import {ProductModal} from '../../screens';
+import ConfirmModal from './ConfirmModal';
+
+const MODAL_COMPONENTS = {
+  CONFIRM_MODAL: ConfirmModal,
+};
 
 const GlobalModal = () => {
   const dispatch = useDispatch();
-  const {isOpen} = useSelector(state => state.modal);
-  const selectedProduct = useSelector(state => state.cart.selectedProduct);
+  const {isOpen, modalType, modalProps} = useSelector(state => state.modal);
+  const selectedProductItem = useSelector(state => state.cart.selectedProduct);
 
+  // const handleClose = () => dispatch(closeModal());
   const handleClose = () => {
+    console.log('Dispatching close modal'); // Debug log
     dispatch(closeModal());
   };
 
-  if (!isOpen || !selectedProduct) {
-    return null;
-  }
+  if (!isOpen || !modalType) return null;
+
+  const SpecificModal = MODAL_COMPONENTS[modalType];
+  if (!SpecificModal) return null;
 
   return (
-    <ProductModal
+    <Modal
       visible={isOpen}
-      onClose={handleClose}
-      product={selectedProduct}
-    />
+      transparent
+      animationType="fade"
+      onRequestClose={handleClose}
+      statusBarTranslucent>
+      <View style={styles.overlay}>
+        <View style={styles.modalWrapper}>
+          <SpecificModal
+            {...modalProps}
+            onClose={handleClose}
+            product={selectedProductItem}
+          />
+        </View>
+      </View>
+    </Modal>
   );
 };
+
+const {width, height} = Dimensions.get('window');
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    width,
+    height,
+  },
+  modalWrapper: {
+    width: '90%',
+    maxWidth: 500,
+  },
+});
 
 export default GlobalModal;

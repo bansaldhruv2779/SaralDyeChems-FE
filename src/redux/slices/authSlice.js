@@ -10,7 +10,7 @@ import {
   setBoolItem,
 } from '../../utils/storage';
 
-const BASE_URL = 'http://172.20.10.3:4000';
+const BASE_URL = 'https://api.saraldyechems.com';
 const api = axios.create({
   baseURL: BASE_URL,
 });

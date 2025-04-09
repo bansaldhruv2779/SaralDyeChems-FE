@@ -5,6 +5,7 @@
 // import {useNavigation} from '@react-navigation/native';
 // import ProductCard from './ProductCard';
 // import {addItem} from '../redux/slices/cartSlice';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // const SearchResults = ({searchText}) => {
 //   const dispatch = useDispatch();
@@ -37,26 +38,23 @@
 
 //   return (
 //     <View style={styles.searchResultsContainer}>
-//       {results?.length > 0 ? (
-//         <ScrollView style={styles.resultsListContainer}>
-//           <View style={styles.productsContainer}>
-//             {results.map((item, index) => (
-//               <ProductCard
-//                 key={item._id}
-//                 item={item}
-//                 onAddPress={handleAddPress}
-//                 idx={index}
-//               />
-//             ))}
-//           </View>
-//         </ScrollView>
-//       ) : searchText ? (
-//         <Text style={styles.noResultsText}>No products found</Text>
-//       ) : null}
+//       <ScrollView style={styles.resultsListContainer}>
+//         <View style={styles.productsContainer}>
+//           {results.map((item, index) => (
+//             <ProductCard
+//               key={item._id}
+//               item={item}
+//               onAddPress={handleAddPress}
+//               idx={index}
+//             />
+//           ))}
+//         </View>
+//       </ScrollView>
 //     </View>
 //   );
 // };
 
+// // Your existing styles remain exactly the same
 // const styles = StyleSheet.create({
 //   container: {
 //     alignSelf: 'center',
@@ -64,9 +62,11 @@
 //   },
 //   searchResultsContainer: {
 //     width: '100%',
-//     marginTop: 6,
+//     marginTop: -80,
 //     borderRadius: 10,
+//     height: 1000,
 //     backgroundColor: '#FFF',
+//     // maxHeight: 500,
 //     zIndex: 1000,
 //     elevation: 5,
 //     shadowColor: '#000',
@@ -82,7 +82,6 @@
 //     flexDirection: 'row',
 //     flexWrap: 'wrap',
 //     justifyContent: 'space-between',
-//     // paddingHorizontal: 10,
 //   },
 //   noResultsText: {
 //     textAlign: 'center',
@@ -90,6 +89,20 @@
 //     color: '#FFF',
 //     marginTop: 10,
 //     zIndex: 999,
+//   },
+//   emptyStateContainer: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     padding: 30,
+//     minHeight: 200,
+//   },
+//   noResultsText: {
+//     textAlign: 'center',
+//     fontSize: 18,
+//     color: '#555555',
+//     marginTop: 15,
+//     fontWeight: '500',
 //   },
 // });
 
@@ -108,34 +121,40 @@ const SearchResults = ({searchText}) => {
   const {results, loading, error} = useSelector(state => state.search);
   const navigation = useNavigation();
 
-  if (loading) {
-    return (
-      <View style={styles.container}>
-        <Text style={{fontSize: 16, color: '#EEE'}}>Loading...</Text>
-      </View>
-    );
-  }
-
-  if (error) {
-    return (
-      <View style={styles.container}>
-        <Text>Error: {error.message}</Text>
-      </View>
-    );
-  }
-
   const handleAddPress = product => {
     dispatch(addItem(product));
   };
 
-  // New logic for empty states
+  // Define empty states
   const showNoResults = searchText && results?.length === 0;
   const showInitialState = !searchText && results?.length === 0;
 
   return (
     <View style={styles.searchResultsContainer}>
-      {results?.length > 0 ? (
-        <ScrollView style={styles.resultsListContainer}>
+      <ScrollView style={styles.resultsListContainer}>
+        {loading ? (
+          <View style={styles.emptyStateContainer}>
+            <Text style={{fontSize: 16, color: '#555'}}>Loading...</Text>
+          </View>
+        ) : error ? (
+          <View style={styles.emptyStateContainer}>
+            <Text style={{fontSize: 16, color: '#555'}}>
+              Error: {error.message}
+            </Text>
+          </View>
+        ) : showNoResults ? (
+          <View style={styles.emptyStateContainer}>
+            <Icon name="search-off" size={48} color="#CCCCCC" />
+            <Text style={styles.noResultsText}>
+              No results found for "{searchText}"
+            </Text>
+          </View>
+        ) : showInitialState ? (
+          <View style={styles.emptyStateContainer}>
+            <Icon name="search" size={48} color="#CCCCCC" />
+            <Text style={styles.noResultsText}>Search for products</Text>
+          </View>
+        ) : (
           <View style={styles.productsContainer}>
             {results.map((item, index) => (
               <ProductCard
@@ -146,25 +165,12 @@ const SearchResults = ({searchText}) => {
               />
             ))}
           </View>
-        </ScrollView>
-      ) : showNoResults ? (
-        <Text style={styles.noResultsText}>
-          No products found for "{searchText}"
-        </Text>
-      ) : showInitialState ? (
-        <View style={styles.emptyStateContainer}>
-          <Icon name="search" size={50} color="#CCCCCC" />
-          <Text style={styles.noResultsText}>Search for products above</Text>
-          <Text style={styles.suggestionText}>
-            Type product name, brand or category
-          </Text>
-        </View>
-      ) : null}
+        )}
+      </ScrollView>
     </View>
   );
 };
 
-// Your existing styles remain exactly the same
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'center',
@@ -174,8 +180,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: -80,
     borderRadius: 10,
+    height: 1000,
     backgroundColor: '#FFF',
-
+    // maxHeight: 500,
     zIndex: 1000,
     elevation: 5,
     shadowColor: '#000',
@@ -191,13 +198,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-  },
-  noResultsText: {
-    textAlign: 'center',
-    fontSize: 18,
-    color: '#FFF',
-    marginTop: 10,
-    zIndex: 999,
   },
   emptyStateContainer: {
     flex: 1,

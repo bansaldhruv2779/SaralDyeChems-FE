@@ -10,7 +10,7 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <AppNavigator />
-        <GlobalModal />
+        {/* <GlobalModal /> */}
       </NavigationContainer>
     </Provider>
   );

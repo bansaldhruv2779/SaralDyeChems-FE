@@ -1,21 +1,20 @@
 import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setSortOption} from '../redux/slices/sortSlice';
 
 const FilterHeader = ({onSortPress, onFilterPress}) => {
   const dispatch = useDispatch();
+  const currentSortOption = useSelector(state => state.sort.sortOption);
 
   const handleSortPress = () => {
-    // You can show a modal or action sheet here to select sort option
-    // For simplicity, I'm toggling between two options
-    dispatch(
-      setSortOption(prevOption =>
-        prevOption === 'name-asc' ? 'name-desc' : 'name-asc',
-      ),
-    );
+    // Instead of passing a function, check the current state and dispatch the opposite
+    const newSortOption =
+      currentSortOption === 'name-asc' ? 'name-desc' : 'name-asc';
+    dispatch(setSortOption(newSortOption));
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Our Products</Text>
@@ -24,11 +23,10 @@ const FilterHeader = ({onSortPress, onFilterPress}) => {
           <Icon name="sort" size={20} color="#001" />
           <Text style={styles.actionText}>Sort</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.actionButton} onPress={onFilterPress}>
+        {/* <TouchableOpacity style={styles.actionButton} onPress={onFilterPress}>
           <Icon name="filter" size={20} color="#001" />
           <Text style={styles.actionText}>Filter</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );

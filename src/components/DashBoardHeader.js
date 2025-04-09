@@ -25,10 +25,12 @@ import {ChevronLeft, Route} from 'lucide-react-native';
 import DropdownMenu from './DropwDownComponent';
 import {clearSearchResults, searchProducts} from '../redux/slices/searchSlice';
 import SearchResults from './SearchResult';
+import axios from 'axios';
 
-const DashboardHeader = ({name, categories}) => {
+const DashboardHeader = ({name}) => {
   const navigation = useNavigation();
   const [currentRouteName, setCurrentRouteName] = useState('');
+  const [categories, setCategories] = useState();
   const [openInput, setOpenInput] = useState(false);
   const {results, error} = useSelector(state => state.search);
   const dispatch = useDispatch();
@@ -113,8 +115,6 @@ const DashboardHeader = ({name, categories}) => {
     } else {
       dispatch(clearSearchResults());
     }
-
-    console.log('trigered', results);
   }, [debouncedQuery, dispatch]);
 
   const handleSearchSubmit = () => {
@@ -128,6 +128,29 @@ const DashboardHeader = ({name, categories}) => {
     setOpenInput(false);
     dispatch(clearSearchResults());
   };
+
+  const token = useSelector(state => state.auth.token);
+  const getCategoryData = async () => {
+    try {
+      const {data} = await axios.get(`https://api.saraldyechems.com/category`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setCategories(data);
+    } catch (error) {
+      if (![401, 403].includes(error.response?.status)) {
+        console.log(
+          'Category Fetch Error:',
+          error.response?.data?.message || error.message,
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    getCategoryData();
+  }, []);
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.headerContainer}>
@@ -145,7 +168,7 @@ const DashboardHeader = ({name, categories}) => {
                 style={{
                   borderWidth: 1,
                   borderColor: '#CCC',
-                  padding: 8,
+                  padding: 6,
                   borderRadius: 100,
                 }}>
                 <ChevronLeft color="#FFF" size={26} />
@@ -161,26 +184,33 @@ const DashboardHeader = ({name, categories}) => {
                 position: 'relative',
                 zIndex: 99,
               }}>
-              {openInput && (
-                <View
-                  style={{flexDirection: 'row', alignItems: 'center', flex: 1}}>
-                  <TextInput
-                    placeholder="Search products..."
-                    placeholderTextColor="#555"
-                    value={searchText}
-                    onChangeText={setSearchText}
+              {openInput ||
+                (getRouteName() === 'Search' && (
+                  <View
                     style={{
-                      borderRadius: 100,
+                      flexDirection: 'row',
+                      alignItems: 'center',
                       flex: 1,
-                      marginLeft: 5,
-                      paddingLeft: 10,
-                      paddingVertical: 10,
-                      backgroundColor: '#FFF',
-                    }}
-                  />
-                </View>
+                    }}>
+                    <TextInput
+                      placeholder="Search products..."
+                      placeholderTextColor="#555"
+                      value={searchText}
+                      onChangeText={setSearchText}
+                      style={{
+                        borderRadius: 100,
+                        flex: 1,
+                        marginLeft: 5,
+                        paddingLeft: 10,
+                        paddingVertical: 10,
+                        backgroundColor: '#FFF',
+                      }}
+                    />
+                  </View>
+                ))}
+              {!openInput && getRouteName() !== 'Search' && (
+                <Text style={styles.title}>{getRouteName()}</Text>
               )}
-              {!openInput && <Text style={styles.title}>{getRouteName()}</Text>}
               {!openInput &&
                 (currentRouteName === 'products' ||
                   currentRouteName === 'Item Screen') && (
@@ -205,21 +235,6 @@ const DashboardHeader = ({name, categories}) => {
                   color="#FFF"
                 />
               </TouchableOpacity>
-              {/* <TouchableOpacity
-                // onPress={() => navigation.navigate(ROUTES.SEARCH)}
-                onPress={() => {
-                  if (openInput && searchText) {
-                    handleSearchSubmit();
-                  }
-                  setOpenInput(!openInput);
-                }}
-                style={styles.searchButton}>
-                <Icon
-                  name={openInput ? 'search' : 'search'}
-                  size={26}
-                  color="#FFF"
-                />
-              </TouchableOpacity> */}
             </View>
             <View style={styles.rightSection}>
               <TouchableOpacity
@@ -228,16 +243,11 @@ const DashboardHeader = ({name, categories}) => {
                 <View style={styles.badge}>
                   <Text style={styles.badgeText}>5</Text>
                 </View>
-
                 <Icon3 name="user" size={24} color="#5A5A5A" />
               </TouchableOpacity>
             </View>
           </View>
         </View>
-
-        {/* Search Results Section */}
-        {/* {!openInput && <Text style={styles.title}>{getRouteName()}</Text>} */}
-        {/* {openInput && <SearchResults searchText={searchText} />} */}
       </View>
     </SafeAreaView>
   );

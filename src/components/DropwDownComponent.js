@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Animated} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {
+  setCategoryName,
+  setCurrentSubcategoryId,
+  setSelectedCategory,
+  setSubcategories,
+} from '../redux/slices/productSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
 const DropdownMenu = ({currentRouteName, categories}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [rotateAnimation] = useState(new Animated.Value(0));
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSecSelectedCategory] = useState(null);
+  // const selectedCategory = useSelector(state => state.product.selectedCategory);
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     const toValue = isOpen ? 0 : 1;
@@ -24,21 +33,18 @@ const DropdownMenu = ({currentRouteName, categories}) => {
     outputRange: ['0deg', '180deg'],
   });
 
-  const handleCategorySelect = category => {
-    setSelectedCategory(category);
+  const handleCategorySelect = (category, index) => {
+    setSecSelectedCategory(category);
+    dispatch(setSubcategories(category?.subcategories));
+    dispatch(setCategoryName(category.name));
+
+    dispatch(setSelectedCategory(category.subcategories[0]?.name));
     setIsOpen(false);
   };
 
   const animatedStyles = {
     transform: [{rotate: rotateInterpolate}],
   };
-
-  // Set default selected category if categories exist
-  useEffect(() => {
-    if (categories && categories.length > 0 && !selectedCategory) {
-      setSelectedCategory(categories[0]);
-    }
-  }, [categories]);
 
   return (
     <View style={styles.container}>
@@ -63,7 +69,7 @@ const DropdownMenu = ({currentRouteName, categories}) => {
                 styles.dropdownItem,
                 selectedCategory?._id === category._id && styles.activeItem,
               ]}
-              onPress={() => handleCategorySelect(category)}>
+              onPress={() => handleCategorySelect(category, index)}>
               <Text
                 style={[
                   styles.dropdownItemText,

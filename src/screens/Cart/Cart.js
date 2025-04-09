@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,30 +7,108 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
 import {ROUTES} from '../../constants/routes';
 import LinearGradient from 'react-native-linear-gradient';
 import DashboardHeader from '../../components/DashBoardHeader';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  getCart,
+  removeFromCart,
+  updateCartItem,
+} from '../../redux/slices/addToCartSlice';
 
 const CartItem = ({product, onRemove, onDecrement, onIncrement}) => {
   const navigation = useNavigation();
 
+  // return (
+  //   <View style={styles.cartItem}>
+  //     <TouchableOpacity
+  //       onPress={() => navigation.navigate(ROUTES.PRODUCT_DETAILS)}>
+  //       {!product.image ? (
+  //         <Image source={{uri: product.image}} style={styles.cartItemImage} />
+  //       ) : (
+  //         <Image
+  //           style={styles.cartItemImage}
+  //           source={{
+  //             uri: 'https://s3-alpha-sig.figma.com/img/4f5a/8713/fa4ef7fec5ff73309653f4bd9e47df47?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ESKybLsPR-n0Bud0qXuEHFHKztOgBvIgHWw3UlpvKISeLfYBduN4X4jt~IOL9EU6i3d~8d1YmH7DuRriaUPyqL~JgAXQU5Tlbrsxt-nz4EWiO-UfLYnEUhiOPknJr3DuNezXs6G8jvQMvhdayKlUtbYEI8t5-qqQe6SVbxNFrCj3efL4zMUuFNg8q2X2Vb7HnYVIofPXDNc2ujRzxQQkfNL8pgkMvXV5m5p1ZNgbEIeE5RwWkBgNxjHWeH7kGpS1zc-pQ6NsK-~Ap9gcaqJj~EVvZ5-IY0h3lv8tl1~PQ3HP967m7btS~8OHP9Ha2y7EKDur23--dI1uY099vZUw2Q__',
+  //           }}
+  //         />
+  //       )}
+  //     </TouchableOpacity>
+  //     <View style={styles.cartItemDetails}>
+  //       <View style={styles.cartItemHeader}>
+  //         <Text style={styles.cartItemName}>{product.productId?.name}</Text>
+  //         <TouchableOpacity onPress={onRemove}>
+  //           <Icon name="delete" size={22} color="#666" />
+  //         </TouchableOpacity>
+  //       </View>
+  //       <Text style={styles.cartItemSpec}>{product.variant}</Text>
+  //       <View
+  //         style={{
+  //           flexDirection: 'row',
+  //           justifyContent: 'space-between',
+  //           alignItems: 'center',
+  //         }}>
+  //         <Text style={styles.cartItemQuality}>
+  //           Quantity : {product.quantity}
+  //         </Text>
+  //         <View style={styles.cartItemQuantity}>
+  //           <TouchableOpacity style={styles.quantityBtn} onPress={onDecrement}>
+  //             <Text style={styles.quantityBtnText}>−</Text>
+  //           </TouchableOpacity>
+  //           <Text style={styles.quantityText}>{product.quantity}</Text>
+  //           <TouchableOpacity style={styles.quantityBtn} onPress={onIncrement}>
+  //             <Text style={styles.quantityBtnText}>+</Text>
+  //           </TouchableOpacity>
+  //         </View>
+  //       </View>
+  //     </View>
+  //   </View>
+  // );
+  const calculateTotal = (variant, quantity) => {
+    // Extract numerical value from variant (e.g., "10gm" -> 10)
+    const match = variant.match(/(\d+)\s*(kg|gm|ltr)/i);
+    if (!match) return `${quantity} × ${variant}`;
+
+    const value = parseFloat(match[1]);
+    const unit = match[2].toLowerCase();
+    const total = value * quantity;
+
+    // For grams, convert to kg if over 1000
+    if (unit === 'gm' && total >= 1000) {
+      return `${total / 1000}kg`;
+    }
+
+    return `${total}${unit}`;
+  };
   return (
     <View style={styles.cartItem}>
       <TouchableOpacity
         onPress={() => navigation.navigate(ROUTES.PRODUCT_DETAILS)}>
-        <Image source={{uri: product.image}} style={styles.cartItemImage} />
+        {!product.image ? (
+          <Image source={{uri: product.image}} style={styles.cartItemImage} />
+        ) : (
+          <Image
+            style={styles.cartItemImage}
+            source={{
+              uri: 'https://s3-alpha-sig.figma.com/img/4f5a/8713/fa4ef7fec5ff73309653f4bd9e47df47?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ESKybLsPR-n0Bud0qXuEHFHKztOgBvIgHWw3UlpvKISeLfYBduN4X4jt~IOL9EU6i3d~8d1YmH7DuRriaUPyqL~JgAXQU5Tlbrsxt-nz4EWiO-UfLYnEUhiOPknJr3DuNezXs6G8jvQMvhdayKlUtbYEI8t5-qqQe6SVbxNFrCj3efL4zMUuFNg8q2X2Vb7HnYVIofPXDNc2ujRzxQQkfNL8pgkMvXV5m5p1ZNgbEIeE5RwWkBgNxjHWeH7kGpS1zc-pQ6NsK-~Ap9gcaqJj~EVvZ5-IY0h3lv8tl1~PQ3HP967m7btS~8OHP9Ha2y7EKDur23--dI1uY099vZUw2Q__',
+            }}
+          />
+        )}
       </TouchableOpacity>
       <View style={styles.cartItemDetails}>
         <View style={styles.cartItemHeader}>
-          <Text style={styles.cartItemName}>{product.name}</Text>
+          <Text style={styles.cartItemName}>{product.productId?.name}</Text>
           <TouchableOpacity onPress={onRemove}>
             <Icon name="delete" size={22} color="#666" />
           </TouchableOpacity>
         </View>
-        <Text style={styles.cartItemSpec}>{product.specification}</Text>
+        <Text style={styles.cartItemSpec}>{product.variant}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -38,7 +116,11 @@ const CartItem = ({product, onRemove, onDecrement, onIncrement}) => {
             alignItems: 'center',
           }}>
           <Text style={styles.cartItemQuality}>
-            Quality : {product.quality}
+            {product.variant.match(/(kg|gm|ltr)/i) ? (
+              <>Total: {calculateTotal(product.variant, product.quantity)}</>
+            ) : (
+              <>Quantity: {product.quantity}</>
+            )}
           </Text>
           <View style={styles.cartItemQuantity}>
             <TouchableOpacity style={styles.quantityBtn} onPress={onDecrement}>
@@ -79,43 +161,129 @@ const Cart = () => {
     },
   ]);
 
-  const handleRemoveItem = id => {
-    setCartItems(cartItems.filter(item => item.id !== id));
+  const dispatch = useDispatch();
+  const {items, loading, error} = useSelector(state => state.addToCart);
+
+  const handleDecrement = (productId, variant, currentQuantity) => {
+    if (currentQuantity > 1) {
+      // Send the absolute quantity to update (not delta)
+      dispatch(
+        updateCartItem({
+          productId,
+          variant,
+          quantity: -1,
+        }),
+      )
+        .unwrap()
+        .then(() => {
+          dispatch(getCart()); // Refresh cart after update
+        })
+        .catch(err => {
+          Alert.alert('Error', err.message || 'Failed to update quantity');
+        });
+    } else {
+      handleRemoveItem(productId, variant);
+    }
   };
 
-  const handleDecrement = id => {
-    setCartItems(
-      cartItems.map(item =>
-        item.id === id && item.quantity > 1
-          ? {...item, quantity: item.quantity - 1}
-          : item,
-      ),
+  const handleIncrement = (productId, variant, currentQuantity) => {
+    // Send the absolute quantity to update (not delta)
+    dispatch(
+      updateCartItem({
+        productId,
+        variant,
+        quantity: 1,
+      }),
+    )
+      .unwrap()
+      .then(() => {
+        dispatch(getCart()); // Refresh cart after update
+      })
+      .catch(err => {
+        Alert.alert('Error', err.message || 'Failed to update quantity');
+      });
+  };
+
+  const handleRemoveItem = (productId, variant) => {
+    Alert.alert(
+      'Remove Item',
+      'Are you sure you want to remove this item from your cart?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Remove',
+          onPress: () => {
+            dispatch(removeFromCart({productId, variant}))
+              .unwrap()
+              .then(() => {
+                dispatch(getCart()); // Refresh cart after removal
+              })
+              .catch(err => {
+                Alert.alert('Error', err.message || 'Failed to remove item');
+              });
+          },
+        },
+      ],
     );
   };
 
-  const handleIncrement = id => {
-    setCartItems(
-      cartItems.map(item =>
-        item.id === id ? {...item, quantity: item.quantity + 1} : item,
-      ),
-    );
-  };
+  useEffect(() => {
+    dispatch(getCart());
+  }, [dispatch]);
+
+  // if (loading) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+  //         <ActivityIndicator size="large" />
+  //       </View>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   return (
     <SafeAreaView style={styles.container}>
       <DashboardHeader />
       <View style={styles.cartContent}>
-        <Text style={styles.addProductsText}>Add Products</Text>
         <ScrollView style={styles.cartItemsContainer}>
-          {cartItems.map(item => (
-            <CartItem
-              key={item.id}
-              product={item}
-              onRemove={() => handleRemoveItem(item.id)}
-              onDecrement={() => handleDecrement(item.id)}
-              onIncrement={() => handleIncrement(item.id)}
-            />
-          ))}
+          {items?.length > 0 ? (
+            items.map((item, index) => (
+              <CartItem
+                key={`${index}`}
+                product={{
+                  ...item,
+                  id: item.productId._id,
+                  name: item.productId.name,
+                  image:
+                    item.productId.image || 'https://via.placeholder.com/150',
+                }}
+                onRemove={() =>
+                  handleRemoveItem(item.productId._id, item.variant)
+                }
+                onDecrement={() =>
+                  handleDecrement(
+                    item.productId._id,
+                    item.variant,
+                    item.quantity,
+                  )
+                }
+                onIncrement={() =>
+                  handleIncrement(
+                    item.productId._id,
+                    item.variant,
+                    item.quantity,
+                  )
+                }
+              />
+            ))
+          ) : (
+            <View style={{alignItems: 'center', marginTop: 50}}>
+              <Text style={{fontSize: 16}}>Your cart is empty</Text>
+            </View>
+          )}
         </ScrollView>
         <View style={{alignSelf: 'center', marginBottom: 20}}>
           <TouchableOpacity

@@ -4,7 +4,7 @@ const initialState = {
   isDrawerOpen: false,
   selectedVariants: [],
   selectedProduct: null, // Store selected product globally
-  isProductModalOpen: false, // Track modal visibility
+  isProductModalOpen: true, // Track modal visibility
 };
 
 const cartSlice = createSlice({

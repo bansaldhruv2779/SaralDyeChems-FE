@@ -1,4 +1,11 @@
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React, {useState} from 'react';
 import {toggleShowVariants} from '../redux/slices/authSlice';
 import {useDispatch, useSelector} from 'react-redux';
@@ -14,12 +21,14 @@ import {ProductModal} from '../screens';
 import VariantsModal from './VariantsModal';
 import {openModal} from '../redux/slices/modalSlice';
 import {callbackRegistry} from '../utils/Modal/callbackRegistry';
+import {setSelectedVariant} from '../redux/slices/productSlice';
 
 const ProductCard = ({item, onAddPress, idx}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const showVariants = useSelector(state => state.auth.showVariants);
+  const selectedVariant = useSelector(state => state.product.selectedVariant);
 
   const handleShowVariants = variantArray => {
     dispatch(setVariants(variantArray)); // Store variants globally
@@ -41,14 +50,26 @@ const ProductCard = ({item, onAddPress, idx}) => {
     dispatch(addItem(product));
   };
 
-  const handleOpenModal = () => {
-    // dispatch(openModal());
+  const handleOpenModal = product => {
+    dispatch(addItem(product));
+    dispatch(
+      openModal({
+        modalType: 'CONFIRM_MODAL', // Must match your MODAL_COMPONENTS key
+        modalProps: {
+          title: 'Confirmation', // Customize these props
+          message: 'Are you sure you want to proceed?',
+        },
+      }),
+    );
+  };
+
+  const selectVariant = variant => {
+    dispatch(setSelectedVariant(variant));
   };
 
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
-        {/* <TouchableOpacity onPress={handleOpenModal}> */}
         <TouchableOpacity onPress={() => openScreenTag(item, idx)}>
           <Image
             source={{
@@ -60,8 +81,8 @@ const ProductCard = ({item, onAddPress, idx}) => {
 
         <TouchableOpacity
           style={styles.addButton}
-          // onPress={handleOpenModal}>
-          onPress={() => handleAddPress(item, idx)}>
+          onPress={() => handleOpenModal(item, idx)}>
+          {/* onPress={() => handleAddPress(item, idx)}> */}
           <Text style={styles.addButtonText}>ADD</Text>
         </TouchableOpacity>
       </View>
@@ -73,23 +94,35 @@ const ProductCard = ({item, onAddPress, idx}) => {
           }}>
           {item.variants.length > 0 && (
             <View style={styles.variantsContainer}>
-              <View
-                style={{
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
                   display: 'flex',
                   flexDirection: 'row',
-                  width: '78%',
-                  overflow: 'hidden',
                 }}>
-                {item.variants.slice(0, 2).map((variant, index) => (
-                  <View key={index} style={styles.variantItem}>
-                    <Text style={styles.variantText}>
+                {item.variants.slice(0, 3).map((variant, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={
+                      selectedVariant !== variant
+                        ? styles.variantItem
+                        : styles.selectedVariantItem
+                    }
+                    onPress={() => selectVariant(variant)}>
+                    <Text
+                      style={
+                        selectedVariant !== variant
+                          ? styles.variantText
+                          : styles.selectedVariantText
+                      }>
                       {variant.length > 6
                         ? `${variant.substring(0, 6)}...`
                         : variant}
                     </Text>
-                  </View>
+                  </TouchableOpacity>
                 ))}
-              </View>
+              </ScrollView>
 
               {item.variants.length > 1 && (
                 <TouchableOpacity
@@ -100,8 +133,61 @@ const ProductCard = ({item, onAddPress, idx}) => {
               )}
             </View>
           )}
+          {/* {item.variants.length > 0 && (
+            <View style={styles.variantsContainer}>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                }}>
+                {item.variants.slice(0, 3).map((variant, index) => {
+                  // Create a unique combination of item reference and variant
+                  const variantIdentifier = `${
+                    item.name || item.id
+                  }-${variant}`;
+                  const isSelected = selectedVariant === variantIdentifier;
+
+                  return (
+                    <TouchableOpacity
+                      key={`${item.id}-${variant}-${index}`}
+                      style={
+                        isSelected
+                          ? styles.selectedVariantItem
+                          : styles.variantItem
+                      }
+                      onPress={() => {
+                        selectVariant(variantIdentifier);
+                      }}>
+                      <Text
+                        style={
+                          isSelected
+                            ? styles.selectedVariantText
+                            : styles.variantText
+                        }>
+                        {variant.length > 6
+                          ? `${variant.substring(0, 6)}...`
+                          : variant}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </ScrollView>
+
+              {item.variants.length > 1 && (
+                <TouchableOpacity
+                  style={styles.moreButton}
+                  onPress={() => handleShowVariants(item.variants)}>
+                  <Text style={styles.moreButtonText}>+</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+          )} */}
         </View>
-        <Text style={styles.name}>{item.name}</Text>
+        <TouchableOpacity onPress={() => handleOpenModal(item, idx)}>
+          <Text style={styles.name}>{item.name}</Text>
+        </TouchableOpacity>
         <View style={styles.brandInfo}>
           <Text style={styles.brandText}>
             Brand:{' '}
@@ -111,20 +197,9 @@ const ProductCard = ({item, onAddPress, idx}) => {
                 : item.brand
               : 'None'}
           </Text>
-          <Text style={styles.uniteText}>Unite: ltr</Text>
+          <Text style={styles.UnitText}>Unit: ltr</Text>
         </View>
       </View>
-      {isProductModalOpen && (
-        <ProductModal
-          visible={isProductModalOpen}
-          onClose={() => dispatch(closeModal())}
-          product={selectedProduct}
-        />
-      )}
-      <VariantsModal
-        visible={showVariants}
-        variants={selectedProduct?.variants || []}
-      />
     </View>
   );
 };
@@ -138,13 +213,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   variantsContainer: {
+    width: '100%',
     flexDirection: 'row',
     marginTop: 8,
     overflow: 'hidden',
     alignItems: 'center',
   },
   variantItem: {
-    // width: '70%',
+    // width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     marginRight: 3,
@@ -154,10 +230,24 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     paddingHorizontal: 8,
   },
+  selectedVariantItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 3,
+    backgroundColor: '#3C5D85',
+
+    borderRadius: 4,
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+  },
 
   variantText: {
     fontSize: 12,
     color: '#333',
+  },
+  selectedVariantText: {
+    fontSize: 12,
+    color: '#FFF',
   },
   moreButton: {
     backgroundColor: '#3C5D85',
@@ -228,7 +318,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#333',
   },
-  uniteText: {
+  UnitText: {
     fontSize: 10,
     color: '#333',
   },

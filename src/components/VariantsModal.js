@@ -10,10 +10,18 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {toggleShowVariants} from '../redux/slices/authSlice';
 import Icon from 'react-native-vector-icons/Fontisto';
+import {setSelectedVariant} from '../redux/slices/productSlice';
 const VariantsModal = () => {
   const dispatch = useDispatch();
   const showVariants = useSelector(state => state.auth.showVariants);
   const variants = useSelector(state => state.cart.selectedVariants); // Get variants from Redux
+
+  const selectVariant = variant => {
+    dispatch(setSelectedVariant(variant));
+  };
+
+  const selectedVariant = useSelector(state => state.product.selectedVariant);
+  const categoryName = useSelector(state => state.product.categoryName);
 
   return (
     <Modal
@@ -28,17 +36,28 @@ const VariantsModal = () => {
           </View>
           <ScrollView contentContainerStyle={styles.variantsContainer}>
             <View style={styles.variantsGrid}>
-              {/* Close Button */}
-              <TouchableOpacity onPress={() => dispatch(toggleShowVariants())}>
-                {/* <Text style={{color: 'red', fontWeight: 'bold'}}>Close</Text> */}
-              </TouchableOpacity>
-
               {/* Map through variants */}
               {variants.length > 0 ? (
                 variants.map((variant, index) => (
-                  <TouchableOpacity key={index} style={styles.variantItem}>
-                    <Text style={styles.variantText}>{variant}</Text>
-                  </TouchableOpacity>
+                  <View key={index}>
+                    <TouchableOpacity
+                      key={index}
+                      style={
+                        selectedVariant !== variant
+                          ? styles.variantItem
+                          : styles.selectedVariant
+                      }
+                      onPress={() => selectVariant(variant)}>
+                      <Text
+                        style={
+                          selectedVariant !== variant
+                            ? styles.variantText
+                            : styles.selectedVariantText
+                        }>
+                        {variant}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
                 ))
               ) : (
                 <Text style={{textAlign: 'center', marginTop: 10}}>
@@ -113,9 +132,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  selectedVariant: {
+    backgroundColor: '#3C5D86',
+    borderRadius: 5,
+
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    marginRight: 5,
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   variantText: {
     fontSize: 11,
     color: '#3C5D86',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  selectedVariantText: {
+    fontSize: 11,
+    color: '#FFF',
     textAlign: 'center',
     fontWeight: '600',
   },

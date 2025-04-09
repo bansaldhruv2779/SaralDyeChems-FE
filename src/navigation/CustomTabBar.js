@@ -14,6 +14,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {PackageCheck} from 'lucide-react-native';
 import {ROUTES} from '../constants/routes';
+import {useSelector} from 'react-redux';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -41,10 +42,37 @@ const CustomTabBar = ({state, descriptors, navigation, translateY}) => {
       }
     }
   };
-
+  const {items} = useSelector(state => state.addToCart);
   const TabButton = ({iconComponent, label, isActive, onPress}) => {
     const ButtonContent = () => (
       <View style={styles.tabContent}>
+        {isActive && label === 'Cart' ? (
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 25,
+              borderRadius: 50,
+              paddingHorizontal: 5,
+              backgroundColor: 'white',
+              zIndex: 9999,
+            }}>
+            <Text style={{fontSize: 12, color: '#1B2B48'}}>{items.length}</Text>
+          </View>
+        ) : !isActive && label === 'Cart' ? (
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 25,
+              borderRadius: 50,
+              paddingHorizontal: 5,
+              backgroundColor: '#2D4565',
+              zIndex: 9999,
+            }}>
+            <Text style={{fontSize: 12, color: 'white'}}>{items.length}</Text>
+          </View>
+        ) : null}
         {iconComponent}
         <Text style={isActive ? styles.tabLabel : styles.inactiveTabLabel}>
           {label}
@@ -235,8 +263,10 @@ const styles = StyleSheet.create({
     minWidth: (windowWidth - 200) / 4,
   },
   tabContent: {
+    position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingHorizontal: 2,
     paddingVertical: 4,
   },

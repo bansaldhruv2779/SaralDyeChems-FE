@@ -14,7 +14,8 @@ import React, {useState, useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {useNavigation} from '@react-navigation/native';
 import {ROUTES} from '../../constants/routes';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart, getCart} from '../../redux/slices/addToCartSlice';
 
 // Custom dropdown component
 const Dropdown = ({options, selectedValue, onSelect, label}) => {
@@ -72,17 +73,18 @@ const QuantitySelector = ({quantity, setQuantity, unit}) => {
 
 // Option button component
 const OptionButton = ({label, selected, onPress}) => {
+  const selectedVariant = useSelector(state => state.product.selectedVariant);
   return (
     <TouchableOpacity
-      style={[styles.optionButton, selected && styles.selectedOption]}
+      style={
+        selectedVariant !== label ? styles.optionButton : styles.selectedOption
+      }
       onPress={onPress}>
-      <Text
-        style={[
-          styles.optionButtonText,
-          selected && styles.selectedOptionText,
-        ]}>
-        {label}
-      </Text>
+      {selectedVariant !== label ? (
+        <Text style={styles.optionButtonText}>{label}</Text>
+      ) : (
+        <Text style={styles.selectedOptionText}>{label}</Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -96,9 +98,9 @@ const ProductModal = ({visible, onClose, product}) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const selectedProductItem = useSelector(state => state.cart.selectedProduct);
 
-  useEffect(() => {
-    console.log('selectedProductItem', selectedProductItem);
-  }, []);
+  // useEffect(() => {
+  //   console.log('selectedProductItem', selectedProductItem);
+  // }, []);
 
   // Example product data structure (would come from props in real usage)
   const defaultProduct = {
@@ -156,11 +158,30 @@ const ProductModal = ({visible, onClose, product}) => {
     onClose;
   };
 
+  const dispatch = useDispatch();
+  const {items, loading, error} = useSelector(state => state.addToCart);
+
+  useEffect(() => {
+    dispatch(getCart());
+  }, [dispatch]);
+
+  const categoryName = useSelector(state => state.product.categoryName);
+
+  const handleAddToCart = (productId, variant, quantity = 1) => {
+    dispatch(addToCart({productId, variant, quantity}))
+      .unwrap()
+      .catch(err => {
+        Alert.alert('Error', err.message || 'Failed to add to cart');
+      });
+    onClose();
+    navigation.navigate(ROUTES.CART);
+  };
+
   return (
     <Modal
       visible={visible}
       transparent
-      animationType="slide"
+      animationType="fade"
       onRequestClose={onClose}>
       <View style={styles.modalContainer}>
         <View
@@ -189,22 +210,7 @@ const ProductModal = ({visible, onClose, product}) => {
             {/* Product Info */}
             <View style={{marginHorizontal: 10}}>
               <Text style={styles.title}>{selectedProductItem.name}</Text>
-              {/* <View style={styles.infoContainer}>
-                <View style={styles.infoRow}>
-                  <Text style={styles.infoLabel}>Category :</Text>
-                  <Text style={styles.infoValue}>
-                    {selectedProductItem.brand}
-                  </Text>
-                </View>
-                <View style={styles.infoRow}>
-                  <Text style={styles.infoLabel}>Brand :</Text>
-                  <Text style={styles.infoValue}>
-                    {selectedProductItem.brand}
-                  </Text>
-                </View>
-              </View> */}
             </View>
-
             <View
               style={{
                 backgroundColor: '#E5F1FF',
@@ -227,8 +233,10 @@ const ProductModal = ({visible, onClose, product}) => {
                     flexDirection: 'row',
                   }}>
                   <Text style={styles.infoLabel}>Category :</Text>
-                  <Text style={styles.infoValue}>
-                    {selectedProductItem.brand}
+                  <Text style={{}} numberOfLines={1} ellipsizeMode="tail">
+                    {(categoryName || 'Texttile Auxlier').length > 20
+                      ? `${categoryName.substring(0, 20)}...`
+                      : categoryName}
                   </Text>
                 </View>
                 <View
@@ -239,116 +247,63 @@ const ProductModal = ({visible, onClose, product}) => {
                   }}>
                   <Text style={styles.infoLabel}>Brand :</Text>
                   <Text style={styles.infoValue}>
-                    {selectedProductItem.brand}
+                    {(selectedProductItem.brand || 'Kayson').length > 8
+                      ? `${(selectedProductItem.brand || 'Kayson').substring(
+                          0,
+                          8,
+                        )}...`
+                      : selectedProductItem.brand || 'Kayson'}
                   </Text>
                 </View>
               </View>
-              {/* {hasDimensions && (
-                <View style={styles.optionsSection}>
-                  {selectedProductItem.variants.map((dimension, index) => (
-                    <OptionButton
-                      key={`${index}`}
-                      label={dimension}
-                      selected={selectedOptions.dimension === dimension}
-                      onPress={() =>
-                        setSelectedOptions({
-                          ...selectedOptions,
-                          dimension,
-                        })
-                      }
-                    />
-                  ))}
 
-                  <TouchableOpacity style={styles.addButton}>
-                    <Text style={styles.addButtonText}>+</Text>
-                  </TouchableOpacity>
-                </View>
-              )} */}
-              {hasSizes && (
-                <View style={styles.optionsSection}>
+              <View style={styles.optionsSection}>
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}>
                   {selectedProductItem.variants.map((size, index) => (
-                    <OptionButton
-                      key={`${index}`}
-                      label={size}
-                      selected={selectedSize === size}
-                      onPress={() => setSelectedSize(size)}
-                    />
+                    <View key={index}>
+                      {size === 'loose' || size === 'losse' ? (
+                        <View style={styles.customInputContainer}>
+                          <TextInput
+                            style={styles.customInput}
+                            placeholder="Enter your Value"
+                            value={customValue}
+                            onChangeText={setCustomValue}
+                            keyboardType="numeric"
+                          />
+                        </View>
+                      ) : (
+                        <OptionButton
+                          key={`${index}`}
+                          label={size}
+                          selected={selectedSize === size}
+                          onPress={() => setSelectedSize(size)}
+                        />
+                      )}
+                    </View>
                   ))}
-                  <View style={styles.customInputContainer}>
-                    <TextInput
-                      style={styles.customInput}
-                      placeholder="Enter your Value"
-                      value={customValue}
-                      onChangeText={setCustomValue}
-                      keyboardType="numeric"
-                    />
-                  </View>
-                  <Text style={styles.unitLabel}>Unite : ltr</Text>
                 </View>
-              )}
-
-              {/* Dropdowns for Mesh Count, Width, and Color */}
-              {/* {(hasMeshCount || hasWidth || hasColors) && (
-                <View style={styles.dropdownsContainer}>
-                  {hasMeshCount && (
-                    <Dropdown
-                      label="Mesh Count"
-                      options={productData.variants.meshCount}
-                      selectedValue={
-                        selectedOptions.meshCount ||
-                        productData.variants.meshCount[0]
-                      }
-                      onSelect={value =>
-                        setSelectedOptions({
-                          ...selectedOptions,
-                          meshCount: value,
-                        })
-                      }
-                    />
-                  )}
-
-                  {hasWidth && (
-                    <Dropdown
-                      label="Width"
-                      options={productData.variants.width}
-                      selectedValue={
-                        selectedOptions.width || productData.variants.width[0]
-                      }
-                      onSelect={value =>
-                        setSelectedOptions({
-                          ...selectedOptions,
-                          width: value,
-                        })
-                      }
-                    />
-                  )}
-
-                  {hasColors && (
-                    <Dropdown
-                      label="Color"
-                      options={productData.variants.colors}
-                      selectedValue={
-                        selectedOptions.color || productData.variants.colors[0]
-                      }
-                      onSelect={value =>
-                        setSelectedOptions({
-                          ...selectedOptions,
-                          color: value,
-                        })
-                      }
-                    />
-                  )}
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                  <Text style={{fontWeight: 'bold', fontSize: 12}}>Unit: </Text>
+                  <Text style={{fontSize: 12}}>ltr</Text>
                 </View>
-              )} */}
+              </View>
             </View>
-
-            {/* Product Description */}
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionTitle}>Product Description:</Text>
               <Text
                 style={styles.descriptionText}
                 numberOfLines={showMore ? undefined : 3}>
-                {selectedProductItem.description}
+                Our Nylon (12 No. 54" (NxM)) is a high-quality, durable
+                synthetic fabric designed for multiple industrial and commercial
+                applications. Made from premium-grade nylon fibers, this fabric
+                offers excellent strength, flexibility, and resistance to wear
+                and tear.
+                {/* {selectedProductItem?.description || productData.description} */}
               </Text>
               <TouchableOpacity
                 style={styles.showMoreButton}
@@ -387,7 +342,11 @@ const ProductModal = ({visible, onClose, product}) => {
                 end={{x: 1, y: 0}}
                 style={styles.receiptButton} // Make sure the gradient covers the button
               >
-                <TouchableOpacity style={styles.addToCartButton}>
+                <TouchableOpacity
+                  style={styles.addToCartButton}
+                  onPress={() =>
+                    handleAddToCart(selectedProductItem._id, selectedSize)
+                  }>
                   <Text style={styles.addToCartText}>Add To Cart</Text>
                 </TouchableOpacity>
               </LinearGradient>
@@ -403,7 +362,7 @@ const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     paddingHorizontal: 20,
   },
   modalContent: {
@@ -480,6 +439,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
+    justifyContent: 'space-between',
     // marginHorizontal: 7,
     marginBottom: 5,
   },
@@ -495,14 +455,22 @@ const styles = StyleSheet.create({
   },
   selectedOption: {
     backgroundColor: '#3C5D86',
+    borderRadius: 8,
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+    marginRight: 5,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#D0E4FF',
   },
   optionButtonText: {
     fontSize: 14,
-    color: '#000',
-    fontWeight: '500',
+    color: '#3C5D86',
+    fontWeight: 'bold',
   },
   selectedOptionText: {
-    color: 'white',
+    color: '#FFF',
+    fontWeight: 'bold',
   },
   addButton: {
     backgroundColor: '#3C5D86',
@@ -527,7 +495,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     height: 30,
-    width: '70%',
+    width: '100%',
     paddingHorizontal: 6,
     paddingVertical: 5,
     fontSize: 14,

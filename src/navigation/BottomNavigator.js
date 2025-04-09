@@ -86,6 +86,7 @@ const BottomNavigator = () => {
   const wrapScreen = ScreenComponent => {
     return props => (
       <ScrollView
+        style={{backgroundColor: '#F4F9FF'}}
         {...props}
         scrollEventThrottle={16} // Optimal for 60fps
         onScroll={handleScroll}

@@ -1,10 +1,12 @@
-// modalSlice.js
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  isOpen: false,
-  modalType: null,
-  modalProps: {},
+  isOpen: false, // Set to true to show modal by default
+  modalType: 'CONFIRM_MODAL', // Set default modal type
+  modalProps: {
+    title: 'Default Title',
+    message: 'This modal shows by default',
+  },
   callbackId: null,
 };
 

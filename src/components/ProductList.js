@@ -10,10 +10,14 @@ import {
 } from 'react-native';
 import {ROUTES} from '../constants/routes';
 import CustomText from '../CustomText';
+import {setCategoryName} from '../redux/slices/productSlice';
+import {useDispatch} from 'react-redux';
 
 const ProductList = ({title, products, onViewAll, idx}) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const handleProductItem = (item, idx) => {
+    dispatch(setCategoryName(item.name));
     if (item.subcategories) {
       navigation.navigate(ROUTES.ITEM_SCREEN, {
         subcategories: item.subcategories,
@@ -51,7 +55,7 @@ const ProductList = ({title, products, onViewAll, idx}) => {
               {product && product.image ? (
                 <Image
                   source={{
-                    uri: `http://172.20.10.3:4000/upload/image/${product.image}`,
+                    uri: `https://api.saraldyechems.com/upload/image/${product.image}`,
                   }}
                   style={styles.productImage}
                 />

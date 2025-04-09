@@ -6,6 +6,8 @@ import cartReducer from './slices/cartSlice';
 import searchReducer from './slices/searchSlice';
 import sortSlice from './slices/sortSlice';
 import modalReducer from './slices/modalSlice';
+import addCartReducer from './slices/addToCartSlice';
+import productReducer from './slices/productSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,5 +17,7 @@ export const store = configureStore({
     search: searchReducer,
     sort: sortSlice,
     modal: modalReducer,
+    addToCart: addCartReducer,
+    product: productReducer,
   },
 });

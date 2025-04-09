@@ -18,7 +18,7 @@ export const searchProducts = createAsyncThunk(
     try {
       console.log('query', query);
       const response = await axios.get(
-        `http://172.20.10.3:4000/product/search?query=${query}`,
+        `https://api.saraldyechems.com/product/search?query=${query}`,
         {headers: {Authorization: `Bearer ${token}`}},
       );
       console.log(response.data);
